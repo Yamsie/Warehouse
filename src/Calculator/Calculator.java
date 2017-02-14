@@ -10,7 +10,7 @@ public class Calculator {
         CalculatorView calcView = new CalculatorView();
         CalculatorModel calcModel = new CalculatorModel();
         CalculatorController calcController = new CalculatorController(calcView, calcModel);
-
+        //this is a test
         calcView.setVisible(true);
     }
 }
