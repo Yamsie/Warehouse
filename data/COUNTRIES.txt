@@ -1,0 +1,17 @@
+#country_name,loading_zone,min_order,std_shipping_rate,express_shipping_rate,currency,exchange_rate
+Ireland,1,0,3,7,EUR,1
+United Kingdom,1,0,3,8,GBP,0.85
+France,3,10,7,10,EUR,1
+Spain,3,10,7,10,EUR,1
+Portugal,3,10,7,10,EUR,1
+Switzerland,4,15,7,10,CHF,1.06
+Italy,4,15,8,15,EUR,1
+Austria,4,15,7,10,EUR,1
+Netherlands,5,15,7,10,EUR,1
+Belgium,5,15,7,10,EUR,1
+Germany,5,15,7,10,EUR,1
+Denmark,5,15,7,10,DKK,7.43
+Norway,6,20,8,15,NOK,8.84
+Sweden,6,20,8,15,SEK,9.45
+Finland,6,20,8,15,EUR,1
+Iceland,6,20,8,15,ISK,117.6

@@ -1,0 +1,1 @@
+#cust_id,first_name,last_name,address1,address2,address3,zip,city,country,email,phone
