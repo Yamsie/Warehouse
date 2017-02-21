@@ -1,0 +1,1 @@
+Database Access Layer - Currently no implementation of a database, so text files will serve this purpose for now.
