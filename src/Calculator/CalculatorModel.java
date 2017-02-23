@@ -4,6 +4,8 @@ package Calculator;
  * Created by James on 08/02/2017.
  * The model does handles all the logic
  */
+
+//jaosn here
 public class CalculatorModel {
 
     private int calculationValue;
