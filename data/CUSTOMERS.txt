@@ -1,1 +1,2 @@
 #cust_id,first_name,last_name,address1,address2,address3,zip,city,country,email,phone
+000002, jason, Tian, China, Ireland, USA, 01, ShanDong, ZhaoZhuang, 123123@.ie, 123123
