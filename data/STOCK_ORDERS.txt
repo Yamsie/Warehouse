@@ -1,1 +1,4 @@
-#stock_order_id,item_id,quantity,manufacturer,price,date
+#stock_order_id,item_id,quantity,manufacturer,price,
+
+string array
+control
