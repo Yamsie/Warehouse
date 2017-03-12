@@ -1,0 +1,2 @@
+UserId, UserName, Password, TypeOfJob
+000001, Jaosn123, 123123, loader
