@@ -1,4 +1,4 @@
 public interface Order {
-	public String getOrderDetails();
-	public void changeOrderInDB();
+	public String getOrderDetails(int orderID);
+	//public void changeOrderInDB();
 }
