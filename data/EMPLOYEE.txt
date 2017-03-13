@@ -1,2 +1,5 @@
-UserId, UserName, Password, TypeOfJob
-000001, Jaosn123, 123123, loader
+UserId, UserName, Password, TypeOfJob, Email
+000001, Jason123, 123123, Picker, 123123@outlook.com
+000002, Jack123, 234234, Packer, 234244@outlook.com
+000003, Shane123, 345345,Stocker, 345345@outllook.com
+000004, James123, 456456, Manager, 456456@outlook.com
