@@ -1,8 +1,8 @@
-public class Order
+public class Order implements OrderInterface
 {
 	private final int orderID;
-	private string shippingAddress;
-	private string status;
+	private String shippingAddress;
+	private String status;
 	private ArrayList<Integer>itemIDs;
 	
 	public Order(int id, String shippingAddress)
