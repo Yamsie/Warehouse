@@ -4,7 +4,7 @@ import UI.Views.LoginView;
 import java.util.Scanner;
 import java.io.*;
 
-public class verifier implements Authentication{
+public class Verifier implements Authentication{
    private boolean temp = false;
 
    public void check(String userName, String passWord) throws IOException {
@@ -26,8 +26,8 @@ public class verifier implements Authentication{
 
    public void pageLoading(boolean temp, String typeOfJob, String Name){
        if(temp == false){
-           LoginView errer = new LoginView();
-           errer.displayErrorMessage("Errer Username or Passwprd");
+           LoginView error = new LoginView();
+           error.displayErrorMessage("Error Username or Password");
        }
        else{
            if(typeOfJob.equals("Picker")){
