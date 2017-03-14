@@ -11,7 +11,7 @@ public class OrderDetail implements Order
 	{
 		this.orderID = id;
 		this.shippingAddress = shippingAddress;
-		this.status = "SHIPPED";
+		this.status = "ACCEPTED";
 		this.itemIDs = itemIDs;
 	}
 	
@@ -43,13 +43,8 @@ public class OrderDetail implements Order
 		this.status = status;
 	}
 	
-	public String getOrderDetails(int orderID)
+	/*public String getOrderDetails(int orderID)
 	{
 		return "OrderID: " + orderID + "\nItem(s): " + itemIDs + "\nShipping address: " + shippingAddress;
-	}
-	
-	public void changeOrderInDB() // text file for now
-	{
-		//access DB/textfile and change Order
-	}
+	}*/
 }
