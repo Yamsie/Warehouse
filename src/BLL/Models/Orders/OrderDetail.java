@@ -47,4 +47,9 @@ public class OrderDetail implements Order
 	{
 		return "OrderID: " + orderID + "\nItem(s): " + itemIDs + "\nShipping address: " + shippingAddress;
 	}
+	
+	public void changeOrderInDB()
+	{
+		
+	}
 }
