@@ -2,35 +2,32 @@ package BLL.Authentication;
 import UI.Views.LoginView;
 
 import java.util.Scanner;
+import java.io.*;
 
-public class verifier implements Authentication{
+public class Verifier implements Authentication{
    private boolean temp = false;
 
-   public void check(String userName, String passWord) throws Exception {
-       java.io.File file = new java.io.File("data/EMPLOYEE.txt");
+   public void check(String userName, String passWord) throws IOException {
 
-       Scanner input = new Scanner(file);
+          DatabaseOperator operator = new DatabaseOperator();
+          String[] user = operator.getInfo(userName);
+           if(user[1].equals("NULL")){
+               pageLoading(false, null, null);
+           }
+           else{
+               if(user[2].equals(passWord)){
+                   pageLoading(true, user[3], userName);
+               }
+               else
+                   pageLoading(false, null, null);
+           }
 
-       while (input.hasNext()) {
-           String UserInfo = input.nextLine();
-           String[] user = UserInfo.split(", ");
-           if(userName.equals(user[1])){
-                temp = user[2].equals(passWord);
-           }
-           if(temp) {
-               pageLoading(true, user[3], userName);
-               break;
-           }
        }
-       if(temp == false){
-           pageLoading(false, null, null);
-       }
-   }
 
    public void pageLoading(boolean temp, String typeOfJob, String Name){
        if(temp == false){
-           LoginView errer = new LoginView();
-           errer.displayErrorMessage("Errer Username or Passwprd");
+           LoginView error = new LoginView();
+           error.displayErrorMessage("Error Username or Password");
        }
        else{
            if(typeOfJob.equals("Picker")){
