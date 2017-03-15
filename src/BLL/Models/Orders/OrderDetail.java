@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class OrderDetail implements Order
+public class OrderDetail implements I_Order //accessing customer orders file
 {
 	private int orderID;
 	private String shippingAddress;
