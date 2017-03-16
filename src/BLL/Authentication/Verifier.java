@@ -1,5 +1,9 @@
 package BLL.Authentication;
-import UI.Views.LoginView;
+import UI.Controller.LoaderController;
+import UI.Controller.PackerController;
+import UI.Controller.PickerController;
+import UI.Controller.StockerController;
+import UI.Views.*;
 
 import java.util.Scanner;
 import java.io.*;
@@ -32,15 +36,27 @@ public class Verifier implements Authentication{
        else{
            if(typeOfJob.equals("Picker")){
                System.out.println("load to picker page");
+               PickerView UserView = new PickerView(Name);
+               /*Employee usrModel = new Packer();*/
+               PickerController UserPickerController = new PickerController(UserView /*UserModel*/);
            }
            else if(typeOfJob.equals("Packer")){
                System.out.println("load to packer page");
+               PackerView UserView = new PackerView(Name);
+               /*Employee usrModel = new Packer();*/
+               PackerController UserPackerContoller  = new PackerController(UserView/*, UserAuthentication*/);
            }
-           else if(typeOfJob.equals("Package")){
-               System.out.println("load to Package page");
+           else if(typeOfJob.equals("Loader")){
+               System.out.println("load to Loader page");
+               LoaderView UserView = new LoaderView(Name);
+               /*Employee UserModel = new Loader();*/
+               LoaderController UserLoaderController = new LoaderController(UserView/*, UserModel*/);
            }
            else if(typeOfJob.equals("Stocker")){
                System.out.println("load to Stocker page");
+               StockerView UserView = new StockerView(Name);
+               /*Employee UserModel = new Stocker();*/
+               StockerController UserStockerController = new StockerController(UserView/*, UserModel*/);
            }
            else if(typeOfJob.equals("Manager")){
                System.out.println("load to Manager page");
