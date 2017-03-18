@@ -27,7 +27,7 @@ public class Verifier implements Authentication{
    public void pageLoading(boolean temp, String typeOfJob, String Name){
        if(temp == false){
            LoginView error = new LoginView();
-           error.displayErrorMessage("Error Username or Password");
+           error.displayErrorMessage("Error Username or Password"); //return
        }
        else{
            if(typeOfJob.equals("Picker")){
@@ -36,7 +36,7 @@ public class Verifier implements Authentication{
            else if(typeOfJob.equals("Packer")){
                System.out.println("load to packer page");
            }
-           else if(typeOfJob.equals("Package")){
+           else if(typeOfJob.equals("Loader")){
                System.out.println("load to Package page");
            }
            else if(typeOfJob.equals("Stocker")){

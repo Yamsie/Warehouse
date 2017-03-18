@@ -1,8 +1,7 @@
 package BLL.Model.Order;
-
 import java.util.ArrayList;
 
-public class OrderDetail implements I_Order
+public class OrderDetail implements I_Order //accessing customer orders file
 {
 	private int orderID;
 	private String shippingAddress;
@@ -49,4 +48,13 @@ public class OrderDetail implements I_Order
 	{
 		return "OrderID: " + orderID + "\nItem(s): " + itemIDs + "\nShipping address: " + shippingAddress;
 	}*/
+
+	//Added these to make code compile
+	public String getOrderDetails() {
+		return null;
+	}
+
+	public void changeOrderInDB() {
+
+	}
 }

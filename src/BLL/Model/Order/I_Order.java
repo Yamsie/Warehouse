@@ -1,4 +1,4 @@
-package BLL.Models.Orders;
+package BLL.Model.Order;
 
 public interface I_Order {
 		String getOrderDetails();
