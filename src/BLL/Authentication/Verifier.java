@@ -7,7 +7,7 @@ import java.io.*;
 public class Verifier implements Authentication{
    private boolean temp = false;
 
-   public void check(String userName, String passWord) throws IOException {
+   public void check(String userName, char[] passWord) throws IOException {
 
           DatabaseOperator operator = new DatabaseOperator();
           String[] user = operator.getInfo(userName);
@@ -15,7 +15,7 @@ public class Verifier implements Authentication{
                pageLoading(false, null, null);
            }
            else{
-               if(user[2].equals(passWord)){
+               if(user[2].equals(new String(passWord))){
                    pageLoading(true, user[3], userName);
                }
                else
