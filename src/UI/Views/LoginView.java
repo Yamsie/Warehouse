@@ -10,18 +10,17 @@ import UI.Controller.LoginController;
 public class LoginView extends JFrame{
     private JTextField userName = new JTextField(20);
     private JLabel additionLabel1 = new JLabel("USERNAME");
-    private JTextField passWord = new JTextField(20);
+    private JPasswordField passWord = new JPasswordField(20);
     private JLabel additionLabel2 = new JLabel("PASSWORD");
     private JButton Button = new JButton("Submit");
-    //private JTextField calcSolution = new JTextField(10);
 
    public LoginView(){
         JPanel LoginPanel1 = new JPanel();
         JPanel LoginPanel2 = new JPanel();
         JPanel LoginPanel3 = new JPanel();
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        this.setTitle("FastFire Log Page");
+        this.setTitle("QuickFire Login");
         this.setSize(600, 200);
 
         LoginPanel1.add(additionLabel1);
@@ -39,8 +38,8 @@ public class LoginView extends JFrame{
         return userName.getText();
     }
 
-    public String getPassWord() {
-        return passWord.getText();
+    public char[] getPassWord() {
+        return passWord.getPassword();
     }
 
    public void SubmitListener(ActionListener listenForButton) {
@@ -50,4 +49,5 @@ public class LoginView extends JFrame{
    public void displayErrorMessage(String errorMessage) {
         JOptionPane.showMessageDialog(this, errorMessage);
     }
+
 }

@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 //item_id,item_type,manufacturer,size,stock_quantity,selling_price,purchase_price
 //stock_order_id,item_id,quantity,manufacturer,price,
-public class StockerView extends JFrame {
+public class StockerView extends JFrame implements I_EmployeeView {
     private JLabel addNewItem = new JLabel("Please enter the detials of new item: ");
     private JLabel changeItem = new JLabel("Please change the detials of item: ");
     private JLabel ChooseItem = new JLabel("Plese enter the item id you want to change: ");

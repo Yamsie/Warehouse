@@ -5,7 +5,7 @@ import UI.Views.LoaderView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoaderController {
+public class LoaderController implements I_EmployeeController {
     private LoaderView view;
     //private LoaderModle model;
 
@@ -49,5 +49,9 @@ public class LoaderController {
             }
         }
 
+    }
+
+    public LoaderView getView() {
+        return view;
     }
 }

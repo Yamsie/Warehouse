@@ -3,55 +3,83 @@ package UI.Views;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import UI.Controller.LoginController;
+import javax.swing.border.Border;
+
+import UI.Controller.ManagerController;
 /**
- * Created by Lenovo on 2017/3/12.
+ * Created by James on 2017/3/12.
  */
-public class Manageriew extends JFrame{
+public class ManagerView extends JFrame implements I_EmployeeView {
     //private JTextField userName = new JTextField(20);
     //private JLabel additionLabel1 = new JLabel("USERNAME");
     //private JTextField passWord = new JTextField(20);
     //private JLabel additionLabel2 = new JLabel("PASSWORD");
     //private JButton Button = new JButton("Submit");
 
-    private JLabel empLabel = new JLabel("View All Order");
-    private JLabel orderLabel = new JLabel("View Employees");
-    private JLabel Label = new JLabel("USERNAME");
-    private JLabel Label = new JLabel("USERNAME");
-    private JLabel Label = new JLabel("USERNAME");
+    private JButton employeeButton = new JButton("View Orders");
+    private JButton orderButton = new JButton("View Employees");
+    private JButton customerButton = new JButton("View Customers");
+    private JLabel nameLabel = new JLabel("Logged in as: ");
 
 
-    public LoginView(){
-        JPanel LoginPanel1 = new JPanel();
-        JPanel LoginPanel2 = new JPanel();
-        JPanel LoginPanel3 = new JPanel();
+    //private JLabel empLabel = new JLabel("View All Orders");
+    //private JLabel orderLabel = new JLabel("View Employees");
+    //private JLabel customerLabel = new JLabel("View Customers");
+
+
+
+    public ManagerView(String userName){
+        nameLabel.setText(nameLabel.getText() + userName);
+        JPanel buttonsPanel = new JPanel();
+        JPanel namePanel = new JPanel();
+        JPanel displayPanel = new JPanel();
+        JLabel displayField = new JLabel();
+        JScrollPane scroller = new JScrollPane(displayField, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        this.setTitle("FastFire Log Page");
-        this.setSize(600, 200);
+        this.setTitle("Manager Window");
+        this.setSize(600, 600);
+        displayField.setSize(30,50);
+        displayField.setText("");
 
-        LoginPanel1.add(additionLabel1);
-        LoginPanel1.add(userName);
-        LoginPanel2.add(additionLabel2);
-        LoginPanel2.add(passWord);
-        LoginPanel3.add(Button);
+        buttonsPanel.add(employeeButton);
+        buttonsPanel.add(orderButton);
+        buttonsPanel.add(customerButton);
+        namePanel.add(nameLabel);
+        displayPanel.add(scroller);
 
         setLayout(new BorderLayout());
-        add(LoginPanel1, BorderLayout.NORTH);
-        add(LoginPanel2, BorderLayout.CENTER);
-        add(LoginPanel3, BorderLayout.SOUTH);
-    }
-    public String getUserName() {
-        return userName.getText();
+        add(buttonsPanel, BorderLayout.WEST);
+        add(namePanel, BorderLayout.NORTH);
+        add(displayPanel, BorderLayout.SOUTH);
     }
 
-    public String getPassWord() {
-        return passWord.getText();
+    public void employeeListener(ActionListener listenForButton) {
+        employeeButton.addActionListener(listenForButton);
     }
 
-    public void SubmitListener(ActionListener listenForButton) {
-        Button.addActionListener(listenForButton);
+    public void customerListener(ActionListener listenForButton) {
+        employeeButton.addActionListener(listenForButton);
     }
+
+    public void orderListener(ActionListener listenForButton) {
+        employeeButton.addActionListener(listenForButton);
+    }
+
+    public void displayEmployees() {
+
+    }
+
+    public void displayCustomers() {
+
+    }
+
+    public void displayOrders() {
+
+    }
+
+
+
 
     public void displayErrorMessage(String errorMessage) {
         JOptionPane.showMessageDialog(this, errorMessage);

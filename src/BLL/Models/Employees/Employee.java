@@ -7,15 +7,15 @@ public class Employee {
 
     private String name;
     private int id;
-    private String jobTitle;
+    private String email;
 
     Employee() {
     }
 
-    Employee(String newName, int newId, String newJobTitle) {
+    Employee(String newName, int newId, String newEmail) {
         name = newName;
         id = newId;
-        jobTitle = newJobTitle;
+        email = newEmail;
     }
 
     public String getName() {
@@ -26,7 +26,7 @@ public class Employee {
         return id;
     }
 
-    public String getJobTitle() {
-        return jobTitle;
+    public String getEmail() {
+        return email;
     }
 }

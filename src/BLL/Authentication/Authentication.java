@@ -7,7 +7,7 @@ import java.util.Scanner;
  */
 public interface  Authentication {
     void check(String userName, char[] passWord) throws Exception;
-    void pageLoading(boolean temp, String typeOfJob, String Name);
+    void pageLoading(boolean temp, UserDetails details);
 }
 
 
