@@ -1,6 +1,6 @@
 package UI.Controller;
 
-import UI.Views.LoaderView;
+import UI.View.LoaderView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

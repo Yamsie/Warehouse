@@ -1,4 +1,4 @@
-package UI.Views;
+package UI.View;
 
 /**
  * Created by James on 18/03/2017.

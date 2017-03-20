@@ -1,30 +1,30 @@
-package UI.Views;
+package UI.View;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
 /**
- * Created by JiasenTian on 2017/3/13.
+ * Created by JiasenTain on 2017/3/13.
  */
-public class PickerView extends JFrame implements I_EmployeeView {
+public class PackerView extends JFrame implements I_EmployeeView {
     private JTextField ItemID = new JTextField(20);
     private JLabel additionLabel1 = new JLabel("Please enter the Item Id: ");
-    public  JTextArea ItemInfo = new JTextArea(10, 20);
+    public JTextArea ItemInfo = new JTextArea(10, 20);
     private JTextField oderID = new JTextField(20);
     private JLabel additionLabel2 = new JLabel("Please enter the order Id: ");
-    public  JTextArea orderInfo = new JTextArea(10,20);
+    public JTextArea orderInfo = new JTextArea(10,20);
     private JButton ItemButton = new JButton("Submit");
     private JButton OrderButton = new JButton("Submit");
     private JButton LogoutButton = new JButton("Log out");
 
-    public PickerView(String name){
-        JPanel Panel1 = new JPanel();
-        JPanel Panel2 = new JPanel();
-        JPanel Panel3 = new JPanel();
+    public PackerView(String packer){
+        JPanel LoginPanel1 = new JPanel();
+        JPanel LoginPanel2 = new JPanel();
+        JPanel LoginPanel3 = new JPanel();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        this.setTitle("Picker Page");
+        this.setTitle("Packer Page");
         this.setVisible(true);
         this.setSize(500, 500);
         ItemInfo.setLineWrap(true);
@@ -33,31 +33,31 @@ public class PickerView extends JFrame implements I_EmployeeView {
         orderInfo.setLineWrap(true);
         orderInfo.setWrapStyleWord(true);
         orderInfo.setEditable(false);
-
         JScrollPane scrollPane1 = new JScrollPane(ItemInfo);
         JScrollPane scrollPane2 = new JScrollPane(orderInfo);
-
         JPanel section1 = new JPanel(new BorderLayout());
         JPanel section2 = new JPanel(new BorderLayout());
 
-        Panel1.add(additionLabel1);
-        Panel1.add(ItemID);
-        Panel1.add(ItemButton);
-        section1.add(Panel1, BorderLayout.NORTH);
+        LoginPanel1.add(additionLabel1);
+        LoginPanel1.add(ItemID);
+        LoginPanel1.add(ItemButton);
+        section1.add(LoginPanel1, BorderLayout.NORTH);
         section1.add(scrollPane1, BorderLayout.SOUTH);
 
-        Panel2.add(additionLabel2);
-        Panel2.add(oderID);
-        Panel2.add(OrderButton);
-        section2.add(Panel2, BorderLayout.NORTH);
+        LoginPanel2.add(additionLabel2);
+        LoginPanel2.add(oderID);
+        LoginPanel2.add(OrderButton);
+        section2.add(LoginPanel2, BorderLayout.NORTH);
         section2.add(scrollPane2, BorderLayout.SOUTH);
-        Panel3.add(LogoutButton);
+        LoginPanel3.add(LogoutButton);
 
-        setLayout(new BorderLayout(5,5));
+
+        setLayout(new BorderLayout());
         add(section1, BorderLayout.NORTH);
         add(section2, BorderLayout.CENTER);
-        add(Panel3,BorderLayout.SOUTH);
+        add(LoginPanel3,BorderLayout.SOUTH);
     }
+
     public String getItemId() {
         return ItemID.getText();
     }
@@ -96,5 +96,4 @@ public class PickerView extends JFrame implements I_EmployeeView {
     public void displayErrorMessage(String errorMessage) {
         JOptionPane.showMessageDialog(this, errorMessage);
     }
-
 }

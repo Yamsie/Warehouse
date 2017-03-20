@@ -1,4 +1,4 @@
-package UI.Views;
+package UI.View;
 
 import javax.swing.*;
 import java.awt.*;
@@ -156,7 +156,6 @@ public class StockerView extends JFrame implements I_EmployeeView {
         CenterPanel.add(Panel3,BorderLayout.NORTH);
         CenterPanel.add(changeItem, BorderLayout.CENTER);
         CenterPanel.add(Panel2, BorderLayout.SOUTH);
-        //CenterPanel.add(changeButton);
 
         SouthPanel.setLayout(new BorderLayout());
         SouthPanel.add(StockOrder, BorderLayout.NORTH);

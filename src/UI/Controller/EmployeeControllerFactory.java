@@ -1,12 +1,8 @@
 package UI.Controller;
 
 import BLL.Authentication.UserDetails;
-import BLL.Models.Employees.Employee;
-import BLL.Models.Employees.I_EmployeeModel;
-import BLL.Models.Employees.ManagerModel;
-import UI.Views.I_EmployeeView;
-import UI.Views.ManagerView;
-import com.sun.tools.xjc.reader.xmlschema.bindinfo.BIConversion;
+import BLL.Model.Employee.ManagerModel;
+import UI.View.ManagerView;
 
 /**
  * Created by James on 19/03/2017.

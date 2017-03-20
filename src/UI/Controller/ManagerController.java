@@ -3,10 +3,10 @@ package UI.Controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import BLL.Models.Employees.ManagerModel;
-import UI.Views.I_EmployeeView;
-import UI.Views.ManagerView;
-import BLL.Authentication.Authentication;
+import BLL.Model.Employee.ManagerModel;
+import UI.View.I_EmployeeView;
+import UI.View.ManagerView;
+
 /**
  * Created by James on 16/03/2017.
  */

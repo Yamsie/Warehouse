@@ -1,6 +1,6 @@
 package UI.Controller;
 
-import UI.Views.I_EmployeeView;
+import UI.View.I_EmployeeView;
 
 /**
  * Created by James on 19/03/2017.

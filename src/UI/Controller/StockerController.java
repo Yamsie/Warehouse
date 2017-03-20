@@ -1,6 +1,6 @@
 package UI.Controller;
 
-import UI.Views.StockerView;
+import UI.View.StockerView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

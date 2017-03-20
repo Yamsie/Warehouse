@@ -1,7 +1,7 @@
 package BLL.Authentication;
 import UI.Controller.EmployeeControllerFactory;
 import UI.Controller.I_EmployeeController;
-import UI.Views.LoginView;
+import UI.View.LoginView;
 
 import java.util.Arrays;
 import java.io.*;

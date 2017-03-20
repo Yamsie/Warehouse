@@ -1,14 +1,10 @@
-package UI.Views;
+package UI.View;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
-import BLL.Models.Employees.Employee;
-import UI.Controller.ManagerController;
 /**
  * Created by James on 2017/3/12.
  */
@@ -19,7 +15,7 @@ public class ManagerView extends JFrame implements I_EmployeeView {
     private JLabel nameLabel = new JLabel("Logged in as: ");
     //private JLabel displayField = new JLabel();
     private DefaultTableModel model = new DefaultTableModel();
-    private JTable displayTable;
+    private JTable displayTable = new JTable(model);;
     private String rows[][];
     private String columns[][];
 
@@ -85,7 +81,7 @@ public class ManagerView extends JFrame implements I_EmployeeView {
             model.addColumn(output[0][i]);
         }
 
-        displayTable = new JTable(model);
+
 
         for (int i = 1; i < output.length; i++) {
             model.addRow(output[i]);

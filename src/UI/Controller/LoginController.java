@@ -2,7 +2,7 @@ package UI.Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import UI.Views.LoginView;
+import UI.View.LoginView;
 import BLL.Authentication.Authentication;
 /**
  * Created by Lenovo on 2017/3/12.

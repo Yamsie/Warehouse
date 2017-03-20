@@ -1,6 +1,6 @@
 package UI.Controller;
 
-import UI.Views.PickerView;
+import UI.View.PickerView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

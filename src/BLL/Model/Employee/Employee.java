@@ -1,4 +1,4 @@
-package BLL.Models.Employees;
+package BLL.Model.Employee;
 
 /**
  * Created by James on 16/03/2017.

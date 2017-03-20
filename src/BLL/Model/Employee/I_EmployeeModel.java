@@ -1,4 +1,4 @@
-package BLL.Models.Employees;
+package BLL.Model.Employee;
 import java.util.ArrayList;
 
 public interface I_EmployeeModel {
@@ -18,6 +18,6 @@ public interface I_EmployeeModel {
 	public string [] getChangeStockOrders();
 	public void getAddOrderInto();
 	public void getDeleteOrder();
-	public void DBOperator(); */
+	public void DBOperator();*/
 	
 }

@@ -1,6 +1,6 @@
 package UI.Controller;
 
-import UI.Views.PackerView;
+import UI.View.PackerView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

@@ -1,6 +1,4 @@
-package BLL.Models.Employees;
-
-import org.glassfish.jersey.model.internal.RankedComparator;
+package BLL.Model.Employee;
 
 import java.util.ArrayList;
 import java.util.List;

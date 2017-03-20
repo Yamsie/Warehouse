@@ -1,9 +1,9 @@
-package UI.Views;
+package UI.View;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import UI.Controller.LoginController;
+
 /**
  * Created by Lenovo on 2017/3/12.
  */
