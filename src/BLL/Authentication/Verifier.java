@@ -33,7 +33,6 @@ public class Verifier implements Authentication{
        }
        else
        {    //FACTORY DESIGN PATTERN
-
             EmployeeControllerFactory employeeControllerFactory = new EmployeeControllerFactory();
             I_EmployeeController controller = employeeControllerFactory.getController(details);
             controller.getView().setVisible(true);
