@@ -5,7 +5,7 @@ import UI.Views.StockerView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class StockerController {
+public class StockerController implements I_EmployeeController {
     private StockerView view;
     //private Stocker model;
 
@@ -103,5 +103,9 @@ public class StockerController {
             }
         }
 
+    }
+
+    public StockerView getView() {
+        return view;
     }
 }

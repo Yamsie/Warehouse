@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by Lenovo on 2017/3/13.
  */
-public class PackerController {
+public class PackerController implements I_EmployeeController {
     private PackerView view;
     //private PakerModle Model;
 
@@ -71,5 +71,9 @@ public class PackerController {
             }
         }
 
+    }
+
+    public PackerView getView() {
+        return view;
     }
 }

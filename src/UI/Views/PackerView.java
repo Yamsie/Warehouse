@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by JiasenTain on 2017/3/13.
  */
-public class PackerView extends JFrame{
+public class PackerView extends JFrame implements I_EmployeeView {
     private JTextField ItemID = new JTextField(20);
     private JLabel additionLabel1 = new JLabel("Please enter the Item Id: ");
     public JTextArea ItemInfo = new JTextArea(10, 20);

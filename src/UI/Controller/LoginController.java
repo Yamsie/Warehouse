@@ -12,14 +12,15 @@ public class LoginController {
     private Authentication model;
 
     public LoginController(LoginView userLoginView, Authentication userAuthentication) {
-        this.view =userLoginView;
+        this.view = userLoginView;
         this.model = userAuthentication;
         this.view.SubmitListener(new SubListener());
     }
 
      class SubListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
-            String userName, passWord;
+            String userName;
+            char[] passWord;
 
             try {
                 userName = view.getUserName();
@@ -29,7 +30,7 @@ public class LoginController {
             }
             catch (Exception e) {
                 e.printStackTrace();
-                view.displayErrorMessage("Errer Username or Passwprd");
+                view.displayErrorMessage("Error Username or Password");
             }
         }
 

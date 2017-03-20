@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by Lenovo on 2017/3/13.
  */
-public class PickerController {
+public class PickerController implements I_EmployeeController {
     private PickerView view;
     //private Picker model;
 
@@ -71,5 +71,9 @@ public class PickerController {
             }
         }
 
+    }
+
+    public PickerView getView() {
+        return view;
     }
 }

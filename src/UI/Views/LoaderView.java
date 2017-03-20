@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 
-public class LoaderView extends JFrame {
+public class LoaderView extends JFrame implements I_EmployeeView {
 
     private JTextField oderID = new JTextField(20);
     private JLabel additionLabel2 = new JLabel("Please enter the order Id: ");
