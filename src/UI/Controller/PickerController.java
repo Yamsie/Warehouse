@@ -26,7 +26,7 @@ public class PickerController implements I_EmployeeController {
 
             try {
                 ItemID = view.getItemId();
-                //String[] ItemIfo = model.getInfo(ItemID);
+                //String[] ItemIfo = model.getItemInfo(ItemID);
                 //#item_id,item_type,manufacturer,size,stock_quantity,selling_price,purchase_price
                 /*Test*/ String[] ItemInfo = {"000001","Sports Shoes","Nike", "44", "566", "100", "66"};
                 String description = view.createItemDescription(ItemInfo);

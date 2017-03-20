@@ -1,6 +1,9 @@
-package BLL.Models.Employees;
+package BLL.Model.Employee;
 
 //import DAL package;
+
+import BLL.Model.Employee.Employee;
+
 /**
  * Created by JiasenTian on 2017/3/19.
  */
