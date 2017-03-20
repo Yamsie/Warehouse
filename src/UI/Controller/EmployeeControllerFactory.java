@@ -25,7 +25,7 @@ public class EmployeeControllerFactory {
         } else if (details.getJobTitle().equalsIgnoreCase("Stocker")) {
             //return new StockerController(view/*, model*/);
         } else if (details.getJobTitle().equalsIgnoreCase("Manager")) {
-            return new ManagerController(new ManagerView(details.getUserName()), new ManagerModel(details.getUserName(), details.getId(), details.getEmail()));
+            return new ManagerController(new ManagerView(details.getUserName()), new ManagerModel(/*details.getUserName(), details.getId(), details.getEmail()*/));
         }
 
         return null;

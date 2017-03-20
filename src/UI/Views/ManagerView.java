@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableModel;
 
 import BLL.Models.Employees.Employee;
 import UI.Controller.ManagerController;
@@ -16,7 +17,11 @@ public class ManagerView extends JFrame implements I_EmployeeView {
     private JButton orderButton = new JButton("View Orders");
     private JButton customerButton = new JButton("View Customers");
     private JLabel nameLabel = new JLabel("Logged in as: ");
-    private JLabel displayField = new JLabel();
+    //private JLabel displayField = new JLabel();
+    private DefaultTableModel model = new DefaultTableModel();
+    private JTable displayTable;
+    private String rows[][];
+    private String columns[][];
 
 
     //private JLabel empLabel = new JLabel("View All Orders");
@@ -30,19 +35,18 @@ public class ManagerView extends JFrame implements I_EmployeeView {
         JPanel buttonsPanel = new JPanel();
         JPanel namePanel = new JPanel();
         JPanel displayPanel = new JPanel();
-        JScrollPane scroller = new JScrollPane(displayField, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        JScrollPane scroller = new JScrollPane(displayTable);
+//        displayTable.setFillsViewportHeight(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Manager Window");
         this.setSize(500, 500);
-        displayField.setSize(30,50);
-        displayField.setText("");
 
         buttonsPanel.add(employeeButton);
         buttonsPanel.add(orderButton);
         buttonsPanel.add(customerButton);
         namePanel.add(nameLabel);
-        displayPanel.add(displayField);
+        displayPanel.add(displayTable);
         displayPanel.add(scroller);
 
         setLayout(new GridLayout(3,3));
@@ -75,8 +79,22 @@ public class ManagerView extends JFrame implements I_EmployeeView {
 
     }
 
-    public void setDisplayText(String output) {
-        displayField.setText(output);
+    public void setDisplayText(String[][] output) {
+        clearDisplayText();
+        for (int i = 0; i < output[0].length; i++) {
+            model.addColumn(output[0][i]);
+        }
+
+        displayTable = new JTable(model);
+
+        for (int i = 1; i < output.length; i++) {
+            model.addRow(output[i]);
+        }
+
+
+
+    }
+    public void clearDisplayText() {
     }
     public void displayErrorMessage(String errorMessage) {
         JOptionPane.showMessageDialog(this, errorMessage);

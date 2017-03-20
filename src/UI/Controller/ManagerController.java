@@ -12,17 +12,32 @@ import BLL.Authentication.Authentication;
  */
 public class ManagerController implements I_EmployeeController {
     private ManagerView view;
+    private ManagerModel model;
 
     public ManagerController(ManagerView managerView, ManagerModel managerModel) {
         this.view = managerView;
-        this.view.employeeListener(new SubListener());
-        this.view.customerListener(new SubListener());
-        this.view.orderListener(new SubListener());
+        this.model = managerModel;
+        this.view.employeeListener(new EmployeeButtonListener());
+        this.view.customerListener(new CustomerButtonListener());
+        this.view.orderListener(new OrderButtonButtonListener());
 
     }
 
-    class SubListener implements ActionListener {
+    class EmployeeButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
+            view.setDisplayText(model.getEmployeeData());
+        }
+    }
+
+    class CustomerButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent arg0) {
+            //model.getCustomerData();
+        }
+    }
+
+    class OrderButtonButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent arg0) {
+            //model.getOrderData();
         }
     }
 
