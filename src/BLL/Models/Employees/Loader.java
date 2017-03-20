@@ -1,12 +1,12 @@
 package BLL.Models.Employees;
 
 
-public class Loader implements I_Employee
+public class Loader implements I_EmployeeModel
 {
 	private String loaderStatus;
 	
 	public void Loader(String loaderStatus){
-		this.loaderStatus = loaderStatus
+		this.loaderStatus = loaderStatus;
 	}
 	
 	public String getLoaderStatus(){
