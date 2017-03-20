@@ -1,17 +1,34 @@
 package UI.Views;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
 
-//item_id,item_type,manufacturer,size,stock_quantity,selling_price,purchase_price
-//stock_order_id,item_id,quantity,manufacturer,price,
-public class StockerView extends JFrame {
+public class ManagerView extends JFrame{
     private JLabel addNewItem = new JLabel("Please enter the detials of new item: ");
     private JLabel changeItem = new JLabel("Please change the detials of item: ");
     private JLabel ChooseItem = new JLabel("Plese enter the item id you want to change: ");
-    private JLabel StockOrder = new JLabel("Plese enter the details of new order:  ");
+    private JLabel StockOrder = new JLabel("Please enter the details of new order:  ");
+    private JLabel employeeInfo = new JLabel("Please enter the employee's user ID: ");
+
+    private JTextField employeeId = new JTextField(10);
+    private JButton changeInfo = new JButton("Submit");
+
+    //UserId, UserName, Password, TypeOfJob, Email
+    private JTextField employeeUserNme = new JTextField(10);
+    private JLabel employee_UserName = new JLabel("UserName: ");
+
+    private JTextField employeePassword = new JTextField(10);
+    private JLabel employee_Password = new JLabel("Password: ");
+
+    private JTextField employeeTypeOfJob = new JTextField(10);
+    private JLabel employee_TypeOfJob = new JLabel("Type of job: ");
+
+    private JTextField employeeEmail = new JTextField(10);
+    private JLabel employee_Email = new JLabel("Email: ");
+
 
     private JTextField choosItem = new JTextField(10);
     private JButton chooseButton = new JButton("Submit");
@@ -74,13 +91,25 @@ public class StockerView extends JFrame {
     private JTextField item_Price = new JTextField(10);
     private JLabel itemPrice = new JLabel("Please enter the price: ");
 
+    private JTextField ItemId = new JTextField(20);
+    private JLabel additionLabel1 = new JLabel("Please enter the Item Id: ");
+
+    public  JTextArea ItemInfo = new JTextArea(10, 20);
+    private JTextField orderID = new JTextField(20);
+
+    private JLabel additionLabel2 = new JLabel("Please enter the order Id: ");
+    public  JTextArea orderInfo = new JTextArea(10,20);
+
+    private JButton ItemButton = new JButton("Submit");
+    private JButton OrderButton = new JButton("Submit");
+
     private JButton addButton = new JButton("Add");
     private JButton changeButton = new JButton("Change");
     private JButton newStockOrder = new JButton("Create order");
+    private JButton changeEmployeeInfo = new JButton("Change");
     private JButton LogoutButton = new JButton("Log out");
 
-
-    public StockerView(String Stocker) {
+    public ManagerView(String Manager) {
         JPanel NorthPanel = new JPanel();
         JPanel CenterPanel = new JPanel();
         JPanel SouthPanel = new JPanel();
@@ -88,17 +117,50 @@ public class StockerView extends JFrame {
         JPanel Panel2 = new JPanel();
         JPanel Panel3 = new JPanel();
         JPanel Panel4 = new JPanel();
+        JPanel Panel5 = new JPanel();
+        JPanel Panel6 = new JPanel();
+        JPanel Panel7 = new JPanel();
+        JPanel Panel8 = new JPanel();
+
         Panel1.setLayout(new GridLayout(7, 2));
         Panel2.setLayout(new GridLayout(8, 2));
         Panel3.setLayout(new FlowLayout(FlowLayout.CENTER));
         Panel4.setLayout(new GridLayout(6,2));
+        Panel5.setLayout(new GridLayout(5,2));
+        Panel6.setLayout(new BorderLayout());
 
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        this.setTitle("Stocker Page");
+        this.setTitle("Manager Page");
         this.setVisible(true);
-        this.setLocation(500, 10);
-        this.setSize(500, 720);
+        this.setLocation(300, 10);
+        this.setSize(950, 700);
+
+        ItemInfo.setLineWrap(true);
+        ItemInfo.setWrapStyleWord(true);
+        ItemInfo.setEditable(false);
+        orderInfo.setLineWrap(true);
+        orderInfo.setWrapStyleWord(true);
+        orderInfo.setEditable(false);
+
+        JScrollPane scrollPane1 = new JScrollPane(ItemInfo);
+        JScrollPane scrollPane2 = new JScrollPane(orderInfo);
+
+        JPanel section1 = new JPanel(new BorderLayout());
+        JPanel section2 = new JPanel(new BorderLayout());
+
+        Panel7.add(additionLabel1);
+        Panel7.add(ItemId);
+        Panel7.add(ItemButton);
+        section1.add(Panel7, BorderLayout.NORTH);
+        section1.add(scrollPane1, BorderLayout.SOUTH);
+
+        Panel8.add(additionLabel2);
+        Panel8.add(orderID);
+        Panel8.add(OrderButton);
+        section2.add(Panel8, BorderLayout.NORTH);
+        section2.add(scrollPane2, BorderLayout.SOUTH);
+
 
         Panel1.add(addItemID);
         Panel1.add(ItemID);
@@ -147,6 +209,20 @@ public class StockerView extends JFrame {
         Panel4.add(item_Price);
         Panel4.add(newStockOrder);
 
+        Panel5.add(employee_UserName);
+        Panel5.add(employeeUserNme);
+        Panel5.add(employee_Password);
+        Panel5.add(employeePassword);
+        Panel5.add(employee_TypeOfJob);
+        Panel5.add(employeeTypeOfJob);
+        Panel5.add(employee_Email);
+        Panel5.add(employeeEmail);
+        Panel5.add(changeEmployeeInfo);
+
+        Panel6.add(employeeInfo, BorderLayout.NORTH);
+        Panel6.add(employeeId, BorderLayout.CENTER);
+        Panel6.add(changeInfo, BorderLayout.EAST);
+
         NorthPanel.setLayout(new BorderLayout());
         NorthPanel.add(addNewItem, BorderLayout.NORTH);
         NorthPanel.add(Panel1, BorderLayout.CENTER);
@@ -163,14 +239,36 @@ public class StockerView extends JFrame {
         SouthPanel.add(LogoutButton, BorderLayout.SOUTH);
 
 
-        setLayout(new FlowLayout(FlowLayout.LEFT));
-        add(NorthPanel);
-        add(CenterPanel);
-        add(SouthPanel);
+        JPanel part1 = new JPanel();
+        part1.setLayout(new FlowLayout(FlowLayout.LEFT));
+        part1.add(NorthPanel);
+        part1.add(CenterPanel);
+        part1.add(SouthPanel);
+
+        JPanel part2 = new JPanel();
+        part2.setLayout(new BorderLayout());
+        part2.add(Panel6, BorderLayout.NORTH);
+        part2.add(Panel5, BorderLayout.SOUTH);
+
+        JPanel part3 = new JPanel();
+        part3.setLayout(new GridLayout(3,1,25,20));
+        part3.add(part2);
+        part3.add(section1);
+        part3.add(section2);
+
+
+        setLayout(new BorderLayout());
+        add(part3, BorderLayout.WEST);
+        add(part1, BorderLayout.CENTER);
+
     }
-
     public String getChooseId(){ return ChooseItem.getText();}
+    public  String getEmployeeId() { return employeeId.getText();}
 
+    private String getEmployeeUserName() { return employeeUserNme.getText();}
+    private String getEmployeePassword() { return employeePassword.getText();}
+    private String getEmployeeTypeOfJob() { return employeeTypeOfJob.getText();}
+    private String getEmployeeEmail() { return employeeEmail.getText();}
     private String getItemId() {
         return ItemID.getText();
     }
@@ -222,40 +320,56 @@ public class StockerView extends JFrame {
     private void setItemId1(String ID) {
         ItemID1.setText(ID);
     }
-
     private void setItem_Tpye1(String type) {
         Item_Tpye1.setText(type);
     }
-
     private void setManufacturer1(String manufacturer) {
         Manufacturer1.setText(manufacturer);
     }
-
     private void setSize1(String size) {
         Size1.setText(size);
     }
-
     private void setStock_quantity1(String quantity) {
         Stock_quantity1.setText(quantity);
     }
-
     private void setSelling_price1(String price) {
         Selling_price1.setText(price);
     }
-
     private void setPurchase_price1(String price) {
         Purchase_price1.setText(price);
     }
 
-    public String[] newItem(StockerView view){
+    private void setEmployeeUserName(String UserName) { employeeUserNme.setText(UserName);}
+    private void setEmployeePassword(String password) { employeePassword.setText(password);}
+    private void setEmployeeTypeOfJob(String typeOfJob) {employeeTypeOfJob.setText(typeOfJob);}
+    private void setEmployeeEmail(String email) {employeeEmail.setText(email);}
+
+    public void setEmployeeText(String [] employee){
+        setEmployeeUserName(employee[1]);
+        setEmployeePassword(employee[2]);
+        setEmployeeTypeOfJob(employee[3]);
+        setEmployeeEmail(employee[4]);
+    }
+
+    public String [] getChangeInfo(String ID){
+        String[] employee = new String[5];
+        employee[0] = ID;
+        employee[1] = getEmployeeUserName();
+        employee[2] = getEmployeePassword();
+        employee[3] = getEmployeeTypeOfJob();
+        employee[4] = getEmployeeEmail();
+        return  employee;
+    }
+
+    public String[] newItem(){
         String[] Item = new String[7];
-        Item[0] = view.getItemId();
-        Item[1] = view.getItemTpye();
-        Item[2] = view.getManufacturer();
-        Item[3] = view.getSize0();
-        Item[4] = view.getStock_quantity();
-        Item[5] = view.getSelling_price();
-        Item[6] = view.getPurchase_price();
+        Item[0] = getItemId();
+        Item[1] = getItemTpye();
+        Item[2] = getManufacturer();
+        Item[3] = getSize0();
+        Item[4] = getStock_quantity();
+        Item[5] = getSelling_price();
+        Item[6] = getPurchase_price();
         return Item;
     }
 
@@ -292,6 +406,32 @@ public class StockerView extends JFrame {
         return Item;
     }
 
+
+    public String getItemID() {
+        return ItemId.getText();
+    }
+
+    public String getOrderID() {
+        return orderID.getText();
+    }
+
+    public String getEmployeeID() { return employeeId.getText();}
+
+    public String createOrderDescription(String [] OrderInfo){
+        String description = "";
+        description += "order_id: " + OrderInfo[0] + "\n\nCustomer Id: " + OrderInfo[1] + "\n\nItem ID: " + OrderInfo[2]
+                + "\n\nOrder Quantity: " +  OrderInfo[3] + "\n\nStatus: " + OrderInfo[4] + "\n\nOrder Price: " + OrderInfo[5]
+                + "\n\nShipping Price: " + OrderInfo[6] + "\n\nTotal Price: " + OrderInfo[7] + "\n\nOrder Date: " + OrderInfo[8];
+        return description;
+    }
+
+    public String createItemDescription(String [] ItemInfo){
+        String description = "";
+        description += "Item Id: " + ItemInfo[0] + "\n\nItem Type: " + ItemInfo[1] + "\n\nManufacturer: " + ItemInfo[2]
+                + "\n\nSize: " +  ItemInfo[3] + "\n\nStock Quantity: " + ItemInfo[4] + "\n\nSelling Price: " + ItemInfo[5]
+                + "\n\nPurchase Price: " + ItemInfo[6];
+        return description;
+    }
     public void LogoutListener(ActionListener listenForButton) {
         LogoutButton.addActionListener(listenForButton);
     }
@@ -309,6 +449,18 @@ public class StockerView extends JFrame {
     }
 
     public void newStockOrderListener(ActionListener listenForButton){ newStockOrder.addActionListener(listenForButton);}
+
+    public void SubListener1(ActionListener listenForButton) {
+        ItemButton.addActionListener(listenForButton);
+    }
+
+    public void SubListener2(ActionListener listenForButton) {
+        OrderButton.addActionListener(listenForButton);
+    }
+
+    public void ChooseEmployeeListener(ActionListener listenForButton) { changeInfo.addActionListener(listenForButton);}
+
+    public void setEmployeeInfoListener(ActionListener listenForButton) { changeEmployeeInfo.addActionListener(listenForButton);}
 
     public void displayErrorMessage(String errorMessage) {
         JOptionPane.showMessageDialog(this, errorMessage);

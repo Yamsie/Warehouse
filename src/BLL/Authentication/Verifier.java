@@ -1,8 +1,5 @@
 package BLL.Authentication;
-import UI.Controller.LoaderController;
-import UI.Controller.PackerController;
-import UI.Controller.PickerController;
-import UI.Controller.StockerController;
+import UI.Controller.*;
 import UI.Views.*;
 
 import java.util.Scanner;
@@ -60,6 +57,9 @@ public class Verifier implements Authentication{
            }
            else if(typeOfJob.equals("Manager")){
                System.out.println("load to Manager page");
+               ManagerView UserView  = new ManagerView(Name);
+               /*Employee UserModel = new Manager();*/
+               ManagerController UserMangerController = new ManagerController(UserView/*, UserModel*/);
            }
        }
    }
