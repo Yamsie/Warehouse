@@ -2,7 +2,10 @@ package UI.Controller;
 
 import BLL.Authentication.UserDetails;
 import BLL.Model.Employee.ManagerModel;
-import UI.View.ManagerView;
+import BLL.Model.Employee.PackerModel;
+import BLL.Model.Employee.PickerModel;
+import BLL.Model.Employee.StockerModel;
+import UI.View.*;
 
 /**
  * Created by James on 19/03/2017.
@@ -13,13 +16,13 @@ public class EmployeeControllerFactory {
             return null;
         }
         if (details.getJobTitle().equalsIgnoreCase("Picker")) {
-            //return new PickerController(view/*, model*/);
+            return new PickerController(new PickerView(details.getUserName()), new PickerModel());
         } else if (details.getJobTitle().equalsIgnoreCase("Packer")) {
-            //return new PackerController(view/*, model*/);
+            return new PackerController(new PackerView(details.getUserName()), new PackerModel());
         } else if (details.getJobTitle().equalsIgnoreCase("Loader")) {
-            //return new LoaderController(view/*, model*/);
+            //return new LoaderController(new LoaderView(), new LoaderModel());
         } else if (details.getJobTitle().equalsIgnoreCase("Stocker")) {
-            //return new StockerController(view/*, model*/);
+            return new StockerController(new StockerView(details.getUserName()), new StockerModel());
         } else if (details.getJobTitle().equalsIgnoreCase("Manager")) {
             return new ManagerController(new ManagerView(details.getUserName()), new ManagerModel(/*details.getUserName(), details.getId(), details.getEmail()*/));
         }

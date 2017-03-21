@@ -2,6 +2,7 @@ package UI.Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 
 import BLL.Model.Employee.ManagerModel;
 import UI.View.I_EmployeeView;
@@ -20,6 +21,7 @@ public class ManagerController implements I_EmployeeController {
         this.view.employeeListener(new EmployeeButtonListener());
         this.view.customerListener(new CustomerButtonListener());
         this.view.orderListener(new OrderButtonButtonListener());
+        this.view.addEmployeeListener(new AddEmployeeButtonListener());
 
     }
 
@@ -38,6 +40,13 @@ public class ManagerController implements I_EmployeeController {
     class OrderButtonButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
             //model.getOrderData();
+        }
+    }
+
+    class AddEmployeeButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent arg0) {
+            //perform validation on text
+            model.addNewEmployee(view.getNewEmpId(), view.getNewEmpName(), view.getNewEmpPassword(), view.getNewEmpJobTitle(), view.getNewEmpEmail());
         }
     }
 

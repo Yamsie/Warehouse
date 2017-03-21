@@ -1,5 +1,6 @@
 package UI.Controller;
 
+import BLL.Model.Employee.PickerModel;
 import UI.View.PickerView;
 
 import java.awt.event.ActionEvent;
@@ -12,7 +13,7 @@ public class PickerController implements I_EmployeeController {
     private PickerView view;
     //private Picker model;
 
-    public PickerController(PickerView view/*, PickerView model*/){
+    public PickerController(PickerView view, PickerModel model){
         this.view = view;
         //this.model = model;
         this.view.SubListener1(new SubListener1());

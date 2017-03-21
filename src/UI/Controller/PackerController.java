@@ -1,5 +1,6 @@
 package UI.Controller;
 
+import BLL.Model.Employee.PackerModel;
 import UI.View.PackerView;
 
 import java.awt.event.ActionEvent;
@@ -13,7 +14,7 @@ public class PackerController implements I_EmployeeController {
     private PackerView view;
     //private PakerModle Model;
 
-    public PackerController(PackerView view/* , PackerMole*/){
+    public PackerController(PackerView view, PackerModel model){
         this.view = view;
         //this.model = model;
         this.view.SubListener1(new SubListener1());

@@ -8,14 +8,16 @@ public class Employee {
     private String name;
     private int id;
     private String email;
+    private String jobTitle;
 
     Employee() {
     }
 
-    Employee(String newName, int newId, String newEmail) {
+    Employee(int newId, String newName, String newJobTitle, String newEmail) {
         name = newName;
         id = newId;
         email = newEmail;
+        jobTitle = newJobTitle;
     }
 
     public String getName() {
@@ -28,5 +30,9 @@ public class Employee {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getJobTitle() {
+        return jobTitle;
     }
 }

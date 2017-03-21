@@ -1,5 +1,6 @@
 package UI.Controller;
 
+import BLL.Model.Employee.StockerModel;
 import UI.View.StockerView;
 
 import java.awt.event.ActionEvent;
@@ -9,7 +10,7 @@ public class StockerController implements I_EmployeeController {
     private StockerView view;
     //private Stocker model;
 
-    public StockerController(StockerView view/*, Stocker model*/){
+    public StockerController(StockerView view, StockerModel model){
         this.view = view;
         // this.model = model;
         this.view.addListener(new addListener());

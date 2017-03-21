@@ -10,12 +10,12 @@ public class DatabaseOperator {
     }
 
     protected UserDetails getInfo(String userName)throws IOException{
-        File file = new File("data/EMPLOYEE.txt");
+        File file = new File("data/EMPLOYEES.txt");
 
         Scanner input = new Scanner(file);
         while (input.hasNext()) {
             String UserInfo = input.nextLine();
-            String[] user = UserInfo.split(", ");
+            String[] user = UserInfo.split(",");
             if(userName.equals(user[1])){
                 return new UserDetails(Integer.parseInt(user[0]), user[1], user[2].toCharArray(), user[3], user[4]);
             }
