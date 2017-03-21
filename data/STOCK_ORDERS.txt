@@ -1,1 +1,2 @@
-#stock_order_id,item_id,quantity,manufacturer,price,
+#stock_order_id,item_id,quantity,manufacturer,price
+111113,1,24,Nike,30
