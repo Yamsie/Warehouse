@@ -11,10 +11,10 @@ public class PackerModel extends Employee {
     private String jobTitle;
     //DBOperater packerBD = new DBPakccr();
 
-    public PackerModel(String userName, int id, String email){
-        super(userName, id, email);
-        jobTitle = "Packer";
-    }
+    //public PackerModel(String userName, int id, String jobTitle, String email){
+    //    super(userName, id, email);
+    //    jobTitle = "Packer";
+    //}
 
     public String [] getItemInfo(int ItemID){
         String [] ItemInfo = new String[7];
@@ -28,5 +28,5 @@ public class PackerModel extends Employee {
         return OrderInfo;
     }
 
-    public String getJobTitle() { return jobTitle;}
+    //public String getJobTitle() { return jobTitle;}
 }
