@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class StockerController implements I_EmployeeController {
     private StockerView view;
-    //private Stocker model;
+    //private StockerModel model;
 
     public StockerController(StockerView view, StockerModel model){
         this.view = view;
