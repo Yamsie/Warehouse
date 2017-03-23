@@ -21,11 +21,6 @@ public class ManagerModel extends Employee implements I_EmployeeModel{
 
         private List<Employee> employeeOutput = new ArrayList<>();
         private DatabaseService employees = new AccessEmployees(this.getJobTitle());
-        private Employee employeeJohn;
-        private Employee employeeMary;
-        private Employee employeeBob;
-        private Employee employeeSteve;
-        private Employee employeeTom;
         //private Order order;
         //private Customer customer
 
