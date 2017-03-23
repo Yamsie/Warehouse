@@ -22,7 +22,7 @@ public class EmployeeControllerFactory {
         } else if (details.getJobTitle().equalsIgnoreCase("Loader")) {
             //return new LoaderController(new LoaderView(), new LoaderModel());
         } else if (details.getJobTitle().equalsIgnoreCase("Stocker")) {
-            return new StockerController(new StockerView(details.getUserName()), new StockerModel());
+            return new StockerController(new StockerView(details.getUserName()), new StockerModel(details.getUserName(), details.getId(), details.getEmail()));
         } else if (details.getJobTitle().equalsIgnoreCase("Manager")) {
             return new ManagerController(new ManagerView(details.getUserName()), new ManagerModel(/*details.getUserName(), details.getId(), details.getEmail()*/));
         }

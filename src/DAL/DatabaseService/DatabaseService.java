@@ -36,6 +36,11 @@ public class DatabaseService implements I_DatabaseService {
 
     }
 
+    public String showData(int id){
+        String data = "";
+        return data;
+    }
+
     public void addData(String info) {
         openFile(filename);
         List<String> fileData = readFile();
