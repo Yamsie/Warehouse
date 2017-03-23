@@ -10,12 +10,12 @@ public class Item
 	private double sPrice;
 	private double pPrice;
 
-	public Item(int itemID, String itemType, String manufacturer, String size, int quantity, double sPrice, double pPrice)	//Item constructor method
+	public Item(int itemID, String itemType, String manufacturer, String size, int quantity, double sPrice, double pPrice)
 	{
 
-		this.itemID = itemID;					//"this.itemID" refers to the current itemID
-		this.itemType = itemType;				//that was created when we called this constructor while
-		this.manufacturer = manufacturer;		//the second "itemID" refers to the parameter of the constructor!
+		this.itemID = itemID;
+		this.itemType = itemType;
+		this.manufacturer = manufacturer;
 		this.size = size;
 		this.quantity = quantity;
 		this.sPrice = sPrice;
@@ -58,7 +58,7 @@ public class Item
     public void setItemID(int itemID) {
         this.itemID = itemID;
     }
-    
+
 	public void setItemType(String itemType) {
 		this.itemType = itemType;
 	}
