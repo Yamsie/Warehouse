@@ -1,28 +1,28 @@
-package BLL.Model.Orders;
+package BLL.Model.Order
 
-public class StockOrder implements I_Order //accessing customer orders file
+public class StockOrder
 {
 	private int stockOrderID;
 	private int stockItemID;
 	private int orderQuantity;
 	private String manufacturer;
-	private double stockOrderPrice;
+	private double price;
 	
-	public void Order(int stockOrderID, int itemID, int orderQuantity, String manufacturer, double stockOrderPrice)
+	public void Order(int stockOrderID, int itemID, int orderQuantity, String manufacturer, double price)
 	{
 		this.stockOrderID = stockOrderID;
-		this.itemID = itemID;
+		this.stockItemID = stockItemID;
 		this.orderQuantity = orderQuantity;
-		this.manufacturer = manufactuer;
-		this.stockOrderPrice = stockOrderPrice;
+		this.manufacturer = manufacturer;
+		this.price = price;
 	}
 	
 	public int getStockOrderID() {
 		return stockOrderID;
 	}
 	
-	public void setStockOrderID(int orderID) {
-		this.orderID = orderID;
+	public void setStockOrderID(int stockOrderID) {
+		this.stockOrderID = stockOrderID;
 	}
 	
 	
@@ -31,36 +31,36 @@ public class StockOrder implements I_Order //accessing customer orders file
 	}
 	
 	public void setStockItemID(int stockItemID){
-		this.stockItemID = stockItemID
+		this.stockItemID = stockItemID;
 	}
 	
 	public int getOrderQuantity() {
-		return quantity;
+		return orderQuantity;
 	}
 	
-	public void setOrderQuantity(int OrderQuantity) {
+	public void setOrderQuantity(int orderQuantity) {
 		this.orderQuantity = orderQuantity;
 	}
 	
-	public double getStockOrderPrice() {
-		return stockOrderPrice;
+	public double getprice() {
+		return price;
 	}
 
-	public void setStockOrderPrice(double stockOrderPrice) {
-		this.stockOrderPrice = stockOrderPrice;
+	public void setprice(double price) {
+		this.price = price;
 	}
 	
-	public string getManufacturer(){
+	public String getManufacturer(){
 		return manufacturer;
 	}
 	
-	public void setManufacturer(string manufacturer){
+	public void setManufacturer(String manufacturer){
 		this.manufacturer = manufacturer;
 	}
 	
 	@Override
 	public String toString()
 	{
-		return stockOrderID + "," + stockItemID + "," + quantity + "," + manufacturer + "," price;
+		return stockOrderID + "," + stockItemID + "," + orderQuantity + "," + manufacturer + "," + price;
 	}
 }

@@ -1,26 +1,25 @@
-package BLL.Model.Orders;
+package BLL.Model.Order;
 
-public class CustomerOrder implements I_Order //accessing customer orders file
+public class CustomerOrder 
 {
 	private int orderID;
 	private int custID;
 	private int itemID;
 	private int quantity;
-	private String shippingAddress;
 	private String status;
 	private double orderPrice;
 	private double shippingCost;
 	private double totalCost;
 	private String orderDate;
+	private String shippingAddress;
 	
 	public void Order(int orderID, int custID, int itemID, int quantity, String shippingAddress, String status, double orderPrice, 
 			double shippingCost, double totalCost, String orderDate)
 	{
 		this.orderID = orderID;
 		this.custID = custID;
-		this.itemIDs = itemIDs;
+		this.itemID = itemID;
 		this.quantity = quantity;
-		this.orderID = orderI
 		this.shippingAddress = shippingAddress;
 		this.status = status;
 		this.orderPrice = orderPrice;
@@ -109,8 +108,9 @@ public class CustomerOrder implements I_Order //accessing customer orders file
 		this.orderDate = orderDate;
 	}
 	
-	/*public String getOrderDetails(int orderID)
+	@Override
+	public String toString()
 	{
-		return "OrderID: " + orderID + "\nItem(s): " + itemIDs + "\nShipping address: " + shippingAddress;
-	}*/
+		return orderID+","+custID+","+itemID+","+quantity+","+status+","+orderPrice+","+shippingCost+","+totalCost+","+orderDate+","+shippingAddress;
+	}
 }
