@@ -8,11 +8,11 @@ import java.awt.event.ActionListener;
 
 public class StockerController implements I_EmployeeController {
     private StockerView view;
-    //private StockerModel model;
+    private StockerModel model;
 
     public StockerController(StockerView view, StockerModel model){
         this.view = view;
-        // this.model = model;
+        this.model = model;
         this.view.addListener(new addListener());
         this.view.changeListener(new changeListener());
         this.view.chooseListener(new chooseListener());
@@ -25,11 +25,7 @@ public class StockerController implements I_EmployeeController {
 
             try {
                 String[] newItem = view.newItem(view);
-
-                //model.addInfo(newItem);
-                //test
-                for(int i = 0; i < 7; ++i)
-                    System.out.print(newItem[i] + " ");
+                model.addInfo(newItem);
             }
             catch (Exception e) {
                 e.printStackTrace();
@@ -43,10 +39,8 @@ public class StockerController implements I_EmployeeController {
         public void actionPerformed(ActionEvent arg0) {
             String Id;
             try {
-                //Id = view.getChooseId();
-                //String[] Item = model.showInfo(Id);
-                //item_id,item_type,manufacturer,size,stock_quantity,selling_price,purchase_price
-                String[] Item = {"20001", "Sport Shoes", "Nike", "44" , "500", "100", "75"};
+                Id = view.getChooseId();
+                String[] Item = model.showInfo(Integer.parseInt(Id));
                 view.setChangeInfo(Item);
             }
             catch (Exception e) {
@@ -63,9 +57,7 @@ public class StockerController implements I_EmployeeController {
 
             try {
                 String[] newInfo = view.getChange();
-                //model.changeInfo(newInfo);
-                for(int i = 0; i < 7; ++i)
-                    System.out.print(newInfo[i] + " ");
+                model.changeInfo(newInfo);
             }
             catch (Exception e) {
                 e.printStackTrace();
@@ -80,9 +72,7 @@ public class StockerController implements I_EmployeeController {
 
             try {
                 String[] newInfo = view.getNewStockOrder();
-                //model.addInfo(newInfo);
-                for(int i = 0; i < 5; ++i)
-                    System.out.print(newInfo[i] + " ");
+                model.addInfo(newInfo);
             }
             catch (Exception e) {
                 e.printStackTrace();

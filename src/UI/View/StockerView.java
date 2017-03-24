@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 //item_id,item_type,manufacturer,size,stock_quantity,selling_price,purchase_price
 //stock_order_id,item_id,quantity,manufacturer,price,
+
 public class StockerView extends JFrame implements I_EmployeeView {
     private JLabel addNewItem = new JLabel("Please enter the detials of new item: ");
     private JLabel changeItem = new JLabel("Please change the detials of item: ");
@@ -169,7 +170,7 @@ public class StockerView extends JFrame implements I_EmployeeView {
         add(SouthPanel);
     }
 
-    public String getChooseId(){ return ChooseItem.getText();}
+    public String getChooseId(){ return choosItem.getText();}
 
     private String getItemId() {
         return ItemID.getText();

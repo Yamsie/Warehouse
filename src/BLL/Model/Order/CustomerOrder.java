@@ -1,5 +1,4 @@
 package BLL.Model.Order;
-import BLL.Model.Order.I_Order;
 
 import java.util.List;
 
@@ -11,7 +10,6 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 	private int quantity;
 	private String shippingAddress;
 	private String status;
-	private String boxSize;
 	private double orderPrice;
 	private double shippingCost;
 	private double totalCost;
@@ -50,7 +48,7 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 	private void addItemToList(String id) {
 		itemID.add(Integer.parseInt(id));
 	}
-	
+
 	public int getOrderID() {
 		return orderID;
 	}
@@ -131,8 +129,9 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 		this.orderDate = orderDate;
 	}
 	
-	public String getOrderDetails(int orderID)
+	@Override
+	public String toString()
 	{
-		return null;//"OrderID: " + orderID + "\nItem(s): " + itemIDs + "\nShipping address: " + shippingAddress;
+		return orderID+","+custID+","+itemID+","+quantity+","+status+","+orderPrice+","+shippingCost+","+totalCost+","+orderDate+","+shippingAddress;
 	}
 }

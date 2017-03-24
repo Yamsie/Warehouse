@@ -1,31 +1,29 @@
-package BLL.Model.Orders;
+package BLL.Model.Order
 
-import BLL.Model.Order.I_Order;
-
-public class StockOrder implements I_Order //accessing customer orders file
+public class StockOrder
 {
 	private int stockOrderID;
 	private int stockItemID;
 	private int orderQuantity;
 	private String manufacturer;
-	private double stockOrderPrice;
+	private double price;
 	
-	StockOrder(int stockOrderID, int itemID, int orderQuantity, String manufacturer, double stockOrderPrice)
+	public void Order(int stockOrderID, int itemID, int orderQuantity, String manufacturer, double price)
 	{
 		this.stockOrderID = stockOrderID;
-		this.stockItemID = itemID;
+		this.stockItemID = stockItemID;
 		this.orderQuantity = orderQuantity;
 		this.manufacturer = manufacturer;
-		this.stockOrderPrice = stockOrderPrice;
+		this.price = price;
 	}
 	
 	public int getStockOrderID() {
 		return stockOrderID;
 	}
 	
-	//public void setStockOrderID(int orderID) {
-	//	this.orderID = orderID;
-	//}
+	public void setStockOrderID(int stockOrderID) {
+		this.stockOrderID = stockOrderID;
+	}
 	
 	
 	public int getStockItemID(){
@@ -36,20 +34,20 @@ public class StockOrder implements I_Order //accessing customer orders file
 		this.stockItemID = stockItemID;
 	}
 	
-	//public int getOrderQuantity() {
-	//	return quantity;
-	//}
+	public int getOrderQuantity() {
+		return orderQuantity;
+	}
 	
-	public void setOrderQuantity(int OrderQuantity) {
+	public void setOrderQuantity(int orderQuantity) {
 		this.orderQuantity = orderQuantity;
 	}
 	
-	public double getStockOrderPrice() {
-		return stockOrderPrice;
+	public double getprice() {
+		return price;
 	}
 
-	public void setStockOrderPrice(double stockOrderPrice) {
-		this.stockOrderPrice = stockOrderPrice;
+	public void setprice(double price) {
+		this.price = price;
 	}
 	
 	public String getManufacturer(){
@@ -63,6 +61,6 @@ public class StockOrder implements I_Order //accessing customer orders file
 	@Override
 	public String toString()
 	{
-		return null;//stockOrderID + "," + stockItemID + "," + quantity + "," + manufacturer + "," price;
+		return stockOrderID + "," + stockItemID + "," + orderQuantity + "," + manufacturer + "," + price;
 	}
 }

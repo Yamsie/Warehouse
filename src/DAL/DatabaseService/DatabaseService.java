@@ -41,6 +41,11 @@ public class DatabaseService implements I_DatabaseService {
         deleteFileRow(info);
     }
 
+    public String showData(int id){
+        String data = "";
+        return data;
+    }
+
     public void addData(String info) {
         data.add(info);
         writeData(data);
