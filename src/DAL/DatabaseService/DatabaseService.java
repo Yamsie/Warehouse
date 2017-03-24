@@ -14,33 +14,59 @@ import java.util.Scanner;
  */
 public class DatabaseService implements I_DatabaseService {
 
-    private List<String> output;
+    private List<String> data = new ArrayList<>();
     private File csv;
     private Scanner scanner;
     private String filename;
 
     DatabaseService(String filename) {
         this.filename = filename;
+        readFile();
+    }
+
+    public String[] getRow(int id) {
+        String[] row = readFileRow(id);
+        return row;
     }
 
     public List<String> getData() {
-        openFile(filename);
-        return readFile();
+        return data;
     }
 
     public void changeData(String[] info) {
-
+        updateFileRow(info);
     }
 
     public void deleteData(String[] info) {
-
+        deleteFileRow(info);
     }
 
     public void addData(String info) {
-        openFile(filename);
-        List<String> fileData = readFile();
-        fileData.add(info);
-        writeData(fileData);
+        data.add(info);
+        writeData(data);
+    }
+
+    public List<String> getItemsByStatus(String status) {
+        String[] rowElements;
+        List<String> rows = new ArrayList<>();
+        int statusIndex = 0;
+        boolean complete = false;
+        rowElements = data.get(0).split(",");
+
+        for(int i = 0; i < rowElements.length && complete == false; i++) {
+            if (rowElements[i].compareTo("status") == 0) {
+                statusIndex = i;
+            }
+        }
+
+        for(int i = 1; i < data.size() && complete == false; i++) {
+            rowElements = data.get(i).split(",");
+            if(rowElements[statusIndex].compareTo(status) == 0) {
+                rows.add(data.get(i));
+            }
+        }
+
+        return rows;
     }
 
     protected void openFile(String filename) {
@@ -54,12 +80,54 @@ public class DatabaseService implements I_DatabaseService {
 
     }
 
-    protected List<String> readFile() {
-        output = new ArrayList<>();
-        while(scanner.hasNext()) {
-            output.add(scanner.next());
+    protected String[] readFileRow(int id) {
+        String[] rowElements;
+        boolean complete = false;
+        for(int i = 0; i < data.size() && complete == false; i++) {
+            rowElements = data.get(i).split(",");
+            if(Integer.parseInt(rowElements[0]) == id) {
+                return rowElements;
+            }
         }
-        return output;
+
+        return null;
+    }
+
+    protected void updateFileRow(String[] newRow) {
+        String[] rowElements;
+        boolean complete = false;
+        for(int i = 0; i < data.size() && complete == false; i++) {
+            rowElements = data.get(i).split(",");
+            if(Integer.parseInt(rowElements[0]) == Integer.parseInt(newRow[0])) {
+                data.remove(i);
+            }
+        }
+    }
+
+    protected void deleteFileRow(String[] newRow) {
+        String[] rowElements;
+        boolean complete = false;
+        for(int i = 0; i < data.size() && complete == false; i++) {
+            rowElements = data.get(i).split(",");
+            if(Integer.parseInt(rowElements[0]) == Integer.parseInt(newRow[0])) {
+                String rowToCsv = "";
+                for(int j = 0; j < newRow.length; j++) {
+                    rowToCsv += newRow[j];
+                    if(j != (newRow.length - 1)) {
+                        rowToCsv += ",";
+                        complete = true;
+                    }
+                }
+                data.set(i, rowToCsv);
+            }
+        }
+    }
+
+    protected void readFile() {
+        data = new ArrayList<>();
+        while(scanner.hasNext()) {
+            data.add(scanner.next());
+        }
     }
 
     protected void writeData(List<String> newData) {

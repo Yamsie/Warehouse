@@ -11,13 +11,11 @@ import java.util.List;
  * Created by James on 14/03/2017.
  */
 public class ManagerModel extends Employee implements I_EmployeeModel{
-        /*private String jobTitle;
+        private String jobTitle;
 
-        public ManagerModel(String userName, int id, String email) {
-            super(userName, id, email);
-            jobTitle = "Manager";
+        public ManagerModel(int id, String userName, String jobTitle, String email) {
+            super( id, userName, jobTitle, email);
         }
-*/
 
         private List<Employee> employeeOutput = new ArrayList<>();
         private DatabaseService employees = new AccessEmployees(this.getJobTitle());

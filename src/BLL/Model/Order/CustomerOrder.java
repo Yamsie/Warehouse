@@ -1,32 +1,54 @@
-package BLL.Model.Orders;
+package BLL.Model.Order;
+import BLL.Model.Order.I_Order;
 
-public class CustomerOrder implements I_Order //accessing customer orders file
+import java.util.List;
+
+public class CustomerOrder //implements I_Order //accessing customer orders file
 {
 	private int orderID;
 	private int custID;
-	private int itemID;
+	private List<Integer> itemID;
 	private int quantity;
 	private String shippingAddress;
 	private String status;
+	private String boxSize;
 	private double orderPrice;
 	private double shippingCost;
 	private double totalCost;
 	private String orderDate;
 	
-	public void Order(int orderID, int custID, int itemID, int quantity, String shippingAddress, String status, double orderPrice, 
+	public CustomerOrder(int orderID, int custID, List<Integer> itemID, int quantity, String shippingAddress, String status, String boxSize, double orderPrice,
 			double shippingCost, double totalCost, String orderDate)
 	{
 		this.orderID = orderID;
 		this.custID = custID;
-		this.itemIDs = itemIDs;
+		this.itemID = itemID;
 		this.quantity = quantity;
-		this.orderID = orderI
 		this.shippingAddress = shippingAddress;
 		this.status = status;
+		this.boxSize = boxSize;
 		this.orderPrice = orderPrice;
 		this.shippingCost = shippingCost;
 		this.totalCost = totalCost;
 		this.orderDate = orderDate;
+	}
+
+	public CustomerOrder(String[] orderInfo)
+	{
+		this.orderID = Integer.parseInt(orderInfo[0]);
+		this.custID = Integer.parseInt(orderInfo[1]);
+		addItemToList(orderInfo[2]);
+		this.quantity = Integer.parseInt(orderInfo[3]);
+		this.shippingAddress = orderInfo[4];
+		this.status = orderInfo[5];
+		this.orderPrice = Double.parseDouble(orderInfo[6]);
+		this.shippingCost = Double.parseDouble(orderInfo[7]);
+		this.totalCost = Double.parseDouble(orderInfo[8]);
+		this.orderDate = orderInfo[9];
+	}
+
+	private void addItemToList(String id) {
+		itemID.add(Integer.parseInt(id));
 	}
 	
 	public int getOrderID() {
@@ -45,12 +67,12 @@ public class CustomerOrder implements I_Order //accessing customer orders file
 		this.custID = custID;
 	}
 	
-	public int getItemID(){
+	public List<Integer> getItemID(){
 		return itemID;
 	}
 	
 	public void setItemID(int itemID){
-		this.itemID = itemID;
+		this.itemID.add(itemID);
 	}
 	
 	public int getQuantity() {
@@ -109,8 +131,8 @@ public class CustomerOrder implements I_Order //accessing customer orders file
 		this.orderDate = orderDate;
 	}
 	
-	/*public String getOrderDetails(int orderID)
+	public String getOrderDetails(int orderID)
 	{
-		return "OrderID: " + orderID + "\nItem(s): " + itemIDs + "\nShipping address: " + shippingAddress;
-	}*/
+		return null;//"OrderID: " + orderID + "\nItem(s): " + itemIDs + "\nShipping address: " + shippingAddress;
+	}
 }
