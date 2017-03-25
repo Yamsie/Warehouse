@@ -10,6 +10,7 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 	private int quantity;
 	private String shippingAddress;
 	private String status;
+	private String boxSize;
 	private double orderPrice;
 	private double shippingCost;
 	private double totalCost;
@@ -129,9 +130,17 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 		this.orderDate = orderDate;
 	}
 	
+	public String getBoxSize(){
+		return boxSize;
+	}
+	
+	public void setBoxSize(String boxSize) {
+		this.boxSize = boxSize;
+	}
+	
 	@Override
 	public String toString()
 	{
-		return orderID+","+custID+","+itemID+","+quantity+","+status+","+orderPrice+","+shippingCost+","+totalCost+","+orderDate+","+shippingAddress;
+		return orderID+","+custID+","+itemID+","+quantity+","+status+","+boxSize+","+orderPrice+","+shippingCost+","+totalCost+","+orderDate+","+shippingAddress;
 	}
 }
