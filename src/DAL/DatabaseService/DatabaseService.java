@@ -21,6 +21,7 @@ public class DatabaseService implements I_DatabaseService {
 
     DatabaseService(String filename) {
         this.filename = filename;
+        openFile(filename);
         readFile();
     }
 
@@ -130,8 +131,13 @@ public class DatabaseService implements I_DatabaseService {
 
     protected void readFile() {
         data = new ArrayList<>();
-        while(scanner.hasNext()) {
-            data.add(scanner.next());
+        try {
+            while (scanner.hasNext()) {
+                data.add(scanner.next());
+            }
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "Excepion");
+            System.exit(0);
         }
     }
 

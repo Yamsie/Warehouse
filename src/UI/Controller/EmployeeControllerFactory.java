@@ -16,7 +16,7 @@ public class EmployeeControllerFactory {
             return null;
         }
         if (details.getJobTitle().equalsIgnoreCase("Picker")) {
-            return new PickerController(new PickerView(details.getUserName()), new PickerModel());
+            return new PickerController(new PickerView(details.getUserName()), new PickerModel(details.getId(), details.getUserName(), details.getJobTitle(), details.getEmail()));
         } else if (details.getJobTitle().equalsIgnoreCase("Packer")) {
             return new PackerController(new PackerView(details.getUserName()), new PackerModel(details.getId(),details.getUserName(), details.getJobTitle(), details.getEmail()));
         } else if (details.getJobTitle().equalsIgnoreCase("Loader")) {

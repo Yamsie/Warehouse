@@ -18,6 +18,6 @@ public interface I_EmployeeModel {
 	public string [] getChangeStockOrders();
 	public void getAddOrderInto();
 	public void getDeleteOrder();
-	public void DBOperator();*/
-	
+	public void DBOperator();
+	*/
 }

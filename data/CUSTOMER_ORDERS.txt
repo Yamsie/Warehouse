@@ -1,2 +1,5 @@
 #order_id,cust_id,item_id,order_quantity,status,box_size,order_price,shipping_price,total_price,order_date,shipping_address
-123456,000002,1,2,SHIPPED,null,140,4.99,144.99,21/03/2017
+123456,000002,1,2,ACCEPT,null,140,4.99,144.99,21/03/2017,London
+123456,000002,2,2,SHIPPED,null,140,4.99,144.99,21/03/2017,London
+123457,000002,3,2,SHIPPED,null,140,4.99,144.99,21/03/2017,London
+123457,000002,3,2,ACCEPT,null,140,4.99,144.99,21/03/2017,London
