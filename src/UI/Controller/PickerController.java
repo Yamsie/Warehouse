@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by Jiasen on 2017/3/13.
+ * Created by Jiasen Tian on 2017/3/13.
  */
 public class PickerController implements I_EmployeeController {
     private PickerView view;

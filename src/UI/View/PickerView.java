@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 /**
- * Created by JiasenTian on 2017/3/13.
+ * Created by Jiasen on 2017/3/13.
  */
 public class PickerView extends JFrame implements I_EmployeeView {
     private JTextField ItemID = new JTextField(20);

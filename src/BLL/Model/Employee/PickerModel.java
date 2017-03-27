@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * Created by JiasenTian on 2017/3/19.
+ * Created by Jiasen on 2017/3/19.
  */
 public class PickerModel extends Employee implements I_EmployeeModel{
     private String jobTitle;
