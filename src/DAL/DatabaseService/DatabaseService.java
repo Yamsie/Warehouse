@@ -51,7 +51,7 @@ public class DatabaseService implements I_DatabaseService {
         writeData(data);
     }
 
-    public List<String> getItemsByStatus(String status) {
+    public List<String> getItemsByColumn(String status) {
         String[] rowElements;
         List<String> rows = new ArrayList<>();
         int statusIndex = 0;
@@ -59,7 +59,7 @@ public class DatabaseService implements I_DatabaseService {
         rowElements = data.get(0).split(",");
 
         for(int i = 0; i < rowElements.length && complete == false; i++) {
-            if (rowElements[i].compareTo("status") == 0) {
+            if (rowElements[i].compareTo(status) == 0) {
                 statusIndex = i;
             }
         }

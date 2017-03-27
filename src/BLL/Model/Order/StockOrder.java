@@ -1,4 +1,4 @@
-package BLL.Model.Order
+package BLL.Model.Order;
 
 public class StockOrder
 {

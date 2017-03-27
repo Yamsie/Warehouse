@@ -1,26 +1,32 @@
 package BLL.Model.Order;
 
+import BLL.Model.Box.I_Box;
+import BLL.Model.Inventory.Item;
+import DAL.DatabaseService.AccessInventory;
+import DAL.DatabaseService.DatabaseService;
+
 import java.util.List;
 
 public class CustomerOrder //implements I_Order //accessing customer orders file
 {
 	private int orderID;
 	private int custID;
-	private List<Integer> itemID;
+	private List<Item> items;
 	private int quantity;
 	private String shippingAddress;
 	private String status;
+	private String boxSize;
 	private double orderPrice;
 	private double shippingCost;
 	private double totalCost;
 	private String orderDate;
 	
-	public CustomerOrder(int orderID, int custID, List<Integer> itemID, int quantity, String shippingAddress, String status, String boxSize, double orderPrice,
+	public CustomerOrder(int orderID, int custID, List<Item> items, int quantity, String shippingAddress, String status, String boxSize, double orderPrice,
 			double shippingCost, double totalCost, String orderDate)
 	{
 		this.orderID = orderID;
 		this.custID = custID;
-		this.itemID = itemID;
+		this.items.addAll(items);
 		this.quantity = quantity;
 		this.shippingAddress = shippingAddress;
 		this.status = status;
@@ -35,18 +41,21 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 	{
 		this.orderID = Integer.parseInt(orderInfo[0]);
 		this.custID = Integer.parseInt(orderInfo[1]);
-		addItemToList(orderInfo[2]);
+		addItemToList(Integer.parseInt(orderInfo[2]));
 		this.quantity = Integer.parseInt(orderInfo[3]);
 		this.shippingAddress = orderInfo[4];
 		this.status = orderInfo[5];
-		this.orderPrice = Double.parseDouble(orderInfo[6]);
-		this.shippingCost = Double.parseDouble(orderInfo[7]);
-		this.totalCost = Double.parseDouble(orderInfo[8]);
-		this.orderDate = orderInfo[9];
+		this.boxSize = orderInfo[6];
+		this.orderPrice = Double.parseDouble(orderInfo[7]);
+		this.shippingCost = Double.parseDouble(orderInfo[8]);
+		this.totalCost = Double.parseDouble(orderInfo[9]);
+		this.orderDate = orderInfo[10];
 	}
 
-	private void addItemToList(String id) {
-		itemID.add(Integer.parseInt(id));
+	private void addItemToList(int item) {
+		DatabaseService db = new AccessInventory();
+		String[] elements = db.getItemsByColumn("id").get(0).split(",");
+		items.add(new Item(elements));
 	}
 
 	public int getOrderID() {
@@ -65,12 +74,12 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 		this.custID = custID;
 	}
 	
-	public List<Integer> getItemID(){
-		return itemID;
+	public List<Item> getItems(){
+		return items;
 	}
 	
-	public void setItemID(int itemID){
-		this.itemID.add(itemID);
+	public void setItemID(Item item){
+		this.items.add(item);
 	}
 	
 	public int getQuantity() {
@@ -87,6 +96,14 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getBoxSize() {
+	    return boxSize;
+    }
+
+    public void setBoxSize(I_Box box) {
+		boxSize = box.boxName();
 	}
 	
 	public double getOrderPrice() {
@@ -132,6 +149,6 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 	@Override
 	public String toString()
 	{
-		return orderID+","+custID+","+itemID+","+quantity+","+status+","+orderPrice+","+shippingCost+","+totalCost+","+orderDate+","+shippingAddress;
+		return orderID+","+custID+","+items+","+quantity+","+status+","+orderPrice+","+shippingCost+","+totalCost+","+orderDate+","+shippingAddress;
 	}
 }

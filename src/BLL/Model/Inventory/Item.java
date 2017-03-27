@@ -17,6 +17,7 @@ public class Item
 		this.itemType = itemType;
 		this.manufacturer = manufacturer;
 		this.size = size;
+		this.volume = volume;
 		this.quantity = quantity;
 		this.sPrice = sPrice;
 		this.pPrice = pPrice;
@@ -49,6 +50,14 @@ public class Item
 
 	public String getSize() {
 		return size;
+	}
+
+	public void setVolume(double volume) {
+		this.volume = volume;
+	}
+
+	public double getVolume() {
+		return volume;
 	}
 
 	public int getItemID() {

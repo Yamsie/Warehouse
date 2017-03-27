@@ -2,6 +2,8 @@ package BLL.Model.Employee;
 
 //import DAL package;
 
+import BLL.Model.Box.BoxFactory;
+import BLL.Model.Box.I_Box;
 import BLL.Model.Employee.Employee;
 import BLL.Model.Order.CustomerOrder;
 import DAL.DatabaseService.AccessCustomerOrders;
@@ -30,10 +32,16 @@ public class PackerModel extends Employee {
         return itemInfo;
     }
 
-    public CustomerOrder getOrderInfo(int orderId){
+    public CustomerOrder getOrderInfo(int orderId) {
         String[] orderDetails = db.getRow(orderId);
         CustomerOrder custOrd = new CustomerOrder(orderDetails);
         return custOrd;
+    }
+
+    public void boxOrder(CustomerOrder order) {
+        BoxFactory factory = new BoxFactory();
+        I_Box box = factory.createBox(order);
+        order.setBoxSize(box);
     }
 
     //public String getJobTitle() { return jobTitle;}
