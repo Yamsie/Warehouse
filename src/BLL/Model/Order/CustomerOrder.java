@@ -15,9 +15,10 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 	private double shippingCost;
 	private double totalCost;
 	private String orderDate;
+	private int loadingZone;
 	
 	public CustomerOrder(int orderID, int custID, List<Integer> itemID, int quantity, String shippingAddress, String status, String boxSize, double orderPrice,
-			double shippingCost, double totalCost, String orderDate)
+			double shippingCost, double totalCost, String orderDate, int loadingZone)
 	{
 		this.orderID = orderID;
 		this.custID = custID;
@@ -30,6 +31,7 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 		this.shippingCost = shippingCost;
 		this.totalCost = totalCost;
 		this.orderDate = orderDate;
+		this.loadingZone = loadingZone;
 	}
 
 	public CustomerOrder(String[] orderInfo)
@@ -137,10 +139,19 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 	public void setBoxSize(String boxSize) {
 		this.boxSize = boxSize;
 	}
+
+	public int getLoadingZone(){
+		return loadingZone;
+	}
+
+	public void setLoading(int loadingZone) {
+		this.loadingZone = loadingZone;
+	}
 	
 	@Override
 	public String toString()
 	{
-		return orderID+","+custID+","+itemID+","+quantity+","+status+","+boxSize+","+orderPrice+","+shippingCost+","+totalCost+","+orderDate+","+shippingAddress;
+		return orderID+","+custID+","+itemID+","+quantity+","+status+","+boxSize+","
+				+orderPrice+","+shippingCost+","+totalCost+","+orderDate+","+shippingAddress+","+loadingZone;
 	}
 }

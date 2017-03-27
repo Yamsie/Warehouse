@@ -1,4 +1,4 @@
-package BLL.Model.Order
+package BLL.Model.Order;
 
 public class StockOrder
 {
@@ -8,7 +8,7 @@ public class StockOrder
 	private String manufacturer;
 	private double price;
 	
-	public void Order(int stockOrderID, int itemID, int orderQuantity, String manufacturer, double price)
+	public void Order(int stockOrderID, int stockItemID, int orderQuantity, String manufacturer, double price)
 	{
 		this.stockOrderID = stockOrderID;
 		this.stockItemID = stockItemID;
@@ -24,7 +24,6 @@ public class StockOrder
 	public void setStockOrderID(int stockOrderID) {
 		this.stockOrderID = stockOrderID;
 	}
-	
 	
 	public int getStockItemID(){
 		return stockItemID;

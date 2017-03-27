@@ -1,4 +1,4 @@
-package BLL.API.Courier;
+/*package BLL.API.Courier;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.ws.rs.GET;
@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 
 /**
  * Created by James on 13/03/2017.
- */
+ */ /*
 @Path("/hello")
 public class Courier {
 
@@ -21,3 +21,4 @@ public class Courier {
         return response;
     }
 }
+*/

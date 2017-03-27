@@ -11,6 +11,4 @@ public class AccessCustomerOrders extends DatabaseService {
         super("data/CUSTOMER_ORDERS.txt");
         this.jobTitle = jobTitle;
     }
-
-
 }
