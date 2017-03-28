@@ -21,6 +21,7 @@ public class DatabaseService implements I_DatabaseService {
 
     DatabaseService(String filename) {
         this.filename = filename;
+        openFile(filename);
         readFile();
     }
 
@@ -35,6 +36,7 @@ public class DatabaseService implements I_DatabaseService {
 
     public void changeData(String[] info) {
         updateFileRow(info);
+        writeData(data);
     }
 
     public void deleteData(String[] info) {
@@ -51,22 +53,48 @@ public class DatabaseService implements I_DatabaseService {
         writeData(data);
     }
 
-    public List<String> getItemsByColumn(String status) {
+    public List<String> getInfoByColumn(String column) {
         String[] rowElements;
         List<String> rows = new ArrayList<>();
+        int statusIndex = getColumnIndex(column);
+        boolean complete = false;
+        rowElements = data.get(0).split(",");
+
+        for(int i = 1; i < data.size() && complete == false; i++) {
+            rowElements = data.get(i).split(",");
+            if(rowElements[statusIndex].compareTo(column) == 0) {
+                rows.add(data.get(i));
+            }
+        }
+
+        return rows;
+    }
+
+    public int getColumnIndex(String column) {
+        String[] rowElements;
         int statusIndex = 0;
         boolean complete = false;
         rowElements = data.get(0).split(",");
 
         for(int i = 0; i < rowElements.length && complete == false; i++) {
-            if (rowElements[i].compareTo(status) == 0) {
+            if (rowElements[i].compareTo(column) == 0) {
                 statusIndex = i;
             }
         }
 
+        return statusIndex;
+    }
+
+    public List<String> selectInfo(String column, String row) {
+        String[] rowElements;
+        List<String> rows = new ArrayList<>();
+        int statusIndex = getColumnIndex(column);
+        boolean complete = false;
+        rowElements = data.get(0).split(",");
+
         for(int i = 1; i < data.size() && complete == false; i++) {
             rowElements = data.get(i).split(",");
-            if(rowElements[statusIndex].compareTo(status) == 0) {
+            if(rowElements[statusIndex].compareTo(row) == 0) {
                 rows.add(data.get(i));
             }
         }
@@ -88,7 +116,7 @@ public class DatabaseService implements I_DatabaseService {
     protected String[] readFileRow(int id) {
         String[] rowElements;
         boolean complete = false;
-        for(int i = 0; i < data.size() && complete == false; i++) {
+        for(int i = 1; i < data.size() && complete == false; i++) {
             rowElements = data.get(i).split(",");
             if(Integer.parseInt(rowElements[0]) == id) {
                 return rowElements;
@@ -99,12 +127,20 @@ public class DatabaseService implements I_DatabaseService {
     }
 
     protected void updateFileRow(String[] newRow) {
+        String newLine = "";
         String[] rowElements;
-        boolean complete = false;
-        for(int i = 0; i < data.size() && complete == false; i++) {
+        for(int i = 1; i < data.size(); i++) {
             rowElements = data.get(i).split(",");
             if(Integer.parseInt(rowElements[0]) == Integer.parseInt(newRow[0])) {
+                for (int j = 0; j < newRow.length; j++) {
+                    newLine += newRow[j];
+                    if (j != (newRow.length - 1)) {
+                        newLine += ",";
+                    }
+                }
+                data.add(newLine);
                 data.remove(i);
+                newLine = "";
             }
         }
     }

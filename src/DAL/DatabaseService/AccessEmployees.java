@@ -9,10 +9,7 @@ import java.util.Scanner;
  */
 public class AccessEmployees extends DatabaseService  {
 
-    private String jobTitle;
-
-    public AccessEmployees(String jobTitle) {
+    public AccessEmployees() {
         super("data/EMPLOYEES.txt");
-        this.jobTitle = jobTitle;
     }
 }

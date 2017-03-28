@@ -5,13 +5,14 @@ import BLL.Model.Inventory.Item;
 import DAL.DatabaseService.AccessInventory;
 import DAL.DatabaseService.DatabaseService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerOrder //implements I_Order //accessing customer orders file
 {
 	private int orderID;
 	private int custID;
-	private List<Item> items;
+	private List<Item> items = new ArrayList<>();
 	private int quantity;
 	private String shippingAddress;
 	private String status;
@@ -54,7 +55,7 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 
 	private void addItemToList(int item) {
 		DatabaseService db = new AccessInventory();
-		String[] elements = db.getItemsByColumn("id").get(0).split(",");
+		String[] elements = db.selectInfo("item_id", Integer.toString(item)).get(0).split(",");
 		items.add(new Item(elements));
 	}
 
@@ -80,6 +81,10 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 	
 	public void setItemID(Item item){
 		this.items.add(item);
+	}
+
+	public void setItemID(int id) {
+		addItemToList(id);
 	}
 	
 	public int getQuantity() {
@@ -145,10 +150,9 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 	public void setOrderDate(String orderDate) {
 		this.orderDate = orderDate;
 	}
-	
-	@Override
-	public String toString()
+
+	public String toString(int itemIndex)
 	{
-		return orderID+","+custID+","+items+","+quantity+","+status+","+orderPrice+","+shippingCost+","+totalCost+","+orderDate+","+shippingAddress;
+		return orderID+","+custID+","+items.get(itemIndex).getItemID()+","+quantity+","+shippingAddress+","+status+","+boxSize+","+orderPrice+","+shippingCost+","+totalCost+","+orderDate;
 	}
 }

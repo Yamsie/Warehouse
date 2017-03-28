@@ -13,9 +13,8 @@ public class StockerModel extends Employee implements I_EmployeeModel {
     DatabaseService StockerDB = new AccessInventory();
 
     //int newId, String newName, String newJobTitle, String newEmail
-    public StockerModel(String userName, int id, String email){
-        super(id,userName,"Stocker", email);
-        jobTitle = "Stocker";
+    public StockerModel(int id, String userName, String jobTitle, String email) {
+        super( id, userName, jobTitle, email);
     }
 
     public void addInfo(String[] newItem){

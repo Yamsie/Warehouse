@@ -5,13 +5,12 @@ package BLL.Model.Employee;
  * Created by JiasenTian on 2017/3/19.
  */
 public class PickerModel extends Employee implements I_EmployeeModel{
-    /*private String jobTitle;
+    private String jobTitle;
     //DBOperater pickerBD = new DBPikccr();
 
-    public PickerModel(String userName, int id, String email){
-        super(userName, id, email);
-        jobTitle = "Picker";
-    } */
+    public PickerModel(int id, String userName, String jobTitle, String email) {
+            super( id, userName, jobTitle, email);
+        }
 
     public String [] getItemInfo(int ItemID){
         String [] ItemInfo = new String[7];

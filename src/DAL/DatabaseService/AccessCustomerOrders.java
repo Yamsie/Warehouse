@@ -5,11 +5,8 @@ package DAL.DatabaseService;
  */
 public class AccessCustomerOrders extends DatabaseService {
 
-    private String jobTitle;
-
-    public AccessCustomerOrders(String jobTitle) {
+    public AccessCustomerOrders() {
         super("data/CUSTOMER_ORDERS.txt");
-        this.jobTitle = jobTitle;
     }
 
 
