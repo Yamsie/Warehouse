@@ -7,17 +7,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by Lenovo on 2017/3/13.
+ * Created by Jiasen Tian on 2017/3/13.
  */
 public class PickerController implements I_EmployeeController {
     private PickerView view;
-    //private Picker model;
+    private PickerModel model;
 
     public PickerController(PickerView view, PickerModel model){
         this.view = view;
-        //this.model = model;
+        this.model = model;
         this.view.SubListener1(new SubListener1());
         this.view.SubListener2(new SubListener2());
+        this.view.SubListener3(new SubListener3());
         this.view.LogoutListener(new LogoutListener());
     }
 
@@ -27,9 +28,7 @@ public class PickerController implements I_EmployeeController {
 
             try {
                 ItemID = view.getItemId();
-                //String[] ItemIfo = model.getItemInfo(ItemID);
-                //#item_id,item_type,manufacturer,size,stock_quantity,selling_price,purchase_price
-                /*Test*/ String[] ItemInfo = {"000001","Sports Shoes","Nike", "44", "566", "100", "66"};
+                String[] ItemInfo = model. getItemInfo(Integer.parseInt(ItemID));
                 String description = view.createItemDescription(ItemInfo);
                 view.ItemInfo.setText(description);
             }
@@ -44,22 +43,45 @@ public class PickerController implements I_EmployeeController {
     class SubListener2 implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
             String OrderID;
-
+            String detail = "";
             try {
                 OrderID = view.getOrderId();
-                //String[] orderIfo = model.getOrderInfo(OrderID);
-                //#order_id,cust_id,item_id,order_quantity,status,order_price,shipping_price,total_price,order_date
-                /*Test*/ String[] OrderInfo = {"100001","1213123","0000001", "340g","Arrived", "566", "100", "666", "2017/03/12"};
-                String description = view.createOrderDescription(OrderInfo);
-                view.orderInfo.setText(description);
+                String[] orderInfo = model.groupByOrderId(Integer.parseInt(OrderID));
+                for(int i = 0; i < orderInfo.length; ++ i) {
+                    if(orderInfo[i] != null){
+                        detail += "\nOrder Item " + (i + 1) + " : \n" + model.detailOfOrder(orderInfo[i]) + "\n";
+                    }
+                }
+                model.changeStateOfOrder(Integer.parseInt(OrderID));
+                view.orderInfo.setText(detail);
             }
             catch (Exception e) {
                 e.printStackTrace();
-                view.displayErrorMessage("Wrong Order Id!\n");
+                view.displayErrorMessage("There is no correct order with this Id!\n");
             }
         }
 
     }
+
+    class SubListener3 implements ActionListener{
+        public void actionPerformed(ActionEvent arg0) {
+            String OrderID;
+
+            try {
+                String message = model.checkStock();
+                view.displayErrorMessage(message);
+
+                int[] OrderInfo = model.numberOfOrders();
+                String description = view.createIdDescription(OrderInfo);
+                view.orderIDs.setText(description);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+                view.displayErrorMessage("Wrong Order ID Operation!\n");
+            }
+        }
+    }
+
     class LogoutListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
 
