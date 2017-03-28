@@ -4,5 +4,3 @@ UserId,UserName,Password,TypeOfJob,Email
 000003,Shane123,345345,Stocker,345345@outllook.com
 000004,James123,456456,Manager,456456@outlook.com
 000005,John123,567567,Loader,567567@outlook.com
-1,1,[C@4565503e,1,1
-234,sdgg,[C@3cc77b3d,xvxv,bbb
