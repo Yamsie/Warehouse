@@ -22,16 +22,10 @@ public class LoginController {
             String userName;
             char[] passWord;
 
-            try {
                 userName = view.getUserName();
                 passWord = view.getPassWord();
 
                 model.check(userName, passWord);
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-                view.displayErrorMessage("Error Username or Password");
-            }
         }
 
     }

@@ -1,4 +1,4 @@
 #item_id,item_type,manufacturer,size,volume,stock_quantity,selling_price,purchase_price
-1,Boots,Nike,S,30,125,70,30
-2,Jacket,Adidas,L,100,150,95,40.50
-3,Socks,Puma,XS,15,475,5.50,2
+1,Boots,Nike,S,.05,125,70,30
+2,Jacket,Adidas,L,.1,150,95,40.50
+3,Socks,Puma,XS,.02,475,5.50,2

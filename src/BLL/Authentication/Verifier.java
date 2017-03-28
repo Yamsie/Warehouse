@@ -8,7 +8,7 @@ import java.io.*;
 
 public class Verifier implements Authentication{
 
-   public void check(String userName, char[] passWord) throws IOException {
+   public void check(String userName, char[] passWord) {
 
        DatabaseOperator operator = new DatabaseOperator();
        UserDetails details = operator.getInfo(userName);
@@ -29,7 +29,7 @@ public class Verifier implements Authentication{
    public void pageLoading(boolean temp, UserDetails details) {
        if(temp == false){
             LoginView error = new LoginView();
-            error.displayErrorMessage("Error Username or Password"); //return
+            error.displayErrorMessage("ErrPassword"); //return
        }
        else
        {    //FACTORY DESIGN PATTERN
