@@ -21,9 +21,12 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 	private double shippingCost;
 	private double totalCost;
 	private String orderDate;
+	private int loadingZone;
 	
+
 	public CustomerOrder(int orderID, int custID, List<Item> items, int quantity, String shippingAddress, String status, String boxSize, double orderPrice,
 			double shippingCost, double totalCost, String orderDate)
+
 	{
 		this.orderID = orderID;
 		this.custID = custID;
@@ -36,6 +39,7 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 		this.shippingCost = shippingCost;
 		this.totalCost = totalCost;
 		this.orderDate = orderDate;
+		this.loadingZone = loadingZone;
 	}
 
 	public CustomerOrder(String[] orderInfo)
@@ -151,8 +155,7 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 		this.orderDate = orderDate;
 	}
 
-	public String toString(int itemIndex)
-	{
-		return orderID+","+custID+","+items.get(itemIndex).getItemID()+","+quantity+","+shippingAddress+","+status+","+boxSize+","+orderPrice+","+shippingCost+","+totalCost+","+orderDate;
+	public String toString(int itemIndex) {
+		return orderID + "," + custID + "," + items.get(itemIndex).getItemID() + "," + quantity + "," + shippingAddress + "," + status + "," + boxSize + "," + orderPrice + "," + shippingCost + "," + totalCost + "," + orderDate;
 	}
 }
