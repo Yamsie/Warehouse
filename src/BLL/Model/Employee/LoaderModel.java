@@ -25,7 +25,7 @@ public class LoaderModel extends Employee implements I_EmployeeModel
     }
 
 	public String [] getOrderInfo(int orderID){
-        String [] orderInfo = new String[10];
+        String [] orderInfo = new String[11];
         //orderInfo = loaderDB.getOrderInfo(countryName);
         return orderInfo;
     }

@@ -49,7 +49,7 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 		addItemToList(Integer.parseInt(orderInfo[2]));
 		this.quantity = Integer.parseInt(orderInfo[3]);
 		this.shippingAddress = orderInfo[4];
-		//this.loadingZone = orderInfo[5];
+		this.loadingZone = Integer.parseInt(orderInfo[5]);
 		this.status = orderInfo[6];
 		this.boxSize = orderInfo[7];
 		this.orderPrice = Double.parseDouble(orderInfo[8]);
