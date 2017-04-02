@@ -1,7 +1,9 @@
 package BLL.Model.Employee;
 
 import BLL.Model.Inventory.Item;
+import BLL.Model.Order.StockOrder;
 import DAL.DatabaseService.AccessInventory;
+import DAL.DatabaseService.AccessStockOrders;
 import DAL.DatabaseService.DatabaseService;
 
 import java.util.List;
@@ -9,7 +11,7 @@ import java.util.List;
 public class StockerModel extends Employee implements I_EmployeeModel
 {
     private DatabaseService stockerDBInventory = new AccessInventory();
-    //private DatabaseService stockerDBStockOrders = new AccessStockOrders();
+    private DatabaseService stockerDBStockOrders = new AccessStockOrders();
     private String jobTitle;
 
     public StockerModel(int id, String name, String userName, String email){
@@ -35,9 +37,9 @@ public class StockerModel extends Employee implements I_EmployeeModel
         stockerDBInventory.changeItemData(changedRow);
     }
 
-    //public void createNewStockOrder(StockOrder createdStockOrder) {
-    //	String newRow = createdStockOrder.toString();
-    //	stockerDBStockOrders.addData(newRow);
-    //}
+    public void createNewStockOrder(StockOrder createdStockOrder) {
+    	String newRow = createdStockOrder.toString();
+    	stockerDBStockOrders.addData(newRow);
+    }
 
 }

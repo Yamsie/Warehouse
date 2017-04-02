@@ -1,6 +1,7 @@
 package UI.View;
 
 import BLL.Model.Inventory.Item;
+import BLL.Model.Order.StockOrder;
 
 import javax.swing.*;
 import java.awt.*;
@@ -77,23 +78,26 @@ public class StockerView extends JFrame implements I_EmployeeView
 
     private JButton changeButton = new JButton("Change");
 
-    ////Create New Stock Order
-    //
-    //private JLabel stockOrderLabel = new JLabel("Please Enter Details of Stock Order: ");
-    //
-    //private JLabel stockOrderIDLabel = new JLabel("Plaese enter the Stock Order ID: ");
-    //private JTextField stockOrderID = new JTextField(10);
-    //
-    //private JLabel orderItemIDLabel = new JLabel("Please enter the Item ID: ");
-    //private JTextField orderItemID = new JTextField(10);
-    //
-    //private JLabel orderItemManufacturerLabel = new JLabel("Please enter the Manufacturer: ");
-    //private JTextField orderItemManufacturer = new JTextField(10);
-    //
-    //private JLabel orderItemQuantityLabel = new JLabel("Please enter the Quantity: ");
-    //private JTextField orderItemQuantity = new JTextField(10);
-    //
-    //private JButton newStockOrder = new JButton("Create order");
+    //Create New Stock Order
+
+    private JLabel stockOrderLabel = new JLabel("Please Enter Details of Stock Order: ");
+
+    private JLabel stockOrderIDLabel = new JLabel("Plaese enter the Stock Order ID: ");
+    private JTextField stockOrderID = new JTextField(10);
+
+    private JLabel orderItemIDLabel = new JLabel("Please enter the Item ID: ");
+    private JTextField orderItemID = new JTextField(10);
+
+    private JLabel orderItemManufacturerLabel = new JLabel("Please enter the Manufacturer: ");
+    private JTextField orderItemManufacturer = new JTextField(10);
+
+    private JLabel orderPriceLabel = new JLabel("Please enter the Price: ");
+    private JTextField orderPrice = new JTextField(10);
+
+    private JLabel orderItemQuantityLabel = new JLabel("Please enter the Quantity: ");
+    private JTextField orderItemQuantity = new JTextField(10);
+
+    private JButton newStockOrder = new JButton("Create order");
 
     //Logout Button
 
@@ -108,11 +112,11 @@ public class StockerView extends JFrame implements I_EmployeeView
         JPanel Panel1 = new JPanel();
         JPanel Panel2 = new JPanel();
         JPanel Panel3 = new JPanel();
-        //JPanel Panel4 = new JPanel();
+        JPanel Panel4 = new JPanel();
         Panel1.setLayout(new GridLayout(8, 2));
         Panel2.setLayout(new FlowLayout(FlowLayout.CENTER));
         Panel3.setLayout(new GridLayout(9, 2));
-        //Panel4.setLayout(new GridLayout(6,2));
+        Panel4.setLayout(new GridLayout(6,2));
 
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
@@ -160,15 +164,17 @@ public class StockerView extends JFrame implements I_EmployeeView
         Panel3.add(changePurchasePrice);
         Panel3.add(changeButton);
 
-        //Panel4.add(stockOrderIDLabel);
-        //Panel4.add(stockOrderID);
-        //Panel4.add(orderItemIDLabel);
-        //Panel4.add(orderItemID);
-        //Panel4.add(orderItemManufacturerLabel);
-        //Panel4.add(orderItemManufacturer);
-        //Panel4.add(orderItemQuantityLabel);
-        //Panel4.add(orderItemQuantity);
-        //Panel4.add(newStockOrder);
+        Panel4.add(stockOrderIDLabel);
+        Panel4.add(stockOrderID);
+        Panel4.add(orderItemIDLabel);
+        Panel4.add(orderItemID);
+        Panel4.add(orderItemManufacturerLabel);
+        Panel4.add(orderItemManufacturer);
+        Panel4.add(orderItemQuantityLabel);
+        Panel4.add(orderItemQuantity);
+        Panel4.add(orderPriceLabel);
+        Panel4.add(orderPrice);
+        Panel4.add(newStockOrder);
 
         NorthPanel.setLayout(new BorderLayout());
         NorthPanel.add(addNewItemLabel, BorderLayout.NORTH);
@@ -181,8 +187,8 @@ public class StockerView extends JFrame implements I_EmployeeView
         CenterPanel.add(Panel3, BorderLayout.SOUTH);
 
         SouthPanel.setLayout(new BorderLayout());
-        //SouthPanel.add(stockOrderLabel, BorderLayout.NORTH);
-        //SouthPanel.add(Panel4, BorderLayout.CENTER);
+        SouthPanel.add(stockOrderLabel, BorderLayout.NORTH);
+        SouthPanel.add(Panel4, BorderLayout.CENTER);
         SouthPanel.add(logoutButton, BorderLayout.SOUTH);
 
 
@@ -206,9 +212,9 @@ public class StockerView extends JFrame implements I_EmployeeView
         changeButton.addActionListener(listenForButton);
     }
 
-    // public void newStockOrderListener(ActionListener listenForButton){							//Listner for 'New Stock Order' Button
-    //	newStockOrder.addActionListener(listenForButton);
-    //}
+     public void newStockOrderListener(ActionListener listenForButton){							//Listner for 'New Stock Order' Button
+    	newStockOrder.addActionListener(listenForButton);
+    }
 
     public void logoutListener(ActionListener listenForButton) {									//Listener for 'Logout' Button
         logoutButton.addActionListener(listenForButton);
@@ -251,14 +257,15 @@ public class StockerView extends JFrame implements I_EmployeeView
         return changedItem;
     }
 
-    //public StockOrder newStockOrder(){					//Gets details of new stock order to be added to STOCK_ORDERS.txt
-    //    int stockOrderID = Integer.parseInt(getStockOrderID());
-    //    int itemID = Integer.parseInt(getOrderItemID();
-    //    String manufacturer = getOrderItemManufacturer());
-    //    int quantity = Integer.parseInt(getOrderItemQuantity());
-    //	  StockOrder createdStockOrder = newStockOrder(stockOrderID,itemID,manufacturer,quantity);
-    //    return createdStockOrder;
-    //}
+    public StockOrder newStockOrder(){					//Gets details of new stock order to be added to STOCK_ORDERS.txt
+        int stockOrderID = Integer.parseInt(getStockOrderID());
+        int itemID = Integer.parseInt(getOrderItemID());
+        String manufacturer = getOrderItemManufacturer();
+        int quantity = Integer.parseInt(getOrderItemQuantity());
+        double price = Double.parseDouble(getOrderPrice());
+        StockOrder createdStockOrder = new StockOrder(stockOrderID,itemID,manufacturer,quantity,price);
+        return createdStockOrder;
+    }
 
     //Get Methods for 'Add Item'
 
@@ -368,23 +375,27 @@ public class StockerView extends JFrame implements I_EmployeeView
         changePurchasePrice.setText(purchasePrice);
     }
 
-    ////Get methods for 'New Stock Order'
-    //
-    //public String getStockOrderID() {
-    //    return stockOrderID.getText();
-    //}
-    //
-    //public String getOrderItemID() {
-    //    return orderItemID.getText();
-    //}
-    //
-    //public String getOrderItemManufacturer() {
-    //    return orderItemManufacturer.getText();
-    //}
-    //
-    //public String getOrderItemQuantity() {
-    //    return orderItemQuantity.getText();
-    //}
+    //Get methods for 'New Stock Order'
+
+    public String getStockOrderID() {
+        return stockOrderID.getText();
+    }
+
+    public String getOrderItemID() {
+        return orderItemID.getText();
+    }
+
+    public String getOrderItemManufacturer() {
+        return orderItemManufacturer.getText();
+    }
+
+    public String getOrderItemQuantity() {
+        return orderItemQuantity.getText();
+    }
+
+    public String getOrderPrice() {
+        return orderPrice.getText();
+    }
 
     //Error Message
 

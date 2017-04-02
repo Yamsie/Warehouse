@@ -4,16 +4,16 @@ public class StockOrder
 {
 	private int stockOrderID;
 	private int stockItemID;
-	private int orderQuantity;
 	private String manufacturer;
+	private int orderQuantity;
 	private double price;
-	
-	public void Order(int stockOrderID, int stockItemID, int orderQuantity, String manufacturer, double price)
+
+	public StockOrder(int stockOrderID, int stockItemID, String manufacturer, int orderQuantity, double price)
 	{
 		this.stockOrderID = stockOrderID;
 		this.stockItemID = stockItemID;
-		this.orderQuantity = orderQuantity;
 		this.manufacturer = manufacturer;
+		this.orderQuantity = orderQuantity;
 		this.price = price;
 	}
 	
@@ -32,7 +32,15 @@ public class StockOrder
 	public void setStockItemID(int stockItemID){
 		this.stockItemID = stockItemID;
 	}
-	
+
+	public String getManufacturer(){
+		return manufacturer;
+	}
+
+	public void setManufacturer(String manufacturer){
+		this.manufacturer = manufacturer;
+	}
+
 	public int getOrderQuantity() {
 		return orderQuantity;
 	}
@@ -49,17 +57,9 @@ public class StockOrder
 		this.price = price;
 	}
 	
-	public String getManufacturer(){
-		return manufacturer;
-	}
-	
-	public void setManufacturer(String manufacturer){
-		this.manufacturer = manufacturer;
-	}
-	
 	@Override
 	public String toString()
 	{
-		return stockOrderID + "," + stockItemID + "," + orderQuantity + "," + manufacturer + "," + price;
+		return stockOrderID + "," + stockItemID + "," + manufacturer + "," + orderQuantity + "," + price;
 	}
 }

@@ -2,6 +2,7 @@ package UI.Controller;
 
 import BLL.Model.Employee.StockerModel;
 import BLL.Model.Inventory.Item;
+import BLL.Model.Order.StockOrder;
 import UI.View.StockerView;
 
 import java.awt.event.ActionEvent;
@@ -17,7 +18,7 @@ public class StockerController implements I_EmployeeController {
         this.view.addNewItemListener(new addNewItemListener());
         this.view.chooseListener(new chooseListener());
         this.view.changeItemDetailsListener(new changeItemDetailsListener());
-        //this.view.newStockOrderListener(new newStockOrderListener());
+        this.view.newStockOrderListener(new newStockOrderListener());
         this.view.logoutListener(new logoutListener());
     }
 
@@ -43,12 +44,12 @@ public class StockerController implements I_EmployeeController {
         }
     }
 
-    //class newStockOrderListener implements  ActionListener{
-    //    public void actionPerformed(ActionEvent arg0) {
-    //		StockOrder createdStockOrder = view.newStockOrder()
-    //		model.createNewStockOrder(createdStockOrder);
-    //    }
-    //}
+    class newStockOrderListener implements  ActionListener{
+        public void actionPerformed(ActionEvent arg0) {
+    		StockOrder createdStockOrder = view.newStockOrder();
+    		model.createNewStockOrder(createdStockOrder);
+        }
+    }
 
     class logoutListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
