@@ -31,8 +31,7 @@ public class StockerController implements I_EmployeeController {
     class chooseListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
             String chosenItemID = view.getChooseItem();
-            String chosenItemInfo[] = new String[7];
-            chosenItemInfo = model.showChosenItem(chosenItemID);
+            String chosenItemInfo[] = model.showChosenItem(chosenItemID);
             view.setChangeInfo(chosenItemInfo);
         }
     }

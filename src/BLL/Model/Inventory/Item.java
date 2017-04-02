@@ -11,12 +11,13 @@ public class Item
 	private double sPrice;
 	private double pPrice;
 
-	public Item(int itemID, String itemType, String manufacturer, String size, int quantity, double sPrice, double pPrice)
+	public Item(int itemID, String itemType, String manufacturer, String size, double volume, int quantity, double sPrice, double pPrice)
 	{
 		this.itemID = itemID;
 		this.itemType = itemType;
 		this.manufacturer = manufacturer;
 		this.size = size;
+		this.volume = volume;
 		this.quantity = quantity;
 		this.sPrice = sPrice;
 		this.pPrice = pPrice;
@@ -36,7 +37,7 @@ public class Item
 
 	@Override
 	public String toString() {
-		return itemID + "," + itemType + "," + manufacturer + "," + size + "," + quantity + "," + sPrice + "," + pPrice;
+		return itemID + "," + itemType + "," + manufacturer + "," + size + "," + volume + "," + quantity + "," + sPrice + "," + pPrice;
 	}
 
 	public String getItemType() {
@@ -49,10 +50,6 @@ public class Item
 
 	public String getSize() {
 		return size;
-	}
-
-	public void setVolume(double volume) {
-		this.volume = volume;
 	}
 
 	public double getVolume() {
@@ -89,6 +86,10 @@ public class Item
 
 	public void setSize(String size) {
 		this.size = size;
+	}
+
+	public void setVolume(double volume) {
+		this.volume = volume;
 	}
 
 	public void setQuantity(int quantity) {

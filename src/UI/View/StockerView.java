@@ -26,6 +26,9 @@ public class StockerView extends JFrame implements I_EmployeeView
     private JLabel addSizeLabel = new JLabel("Please enter Item Size: ");
     private JTextField addSize = new JTextField(10);
 
+    private JLabel addVolumeLabel = new JLabel("Please enter Item Volume: ");
+    private JTextField addVolume = new JTextField(10);
+
     private JLabel addQuantityLabel = new JLabel("Please enter the Quantity: ");
     private JTextField addQuantity = new JTextField(10);
 
@@ -59,6 +62,9 @@ public class StockerView extends JFrame implements I_EmployeeView
 
     private JLabel changeSizeLabel = new JLabel("Please enter the Item Size: ");
     private JTextField changeSize = new JTextField(10);
+
+    private JLabel changeVolumeLabel = new JLabel("Please enter the Item Volume: ");
+    private JTextField changeVolume = new JTextField(10);
 
     private JLabel changeQuantityLabel = new JLabel("Please enter the Quantity: ");
     private JTextField changeQuantity = new JTextField(10);
@@ -103,9 +109,9 @@ public class StockerView extends JFrame implements I_EmployeeView
         JPanel Panel2 = new JPanel();
         JPanel Panel3 = new JPanel();
         //JPanel Panel4 = new JPanel();
-        Panel1.setLayout(new GridLayout(7, 2));
+        Panel1.setLayout(new GridLayout(8, 2));
         Panel2.setLayout(new FlowLayout(FlowLayout.CENTER));
-        Panel3.setLayout(new GridLayout(8, 2));
+        Panel3.setLayout(new GridLayout(9, 2));
         //Panel4.setLayout(new GridLayout(6,2));
 
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -123,6 +129,8 @@ public class StockerView extends JFrame implements I_EmployeeView
         Panel1.add(addManufacturer);
         Panel1.add(addSizeLabel);
         Panel1.add(addSize);
+        Panel1.add(addVolumeLabel);
+        Panel1.add(addVolume);
         Panel1.add(addQuantityLabel);
         Panel1.add(addQuantity);
         Panel1.add(addSellingPriceLabel);
@@ -142,6 +150,8 @@ public class StockerView extends JFrame implements I_EmployeeView
         Panel3.add(changeManufacturer);
         Panel3.add(changeSizeLabel);
         Panel3.add(changeSize);
+        Panel3.add(changeVolumeLabel);
+        Panel3.add(changeVolume);
         Panel3.add(changeQuantityLabel);
         Panel3.add(changeQuantity);
         Panel3.add(changeSellingPriceLabel);
@@ -209,10 +219,11 @@ public class StockerView extends JFrame implements I_EmployeeView
         String itemType = getNewItemType();
         String manufacturer = getNewManufacturer();
         String size = getNewSize();
+        double volume = Double.parseDouble(getNewVolume());
         int quantity = Integer.parseInt(getNewQuantity());
         double sPrice = Double.parseDouble(getNewSellingPrice());
         double pPrice = Double.parseDouble(getNewPurchasePrice());
-        Item createdItem = new Item(itemID,itemType,manufacturer,size,quantity,sPrice,pPrice);
+        Item createdItem = new Item(itemID,itemType,manufacturer,size,volume,quantity,sPrice,pPrice);
         return createdItem;
     }
 
@@ -221,9 +232,10 @@ public class StockerView extends JFrame implements I_EmployeeView
         setChangeItemType(chosenItemInfo[1]);
         setChangeManufacturer(chosenItemInfo[2]);
         setChangeSize(chosenItemInfo[3]);
-        setChangeQuantity(chosenItemInfo[4]);
-        setChangeSellingPrice(chosenItemInfo[5]);
-        setChangePurchasePrice(chosenItemInfo[6]);
+        setChangeVolume(chosenItemInfo[4]);
+        setChangeQuantity(chosenItemInfo[5]);
+        setChangeSellingPrice(chosenItemInfo[6]);
+        setChangePurchasePrice(chosenItemInfo[7]);
     }
 
     public Item changeItem(){
@@ -231,10 +243,11 @@ public class StockerView extends JFrame implements I_EmployeeView
         String itemType = getChangeItemType();
         String manufacturer = getChangeManufacturer();
         String size = getChangeSize();
+        double volume = Double.parseDouble(getChangeVolume());
         int quantity = Integer.parseInt(getChangeQuantity());
         double sPrice = Double.parseDouble(getChangeSellingPrice());
         double pPrice = Double.parseDouble(getChangePurchasePrice());
-        Item changedItem = new Item(itemID,itemType,manufacturer,size,quantity,sPrice,pPrice);
+        Item changedItem = new Item(itemID,itemType,manufacturer,size,volume,quantity,sPrice,pPrice);
         return changedItem;
     }
 
@@ -263,6 +276,10 @@ public class StockerView extends JFrame implements I_EmployeeView
 
     public String getNewSize() {
         return addSize.getText();
+    }
+
+    public String getNewVolume() {
+        return addVolume.getText();
     }
 
     public String getNewQuantity() {
@@ -301,6 +318,10 @@ public class StockerView extends JFrame implements I_EmployeeView
         return changeSize.getText();
     }
 
+    public String getChangeVolume() {
+        return changeVolume.getText();
+    }
+
     public String getChangeQuantity() {
         return changeQuantity.getText();
     }
@@ -329,6 +350,10 @@ public class StockerView extends JFrame implements I_EmployeeView
 
     public void setChangeSize(String size) {
         changeSize.setText(size);
+    }
+
+    public void setChangeVolume(String volume) {
+        changeVolume.setText(volume);
     }
 
     public void setChangeQuantity(String quantity) {
