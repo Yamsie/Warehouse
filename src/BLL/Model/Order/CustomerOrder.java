@@ -25,7 +25,7 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 	
 
 	public CustomerOrder(int orderID, int custID, List<Item> items, int quantity, String shippingAddress, String status, String boxSize, double orderPrice,
-			double shippingCost, double totalCost, String orderDate)
+						 double shippingCost, double totalCost, String orderDate, int loadingZone)
 
 	{
 		this.orderID = orderID;
@@ -49,12 +49,13 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 		addItemToList(Integer.parseInt(orderInfo[2]));
 		this.quantity = Integer.parseInt(orderInfo[3]);
 		this.shippingAddress = orderInfo[4];
-		this.status = orderInfo[5];
-		this.boxSize = orderInfo[6];
-		this.orderPrice = Double.parseDouble(orderInfo[7]);
-		this.shippingCost = Double.parseDouble(orderInfo[8]);
-		this.totalCost = Double.parseDouble(orderInfo[9]);
-		this.orderDate = orderInfo[10];
+		//this.loadingZone = orderInfo[5];
+		this.status = orderInfo[6];
+		this.boxSize = orderInfo[7];
+		this.orderPrice = Double.parseDouble(orderInfo[8]);
+		this.shippingCost = Double.parseDouble(orderInfo[9]);
+		this.totalCost = Double.parseDouble(orderInfo[10]);
+		this.orderDate = orderInfo[11];
 	}
 
 	private void addItemToList(int item) {
@@ -130,7 +131,15 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 	public void setShippingCost(double shippingCost) {
 		this.shippingCost = shippingCost;
 	}
-	
+
+	public int getLoadingZone() {
+		return loadingZone;
+	}
+
+	public void setLoadingZone(int loadingZone) {
+		this.loadingZone = loadingZone;
+	}
+
 	public double getTotalCost() {
 		return totalCost;
 	}
@@ -156,6 +165,6 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 	}
 
 	public String toString(int itemIndex) {
-		return orderID + "," + custID + "," + items.get(itemIndex).getItemID() + "," + quantity + "," + shippingAddress + "," + status + "," + boxSize + "," + orderPrice + "," + shippingCost + "," + totalCost + "," + orderDate;
+		return orderID + "," + custID + "," + items.get(itemIndex).getItemID() + "," + quantity + "," + shippingAddress + "," + loadingZone + "," + status + "," + boxSize + "," + orderPrice + "," + shippingCost + "," + totalCost + "," + orderDate;
 	}
 }
