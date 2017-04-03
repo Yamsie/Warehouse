@@ -47,11 +47,12 @@ public class LoaderView extends JFrame implements I_EmployeeView {
         return oderID.getText();
     }
 
-    public String createDescription(String [] OrderInfo){
+    public String createDescription(String [] chosenOrderInfo){
         String description = "";
-        description += "order_id: " + OrderInfo[0] + "\n\nCustomer Id: " + OrderInfo[1] + "\n\nItem ID: " + OrderInfo[2]
-                + "\n\nOrder Quantity: " +  OrderInfo[3] + "\n\nStatus: " + OrderInfo[4] + "\n\nOrder Price: " + OrderInfo[5]
-                + "\n\nShipping Price: " + OrderInfo[6] + "\n\nTotal Price: " + OrderInfo[7] + "\n\nOrder Date: " + OrderInfo[8];
+        description += "Order ID: " + chosenOrderInfo[0] + "\n\nCustomer ID: " + chosenOrderInfo[1] + "\n\nItem ID: " + chosenOrderInfo[2]
+                + "\n\nOrder Quantity: " +  chosenOrderInfo[3] + "\n\nShipping Address: " + chosenOrderInfo[4] + "\n\nLoading Zone: " + chosenOrderInfo[5]
+                + "\n\nStatus: " + chosenOrderInfo[6] + "\n\nBox Size: " + chosenOrderInfo[7] + "\n\nOrder Price: " + chosenOrderInfo[8]
+                + "\n\nShipping Price: " + chosenOrderInfo[9] + "\n\nTotal Price: " + chosenOrderInfo[10] + "\n\nOrder Date: " + chosenOrderInfo[11];
         return description;
     }
 

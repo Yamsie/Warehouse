@@ -47,6 +47,20 @@ public class AccessCustomerOrders extends DatabaseService {
         super.writeData(fileData);
     }
 
+    public String showData(int chosenOrderID) {
+        List<String> fileData = super.getData();
+        //Instead of returning a string array, return an Item??
+        for (int i = 1; i < fileData.size(); i++) {
+            String orderInfo;
+            String[] detail = fileData.get(i).split(",");
+            if (Integer.parseInt(detail[0]) == chosenOrderID) {
+                orderInfo = fileData.get(i);
+                //System.out.println(itemInfo);
+                return orderInfo;
+            }
+        }
+        return null;
+    }
 
     public String parseIntoString(String[] order){
         String temp = "";

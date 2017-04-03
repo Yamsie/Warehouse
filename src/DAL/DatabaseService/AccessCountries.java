@@ -10,5 +10,4 @@ public class AccessCountries  extends DatabaseService  {
         super("data/COUNTRIES.txt");
 
     }
-
 }

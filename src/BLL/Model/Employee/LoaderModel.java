@@ -12,21 +12,18 @@ public class LoaderModel extends Employee implements I_EmployeeModel
 	//check if order is in loading zone
 
 	String jobTitle;
-	DatabaseService loaderDB = new AccessCountries();
+	DatabaseService loaderDB = new AccessCustomerOrders();
+	//DatabaseService loaderDBCountry = new AccessCountries();
 
 	public LoaderModel(int id, String userName, String jobTitle, String email) {
         super( id, userName, jobTitle, email);
     }
 
-	public String [] getCountryInfo(String countryName){
-        String [] countryInfo = new String[7];
-        //countryInfo = loaderDB.getCountryInfo(countryName);
-        return countryInfo;
-    }
-
-	public String [] getOrderInfo(int orderID){
-        String [] orderInfo = new String[11];
-        //orderInfo = loaderDB.getOrderInfo(countryName);
-        return orderInfo;
+    public String[] showChosenOrder(String chosenOrder) {
+        String chosenOrderInfo[] = new String[11];
+        int chosenOrderID = Integer.parseInt(chosenOrder);
+        String chosenOrderDetails = loaderDB.showData(chosenOrderID);
+        chosenOrderInfo = chosenOrderDetails.split(",");
+        return chosenOrderInfo;
     }
 }
