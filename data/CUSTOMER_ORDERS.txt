@@ -1,6 +1,4 @@
-#order_id,cust_id,item_id,order_quantity,status,box_size,order_price,shipping_price,total_price,order_date,shipping_address
-123456,000002,1,2,ACCEPT,null,140,4.99,144.99,21/03/2017,London
-123456,000002,2,2,SHIPPED,null,140,4.99,144.99,21/03/2017,London
-123457,000002,3,2,SHIPPED,null,140,4.99,144.99,21/03/2017,London
-123457,000002,3,2,ACCEPT,null,140,4.99,144.99,21/03/2017,London
-
+#order_id,cust_id,item_id,order_quantity,shipping_address,loading_zone,status,box_size,order_price,shipping_price,total_price,order_date
+123456,2,1,1,Ireland,1,LOADING,BoxA,1.0,1.0,2.0,28/01/2017
+123456,2,2,1,France,3,LOADING,BoxA,1.0,1.0,2.0,28/01/2017
+123456,2,2,1,Italy,4,LOADING,BoxA,1.0,1.0,2.0,28/01/2017

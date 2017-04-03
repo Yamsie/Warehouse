@@ -1,8 +1,10 @@
 package UI.Controller;
 
 import BLL.Model.Employee.PackerModel;
+import BLL.Model.Order.CustomerOrder;
 import UI.View.PackerView;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 //import Package
@@ -12,13 +14,14 @@ import java.awt.event.ActionListener;
  */
 public class PackerController implements I_EmployeeController {
     private PackerView view;
-    //private PakerModle Model;
+    private PackerModel model;
 
     public PackerController(PackerView view, PackerModel model){
         this.view = view;
-        //this.model = model;
+        this.model = model;
         this.view.SubListener1(new SubListener1());
         this.view.SubListener2(new SubListener2());
+        this.view.SubListener3(new SubListener3());
         this.view.LogoutListener(new LogoutListener());
     }
     class SubListener1 implements ActionListener {
@@ -26,38 +29,59 @@ public class PackerController implements I_EmployeeController {
             String ItemID;
 
             try {
-                ItemID = view.getItemId();
-                //String[] ItemIfo = model.getInfo(ItemID);
-                //#item_id,item_type,manufacturer,size,stock_quantity,selling_price,purchase_price
-                /*Test*/ String[] ItemInfo = {"000001","Sports Shoes","Nike", "44", "566", "100", "66"};
-                String descroption = view.createItemDescription(ItemInfo);
-                view.ItemInfo.setText(descroption);
+                model.addItemReady(Integer.parseInt(view.getItemId()));
+                String description = model.createItemDescription();
+                view.setItemInfo(description);
             }
-            catch (Exception e) {
-                e.printStackTrace();
-                view.displayErrorMessage("NO This Item In Stock!\n");
+            catch (NullPointerException e) {
+                view.displayErrorMessage("Item ID: " + view.getItemId() + " not found. (Error " + e + ")");
+            }
+            catch (NumberFormatException e) {
+                view.displayErrorMessage("Invalid Item ID: " + view.getItemId() + ". (Error " + e + ")");
+            }
+            catch (ArrayIndexOutOfBoundsException e) {
+                view.displayErrorMessage("Invalid Item ID: " + view.getItemId() + ". (Error " + e + ")");
             }
         }
 
     }
     class SubListener2 implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
-            String OrderID;
+            CustomerOrder order;
 
             try {
-                OrderID = view.getOrderId();
-                //String[] orderIfo = model.getOrderInfo(OrderID);
-                //#order_id,cust_id,item_id,order_quantity,status,order_price,shipping_price,total_price,order_date
-                /*Test*/ String[] OrderInfo = {"100001","1213123","0000001", "340g","Arrived", "566", "100", "666", "2017/03/12"};
-                String descroption = view.createOrderDescription(OrderInfo);
-                view.orderInfo.setText(descroption);
+                view.setItemInfo("");
+                view.setOrderInfo("");
+                model.setCurrentOrder(Integer.parseInt(view.getOrderId()));
+                String description = model.createOrderDescription();
+                view.setOrderInfo(description);
             }
-            catch (Exception e) {
-                e.printStackTrace();
-                view.displayErrorMessage("Wrong Order Id!\n");
+            catch (NullPointerException e) {
+                view.displayErrorMessage("Order ID: " + view.getOrderId() + " not found. (Error " + e + ")");
+            }
+            catch (NumberFormatException e) {
+                view.displayErrorMessage("Invalid Order ID: " + view.getOrderId() + ". (Error " + e + ")");
             }
         }
 
+    }
+
+    class SubListener3 implements ActionListener {
+        public void actionPerformed(ActionEvent arg0) {
+            CustomerOrder order;
+
+            try {
+                model.boxOrder();
+            }
+            catch (NullPointerException e) {
+                e.printStackTrace();
+                view.displayErrorMessage("Order ID: " + view.getOrderId() + " too large. (Error " + e + ")");
+            }
+            catch (NumberFormatException e) {
+                e.printStackTrace();
+                view.displayErrorMessage("Invalid Order ID: " + view.getOrderId() + ". (Error " + e + ")");
+            }
+        }
     }
 
     class LogoutListener implements ActionListener {
@@ -68,7 +92,7 @@ public class PackerController implements I_EmployeeController {
             }
             catch (Exception e) {
                 e.printStackTrace();
-                view.displayErrorMessage("Errer to Log out!");
+                view.displayErrorMessage("Error Logging Out.");
             }
         }
 

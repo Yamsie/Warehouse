@@ -14,10 +14,9 @@ public class LoaderModel extends Employee implements I_EmployeeModel
 	String jobTitle;
 	DatabaseService loaderDB = new AccessCountries();
 
-	public LoaderModel(String userName, int id, String email){
-      super(id,userName,"Loader", email);
-	   		jobTitle = "Loader";
-	    }
+	public LoaderModel(int id, String userName, String jobTitle, String email) {
+        super( id, userName, jobTitle, email);
+    }
 
 	public String [] getCountryInfo(String countryName){
         String [] countryInfo = new String[7];
@@ -26,7 +25,7 @@ public class LoaderModel extends Employee implements I_EmployeeModel
     }
 
 	public String [] getOrderInfo(int orderID){
-        String [] orderInfo = new String[9];
+        String [] orderInfo = new String[10];
         //orderInfo = loaderDB.getOrderInfo(countryName);
         return orderInfo;
     }

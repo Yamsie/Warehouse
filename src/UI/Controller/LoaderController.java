@@ -1,5 +1,6 @@
 package UI.Controller;
 
+import BLL.Model.Employee.LoaderModel;
 import UI.View.LoaderView;
 
 import java.awt.event.ActionEvent;
@@ -9,7 +10,7 @@ public class LoaderController implements I_EmployeeController {
     private LoaderView view;
     //private LoaderModle model;
 
-    public LoaderController(LoaderView view/*,LoaderModel model*/){
+    public LoaderController(LoaderView view, LoaderModel model){
         this.view = view;
         //this.model = model;
         this.view.SubListener(new SubListener());

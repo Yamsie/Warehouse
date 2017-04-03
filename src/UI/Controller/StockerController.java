@@ -1,6 +1,8 @@
 package UI.Controller;
 
 import BLL.Model.Employee.StockerModel;
+import BLL.Model.Inventory.Item;
+import BLL.Model.Order.StockOrder;
 import UI.View.StockerView;
 
 import java.awt.event.ActionEvent;
@@ -10,93 +12,52 @@ public class StockerController implements I_EmployeeController {
     private StockerView view;
     private StockerModel model;
 
-    public StockerController(StockerView view, StockerModel model){
-        this.view = view;
-        this.model = model;
-        this.view.addListener(new addListener());
-        this.view.changeListener(new changeListener());
+    public StockerController(StockerView stockerView, StockerModel stockerModel){
+        this.view = stockerView;
+        this.model = stockerModel;
+        this.view.addNewItemListener(new addNewItemListener());
         this.view.chooseListener(new chooseListener());
+        this.view.changeItemDetailsListener(new changeItemDetailsListener());
         this.view.newStockOrderListener(new newStockOrderListener());
-        this.view.LogoutListener(new LogoutListener());
+        this.view.logoutListener(new logoutListener());
     }
 
-    class addListener implements ActionListener {
+    class addNewItemListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
-
-            try {
-                String[] newItem = view.newItem(view);
-                model.addInfo(newItem);
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-                view.displayErrorMessage("Errer to add new Item!");
-            }
+            Item createdItem = view.newItem();
+            model.addNewItem(createdItem);
         }
-
     }
 
     class chooseListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
-            String Id;
-            try {
-                Id = view.getChooseId();
-                String[] Item = model.showInfo(Integer.parseInt(Id));
-                view.setChangeInfo(Item);
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-                view.displayErrorMessage("ID errer!");
-            }
+            String chosenItemID = view.getChooseItem();
+            String chosenItemInfo[] = model.showChosenItem(chosenItemID);
+            view.setChangeInfo(chosenItemInfo);
         }
-
     }
 
-
-    class changeListener implements ActionListener {
+    class changeItemDetailsListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
-
-            try {
-                String[] newInfo = view.getChange();
-                model.changeInfo(newInfo);
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-                view.displayErrorMessage("Errer to Log out!");
-            }
+            Item changedItem = view.changeItem();
+            model.changeExistingItem(changedItem);
         }
-
     }
 
     class newStockOrderListener implements  ActionListener{
         public void actionPerformed(ActionEvent arg0) {
-
-            try {
-                String[] newInfo = view.getNewStockOrder();
-                model.addInfo(newInfo);
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-                view.displayErrorMessage("Errer to create new stock order!");
-            }
+    		StockOrder createdStockOrder = view.newStockOrder();
+    		model.createNewStockOrder(createdStockOrder);
         }
-
     }
 
-    class LogoutListener implements ActionListener {
+    class logoutListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
-
-            try {
-                view.setVisible(false);
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-                view.displayErrorMessage("Errer to Log out!");
-            }
         }
-
     }
 
     public StockerView getView() {
         return view;
     }
 }
+

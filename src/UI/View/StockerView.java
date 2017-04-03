@@ -1,85 +1,109 @@
 package UI.View;
 
+import BLL.Model.Inventory.Item;
+import BLL.Model.Order.StockOrder;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+public class StockerView extends JFrame implements I_EmployeeView
+{
+    private JButton Button = new JButton("Log out");
 
-//item_id,item_type,manufacturer,size,stock_quantity,selling_price,purchase_price
-//stock_order_id,item_id,quantity,manufacturer,price,
+    //Add New Item
 
-public class StockerView extends JFrame implements I_EmployeeView {
-    private JLabel addNewItem = new JLabel("Please enter the detials of new item: ");
-    private JLabel changeItem = new JLabel("Please change the detials of item: ");
-    private JLabel ChooseItem = new JLabel("Plese enter the item id you want to change: ");
-    private JLabel StockOrder = new JLabel("Plese enter the details of new order:  ");
+    private JLabel addNewItemLabel = new JLabel("Please Enter the Detials of New Item: ");
 
-    private JTextField choosItem = new JTextField(10);
-    private JButton chooseButton = new JButton("Submit");
+    private JLabel addItemIDLabel = new JLabel("Please enter Item ID: ");
+    private JTextField addItemID = new JTextField(10);
 
-    private JTextField ItemID = new JTextField(10);
-    private JLabel addItemID = new JLabel("Please enter New Item Id: ");
+    private JLabel addItemTypeLabel = new JLabel("Please enter Item Type: ");
+    private JTextField addItemType = new JTextField(10);
 
-    private JTextField Item_Tpye = new JTextField(10);
-    private JLabel addItem_Type = new JLabel("Please enter new Item Type: ");
+    private JLabel addManufacturerLabel = new JLabel("Please enter Item Manufacturer: ");
+    private JTextField addManufacturer = new JTextField(10);
 
-    private JTextField Manufacturer = new JTextField(10);
-    private JLabel addManufacturer = new JLabel("Please enter new Item Manufacturer: ");
+    private JLabel addSizeLabel = new JLabel("Please enter Item Size: ");
+    private JTextField addSize = new JTextField(10);
 
-    private JTextField Size = new JTextField(10);
-    private JLabel addSize = new JLabel("Please enter the Item size: ");
+    private JLabel addVolumeLabel = new JLabel("Please enter Item Volume: ");
+    private JTextField addVolume = new JTextField(10);
 
-    private JTextField Stock_quantity= new JTextField(10);
-    private JLabel addStock_quantity = new JLabel("Please enter the quantity: ");
+    private JLabel addQuantityLabel = new JLabel("Please enter the Quantity: ");
+    private JTextField addQuantity = new JTextField(10);
 
-    private JTextField Selling_price= new JTextField(10);
-    private JLabel addSelling_price = new JLabel("Please enter selling price: ");
+    private JLabel addSellingPriceLabel = new JLabel("Please enter Selling Price: ");
+    private JTextField addSellingPrice = new JTextField(10);
 
-    private JTextField Purchase_price= new JTextField(10);
-    private JLabel addPurchase_price = new JLabel("Please enter purchase price: ");
-
-    private JTextField ItemID1 = new JTextField(10);
-    private JLabel changeItemID = new JLabel("Please enter New Item Id: ");
-
-    private JTextField Item_Tpye1 = new JTextField(10);
-    private JLabel changeItem_Type = new JLabel("Please enter new Item Type: ");
-
-    private JTextField Manufacturer1 = new JTextField(10);
-    private JLabel changeManufacturer = new JLabel("Please enter new Item Manufacturer: ");
-
-    private JTextField Size1 = new JTextField(10);
-    private JLabel changeSize = new JLabel("Please enter the Item size: ");
-
-    private JTextField Stock_quantity1= new JTextField(10);
-    private JLabel changeStock_quantity = new JLabel("Please enter the quantity: ");
-
-    private JTextField Selling_price1= new JTextField(10);
-    private JLabel changeSelling_price = new JLabel("Please enter selling price: ");
-
-    private JTextField Purchase_price1= new JTextField(10);
-    private JLabel changePurchase_price = new JLabel("Please enter purchase price: ");
-
-    //stock_order_id,item_id,quantity,manufacturer,price,
-    private JTextField stock_Order_Id = new JTextField(10);
-    private JLabel stockOrderId = new JLabel("Plaese enter the stock order ID: ");
-
-    private JTextField item_Id = new JTextField(10);
-    private JLabel itemId = new JLabel("Please enter the item ID: ");
-
-    private JTextField item_Quantity = new JTextField(10);
-    private JLabel itemQuantity = new JLabel("Please enter the quantity: ");
-
-    private JTextField item_Manufacturer = new JTextField(10);
-    private JLabel itemManufacturer = new JLabel("Please enter the manufacturer: ");
-
-    private JTextField item_Price = new JTextField(10);
-    private JLabel itemPrice = new JLabel("Please enter the price: ");
+    private JLabel addPurchasePriceLabel = new JLabel("Please enter Purchase Price: ");
+    private JTextField addPurchasePrice = new JTextField(10);
 
     private JButton addButton = new JButton("Add");
-    private JButton changeButton = new JButton("Change");
-    private JButton newStockOrder = new JButton("Create order");
-    private JButton LogoutButton = new JButton("Log out");
 
+    //Choose Item you wish to change
+
+    private JLabel chooseItemToChangeLabel = new JLabel("Plese Enter the Item ID you want to change: ");
+
+    private JButton chooseButton = new JButton("Submit");
+    private JTextField chooseItem = new JTextField(10);
+
+    //Change Existing Item
+
+    private JLabel changeItemLabel = new JLabel("Please Enter Changed Detials of Item: ");
+
+    private JLabel changeItemIDLabel = new JLabel("Please enter Item ID: ");
+    private JTextField changeItemID = new JTextField(10);
+
+    private JLabel changeItemTypeLabel = new JLabel("Please enter Item Type: ");
+    private JTextField changeItemType = new JTextField(10);
+
+    private JLabel changeManufacturerLabel = new JLabel("Please enter Item Manufacturer: ");
+    private JTextField changeManufacturer = new JTextField(10);
+
+    private JLabel changeSizeLabel = new JLabel("Please enter the Item Size: ");
+    private JTextField changeSize = new JTextField(10);
+
+    private JLabel changeVolumeLabel = new JLabel("Please enter the Item Volume: ");
+    private JTextField changeVolume = new JTextField(10);
+
+    private JLabel changeQuantityLabel = new JLabel("Please enter the Quantity: ");
+    private JTextField changeQuantity = new JTextField(10);
+
+    private JLabel changeSellingPriceLabel = new JLabel("Please enter Selling Price: ");
+    private JTextField changeSellingPrice = new JTextField(10);
+
+    private JLabel changePurchasePriceLabel = new JLabel("Please enter Purchase Price: ");
+    private JTextField changePurchasePrice = new JTextField(10);
+
+    private JButton changeButton = new JButton("Change");
+
+    //Create New Stock Order
+
+    private JLabel stockOrderLabel = new JLabel("Please Enter Details of Stock Order: ");
+
+    private JLabel stockOrderIDLabel = new JLabel("Plaese enter the Stock Order ID: ");
+    private JTextField stockOrderID = new JTextField(10);
+
+    private JLabel orderItemIDLabel = new JLabel("Please enter the Item ID: ");
+    private JTextField orderItemID = new JTextField(10);
+
+    private JLabel orderItemManufacturerLabel = new JLabel("Please enter the Manufacturer: ");
+    private JTextField orderItemManufacturer = new JTextField(10);
+
+    private JLabel orderPriceLabel = new JLabel("Please enter the Price: ");
+    private JTextField orderPrice = new JTextField(10);
+
+    private JLabel orderItemQuantityLabel = new JLabel("Please enter the Quantity: ");
+    private JTextField orderItemQuantity = new JTextField(10);
+
+    private JButton newStockOrder = new JButton("Create order");
+
+    //Logout Button
+
+    private JButton logoutButton = new JButton("Log out");
+
+    //GUI Layout
 
     public StockerView(String Stocker) {
         JPanel NorthPanel = new JPanel();
@@ -89,9 +113,9 @@ public class StockerView extends JFrame implements I_EmployeeView {
         JPanel Panel2 = new JPanel();
         JPanel Panel3 = new JPanel();
         JPanel Panel4 = new JPanel();
-        Panel1.setLayout(new GridLayout(7, 2));
-        Panel2.setLayout(new GridLayout(8, 2));
-        Panel3.setLayout(new FlowLayout(FlowLayout.CENTER));
+        Panel1.setLayout(new GridLayout(8, 2));
+        Panel2.setLayout(new FlowLayout(FlowLayout.CENTER));
+        Panel3.setLayout(new GridLayout(9, 2));
         Panel4.setLayout(new GridLayout(6,2));
 
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -101,67 +125,71 @@ public class StockerView extends JFrame implements I_EmployeeView {
         this.setLocation(500, 10);
         this.setSize(500, 720);
 
+        Panel1.add(addItemIDLabel);
         Panel1.add(addItemID);
-        Panel1.add(ItemID);
-        Panel1.add(addItem_Type);
-        Panel1.add(Item_Tpye);
+        Panel1.add(addItemTypeLabel);
+        Panel1.add(addItemType);
+        Panel1.add(addManufacturerLabel);
         Panel1.add(addManufacturer);
-        Panel1.add(Manufacturer);
+        Panel1.add(addSizeLabel);
         Panel1.add(addSize);
-        Panel1.add(Size);
-        Panel1.add(addStock_quantity);
-        Panel1.add(Stock_quantity);
-        Panel1.add(addSelling_price);
-        Panel1.add(Selling_price);
-        Panel1.add(addPurchase_price);
-        Panel1.add(Purchase_price);
+        Panel1.add(addVolumeLabel);
+        Panel1.add(addVolume);
+        Panel1.add(addQuantityLabel);
+        Panel1.add(addQuantity);
+        Panel1.add(addSellingPriceLabel);
+        Panel1.add(addSellingPrice);
+        Panel1.add(addPurchasePriceLabel);
+        Panel1.add(addPurchasePrice);
 
-        Panel2.add(changeItemID);
-        Panel2.add(ItemID1);
-        Panel2.add(changeItem_Type);
-        Panel2.add(Item_Tpye1);
-        Panel2.add(changeManufacturer);
-        Panel2.add(Manufacturer1);
-        Panel2.add(changeSize);
-        Panel2.add(Size1);
-        Panel2.add(changeStock_quantity);
-        Panel2.add(Stock_quantity1);
-        Panel2.add(changeSelling_price);
-        Panel2.add(Selling_price1);
-        Panel2.add(changePurchase_price);
-        Panel2.add(Purchase_price1);
-        Panel2.add(changeButton);
+        Panel2.add(chooseItemToChangeLabel);
+        Panel2.add(chooseButton);
+        Panel2.add(chooseItem);
 
-        Panel3.add(ChooseItem);
-        Panel3.add(choosItem);
-        Panel3.add(chooseButton);
+        Panel3.add(changeItemIDLabel);
+        Panel3.add(changeItemID);
+        Panel3.add(changeItemTypeLabel);
+        Panel3.add(changeItemType);
+        Panel3.add(changeManufacturerLabel);
+        Panel3.add(changeManufacturer);
+        Panel3.add(changeSizeLabel);
+        Panel3.add(changeSize);
+        Panel3.add(changeVolumeLabel);
+        Panel3.add(changeVolume);
+        Panel3.add(changeQuantityLabel);
+        Panel3.add(changeQuantity);
+        Panel3.add(changeSellingPriceLabel);
+        Panel3.add(changeSellingPrice);
+        Panel3.add(changePurchasePriceLabel);
+        Panel3.add(changePurchasePrice);
+        Panel3.add(changeButton);
 
-        Panel4.add(stockOrderId);
-        Panel4.add(stock_Order_Id);
-        Panel4.add(itemId);
-        Panel4.add(item_Id);
-        Panel4.add(itemQuantity);
-        Panel4.add(item_Quantity);
-        Panel4.add(itemManufacturer);
-        Panel4.add(item_Manufacturer);
-        Panel4.add(itemPrice);
-        Panel4.add(item_Price);
+        Panel4.add(stockOrderIDLabel);
+        Panel4.add(stockOrderID);
+        Panel4.add(orderItemIDLabel);
+        Panel4.add(orderItemID);
+        Panel4.add(orderItemManufacturerLabel);
+        Panel4.add(orderItemManufacturer);
+        Panel4.add(orderItemQuantityLabel);
+        Panel4.add(orderItemQuantity);
+        Panel4.add(orderPriceLabel);
+        Panel4.add(orderPrice);
         Panel4.add(newStockOrder);
 
         NorthPanel.setLayout(new BorderLayout());
-        NorthPanel.add(addNewItem, BorderLayout.NORTH);
+        NorthPanel.add(addNewItemLabel, BorderLayout.NORTH);
         NorthPanel.add(Panel1, BorderLayout.CENTER);
         NorthPanel.add(addButton, BorderLayout.SOUTH);
 
         CenterPanel.setLayout(new BorderLayout());
-        CenterPanel.add(Panel3,BorderLayout.NORTH);
-        CenterPanel.add(changeItem, BorderLayout.CENTER);
-        CenterPanel.add(Panel2, BorderLayout.SOUTH);
+        CenterPanel.add(Panel2,BorderLayout.NORTH);
+        CenterPanel.add(changeItemLabel, BorderLayout.CENTER);
+        CenterPanel.add(Panel3, BorderLayout.SOUTH);
 
         SouthPanel.setLayout(new BorderLayout());
-        SouthPanel.add(StockOrder, BorderLayout.NORTH);
+        SouthPanel.add(stockOrderLabel, BorderLayout.NORTH);
         SouthPanel.add(Panel4, BorderLayout.CENTER);
-        SouthPanel.add(LogoutButton, BorderLayout.SOUTH);
+        SouthPanel.add(logoutButton, BorderLayout.SOUTH);
 
 
         setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -170,146 +198,206 @@ public class StockerView extends JFrame implements I_EmployeeView {
         add(SouthPanel);
     }
 
-    public String getChooseId(){ return choosItem.getText();}
+    //Button Listeners
 
-    private String getItemId() {
-        return ItemID.getText();
-    }
-    private String getItemId1() {
-        return ItemID1.getText();
-    }
-    private String getItemTpye() {
-        return Item_Tpye.getText();
-    }
-    private String getItemTpye1() {
-        return Item_Tpye1.getText();
-    }
-    private String getManufacturer() {
-        return Manufacturer.getText();
-    }
-    private String getManufacturer1() {
-        return Manufacturer1.getText();
-    }
-    private String getSize0() {
-        return Size.getText();
-    }
-    private String getSize1() {
-        return Size1.getText();
-    }
-    private String getStock_quantity() {
-        return Stock_quantity.getText();
-    }
-    private String getStock_quantity1() {
-        return Stock_quantity1.getText();
-    }
-    private String getSelling_price() {
-        return Selling_price.getText();
-    }
-    private String getSelling_price1() {
-        return Selling_price1.getText();
-    }
-    private String getPurchase_price() {
-        return Purchase_price.getText();
-    }
-    private String getPurchase_price1() {
-        return Purchase_price1.getText();
-    }
-    private String getStockOrderId() { return stock_Order_Id.getText();}
-    private String getStockOrderItemId() { return item_Id.getText();}
-    private String getStockOrderItemQuantity() { return item_Quantity.getText();}
-    private String getStockItemManufacturer() { return item_Manufacturer.getText();}
-    private String getStockItemPrice() { return item_Price.getText();}
-
-    private void setItemId1(String ID) {
-        ItemID1.setText(ID);
-    }
-
-    private void setItem_Tpye1(String type) {
-        Item_Tpye1.setText(type);
-    }
-
-    private void setManufacturer1(String manufacturer) {
-        Manufacturer1.setText(manufacturer);
-    }
-
-    private void setSize1(String size) {
-        Size1.setText(size);
-    }
-
-    private void setStock_quantity1(String quantity) {
-        Stock_quantity1.setText(quantity);
-    }
-
-    private void setSelling_price1(String price) {
-        Selling_price1.setText(price);
-    }
-
-    private void setPurchase_price1(String price) {
-        Purchase_price1.setText(price);
-    }
-
-    public String[] newItem(StockerView view){
-        String[] Item = new String[7];
-        Item[0] = view.getItemId();
-        Item[1] = view.getItemTpye();
-        Item[2] = view.getManufacturer();
-        Item[3] = view.getSize0();
-        Item[4] = view.getStock_quantity();
-        Item[5] = view.getSelling_price();
-        Item[6] = view.getPurchase_price();
-        return Item;
-    }
-
-    public void setChangeInfo(String[] Item){
-        setItemId1(Item[0]);
-        setItem_Tpye1(Item[1]);
-        setManufacturer1(Item[2]);
-        setSize1(Item[3]);
-        setStock_quantity1(Item[4]);
-        setSelling_price1(Item[5]);
-        setPurchase_price1(Item[6]);
-    }
-
-    public String[] getChange(){
-        String Item[] = new String[7];
-        Item[0] = getItemId1();
-        Item[1] = getItemTpye1();
-        Item[2] = getManufacturer1();
-        Item[3] = getSize1();
-        Item[4] = getStock_quantity1();
-        Item[5] = getSelling_price1();
-        Item[6] = getPurchase_price1();
-        return Item;
-    }
-
-    //stock_order_id,item_id,quantity,manufacturer,price,
-    public String[] getNewStockOrder(){
-        String Item[] = new String[5];
-        Item[0] = getStockOrderId();
-        Item[1] = getStockOrderItemId();
-        Item[2] = getStockOrderItemQuantity();
-        Item[3] = getStockItemManufacturer();
-        Item[4] = getStockItemPrice();
-        return Item;
-    }
-
-    public void LogoutListener(ActionListener listenForButton) {
-        LogoutButton.addActionListener(listenForButton);
-    }
-
-    public void chooseListener(ActionListener listenForButton) {
-        chooseButton.addActionListener(listenForButton);
-    }
-
-    public void addListener(ActionListener listenForButton) {
+    public void addNewItemListener(ActionListener listenForButton) {								//Listener for 'Add' Button
         addButton.addActionListener(listenForButton);
     }
 
-    public void changeListener(ActionListener listenForButton) {
+    public void chooseListener(ActionListener listenForButton) {									//Listener for 'Choose' Button
+        chooseButton.addActionListener(listenForButton);
+    }
+
+    public void changeItemDetailsListener(ActionListener listenForButton) {							//Listener for 'Change' Button
         changeButton.addActionListener(listenForButton);
     }
 
-    public void newStockOrderListener(ActionListener listenForButton){ newStockOrder.addActionListener(listenForButton);}
+     public void newStockOrderListener(ActionListener listenForButton){							//Listner for 'New Stock Order' Button
+    	newStockOrder.addActionListener(listenForButton);
+    }
+
+    public void logoutListener(ActionListener listenForButton) {									//Listener for 'Logout' Button
+        logoutButton.addActionListener(listenForButton);
+    }
+
+    public Item newItem(){
+        int itemID = Integer.parseInt(getNewItemID());
+        String itemType = getNewItemType();
+        String manufacturer = getNewManufacturer();
+        String size = getNewSize();
+        double volume = Double.parseDouble(getNewVolume());
+        int quantity = Integer.parseInt(getNewQuantity());
+        double sPrice = Double.parseDouble(getNewSellingPrice());
+        double pPrice = Double.parseDouble(getNewPurchasePrice());
+        Item createdItem = new Item(itemID,itemType,manufacturer,size,volume,quantity,sPrice,pPrice);
+        return createdItem;
+    }
+
+    public void setChangeInfo(String[] chosenItemInfo){
+        setChangeItemID(chosenItemInfo[0]);
+        setChangeItemType(chosenItemInfo[1]);
+        setChangeManufacturer(chosenItemInfo[2]);
+        setChangeSize(chosenItemInfo[3]);
+        setChangeVolume(chosenItemInfo[4]);
+        setChangeQuantity(chosenItemInfo[5]);
+        setChangeSellingPrice(chosenItemInfo[6]);
+        setChangePurchasePrice(chosenItemInfo[7]);
+    }
+
+    public Item changeItem(){
+        int itemID = Integer.parseInt(getChangeItemID());
+        String itemType = getChangeItemType();
+        String manufacturer = getChangeManufacturer();
+        String size = getChangeSize();
+        double volume = Double.parseDouble(getChangeVolume());
+        int quantity = Integer.parseInt(getChangeQuantity());
+        double sPrice = Double.parseDouble(getChangeSellingPrice());
+        double pPrice = Double.parseDouble(getChangePurchasePrice());
+        Item changedItem = new Item(itemID,itemType,manufacturer,size,volume,quantity,sPrice,pPrice);
+        return changedItem;
+    }
+
+    public StockOrder newStockOrder(){					//Gets details of new stock order to be added to STOCK_ORDERS.txt
+        int stockOrderID = Integer.parseInt(getStockOrderID());
+        int itemID = Integer.parseInt(getOrderItemID());
+        String manufacturer = getOrderItemManufacturer();
+        int quantity = Integer.parseInt(getOrderItemQuantity());
+        double price = Double.parseDouble(getOrderPrice());
+        StockOrder createdStockOrder = new StockOrder(stockOrderID,itemID,manufacturer,quantity,price);
+        return createdStockOrder;
+    }
+
+    //Get Methods for 'Add Item'
+
+    public String getNewItemID() {
+        return addItemID.getText();
+    }
+
+    public String getNewItemType() {
+        return addItemType.getText();
+    }
+
+    public String getNewManufacturer() {
+        return addManufacturer.getText();
+    }
+
+    public String getNewSize() {
+        return addSize.getText();
+    }
+
+    public String getNewVolume() {
+        return addVolume.getText();
+    }
+
+    public String getNewQuantity() {
+        return addQuantity.getText();
+    }
+
+    public String getNewSellingPrice() {
+        return addSellingPrice.getText();
+    }
+
+    public String getNewPurchasePrice() {
+        return addPurchasePrice.getText();
+    }
+
+    //Get method for 'Choose Item'
+
+    public String getChooseItem() {
+        return chooseItem.getText();
+    }
+
+    //Get methods for 'Change Item'
+
+    public String getChangeItemID() {
+        return changeItemID.getText();
+    }
+
+    public String getChangeItemType() {
+        return changeItemType.getText();
+    }
+
+    public String getChangeManufacturer() {
+        return changeManufacturer.getText();
+    }
+
+    public String getChangeSize() {
+        return changeSize.getText();
+    }
+
+    public String getChangeVolume() {
+        return changeVolume.getText();
+    }
+
+    public String getChangeQuantity() {
+        return changeQuantity.getText();
+    }
+
+    public String getChangeSellingPrice() {
+        return changeSellingPrice.getText();
+    }
+
+    public String getChangePurchasePrice() {
+        return changePurchasePrice.getText();
+    }
+
+    //Set methods for 'Change Item' (Used when ItemID entered to change item details)
+
+    public void setChangeItemID(String itemID) {
+        changeItemID.setText(itemID);
+    }
+
+    public void setChangeItemType(String itemType) {
+        changeItemType.setText(itemType);
+    }
+
+    public void setChangeManufacturer(String manufacturer) {
+        changeManufacturer.setText(manufacturer);
+    }
+
+    public void setChangeSize(String size) {
+        changeSize.setText(size);
+    }
+
+    public void setChangeVolume(String volume) {
+        changeVolume.setText(volume);
+    }
+
+    public void setChangeQuantity(String quantity) {
+        changeQuantity.setText(quantity);
+    }
+
+    public void setChangeSellingPrice(String sellingPrice) {
+        changeSellingPrice.setText(sellingPrice);
+    }
+
+    public void setChangePurchasePrice(String purchasePrice) {
+        changePurchasePrice.setText(purchasePrice);
+    }
+
+    //Get methods for 'New Stock Order'
+
+    public String getStockOrderID() {
+        return stockOrderID.getText();
+    }
+
+    public String getOrderItemID() {
+        return orderItemID.getText();
+    }
+
+    public String getOrderItemManufacturer() {
+        return orderItemManufacturer.getText();
+    }
+
+    public String getOrderItemQuantity() {
+        return orderItemQuantity.getText();
+    }
+
+    public String getOrderPrice() {
+        return orderPrice.getText();
+    }
+
+    //Error Message
 
     public void displayErrorMessage(String errorMessage) {
         JOptionPane.showMessageDialog(this, errorMessage);

@@ -11,4 +11,5 @@ public interface I_DatabaseService {
     public void changeData(String[] info);
     public void deleteData(String[] info);
     public void addData(String info);
+    public void changeItemData(String changedRow);
 }
