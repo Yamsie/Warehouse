@@ -10,7 +10,7 @@ import DAL.DatabaseService.DatabaseService;
 public class StateOfPicker {
     private String operatorType;
 
-    private DatabaseService pickerBD = new AccessCustomerOrders("Picker");
+    private DatabaseService pickerBD = new AccessCustomerOrders();
     private DatabaseService inventoryDB = new AccessInventory();
 
     public String getOperaterType(){
