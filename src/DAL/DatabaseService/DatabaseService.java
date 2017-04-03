@@ -34,6 +34,9 @@ public class DatabaseService implements I_DatabaseService {
         return data;
     }
 
+    public void changeItemData(String changedRow) {
+    }
+
     public void changeData(String[] info) {
         updateFileRow(info);
         writeData(data);

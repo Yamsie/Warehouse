@@ -1,48 +1,45 @@
 package BLL.Model.Employee;
 
+import BLL.Model.Inventory.Item;
+import BLL.Model.Order.StockOrder;
 import DAL.DatabaseService.AccessInventory;
+import DAL.DatabaseService.AccessStockOrders;
 import DAL.DatabaseService.DatabaseService;
 
 import java.util.List;
 
-/**
- * Created by Lenovo on 2017/3/20.
- */
-public class StockerModel extends Employee implements I_EmployeeModel {
-     String jobTitle;
-    DatabaseService StockerDB = new AccessInventory();
+public class StockerModel extends Employee implements I_EmployeeModel
+{
+    private DatabaseService stockerDBInventory = new AccessInventory();
+    private DatabaseService stockerDBStockOrders = new AccessStockOrders();
+    private String jobTitle;
 
-    //int newId, String newName, String newJobTitle, String newEmail
-    public StockerModel(int id, String userName, String jobTitle, String email) {
-        super( id, userName, jobTitle, email);
+    public StockerModel(int id, String name, String userName, String email){
+        super(id,userName,"Stocker", email);
+        String jobTitle = "Stocker";
     }
 
-    public void addInfo(String[] newItem){
-        String addItem = parseIntoString(newItem);
-        StockerDB.addData(addItem);
-        //add new Item Information into txt file
+    public void addNewItem(Item createdItem) {
+        String newRow = createdItem.toString();
+        stockerDBInventory.addData(newRow);
     }
 
-    public String [] showInfo(int ItemID){
-        String [] ItemInfo = new String[7];
-        String Item = StockerDB.showData(ItemID);
-        ItemInfo = Item.split(",");
-        return ItemInfo;
+    public String[] showChosenItem(String chosenItem) {
+        String chosenItemInfo[] = new String[7];
+        int chosenItemID = Integer.parseInt(chosenItem);
+        String chosenItemDetails = stockerDBInventory.showData(chosenItemID);
+        chosenItemInfo = chosenItemDetails.split(",");
+        return chosenItemInfo;
     }
 
-    public void changeInfo(String[] newInfo){
-        StockerDB.changeData(newInfo);
+    public void changeExistingItem(Item changedItem) {
+        String changedRow = changedItem.toString();
+        stockerDBInventory.changeItemData(changedRow);
     }
 
-    public String parseIntoString(String[] info){
-        String ItemDetail = "";
-        for(int i = 0; i < info.length; ++i){
-            if(i == 0)
-                ItemDetail += info[i];
-            else
-                ItemDetail += "," + info[i];
-        }
-        return ItemDetail;
+    public void createNewStockOrder(StockOrder createdStockOrder) {
+    	String newRow = createdStockOrder.toString();
+    	stockerDBStockOrders.addData(newRow);
     }
 
 }

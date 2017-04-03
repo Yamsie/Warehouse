@@ -37,7 +37,7 @@ public class Item
 
 	@Override
 	public String toString() {
-		return itemID + "," + itemType + "," + manufacturer + "," + size + "," + quantity + "," + sPrice + "," + pPrice;
+		return itemID + "," + itemType + "," + manufacturer + "," + size + "," + volume + "," + quantity + "," + sPrice + "," + pPrice;
 	}
 
 	public String getItemType() {
@@ -50,10 +50,6 @@ public class Item
 
 	public String getSize() {
 		return size;
-	}
-
-	public void setVolume(double volume) {
-		this.volume = volume;
 	}
 
 	public double getVolume() {
@@ -90,6 +86,10 @@ public class Item
 
 	public void setSize(String size) {
 		this.size = size;
+	}
+
+	public void setVolume(double volume) {
+		this.volume = volume;
 	}
 
 	public void setQuantity(int quantity) {
