@@ -1,5 +1,7 @@
 package BLL.Model.Employee;
 
+import BLL.Model.StateDesignPattern.ContextOfPicker;
+import BLL.Model.StateDesignPattern.StateOfPicker;
 import DAL.DatabaseService.AccessCustomerOrders;
 import DAL.DatabaseService.AccessInventory;
 import DAL.DatabaseService.DatabaseService;
@@ -14,8 +16,10 @@ public class PickerModel extends Employee implements I_EmployeeModel{
     private String jobTitle;
     private String [] orderDetail;
 
-    DatabaseService pickerBD = new AccessCustomerOrders("Picker");
-    DatabaseService inventoryDB = new AccessInventory();
+    StateOfPicker state  = new StateOfPicker();
+    ContextOfPicker context = new ContextOfPicker(state);
+    //DatabaseService pickerBD = new AccessCustomerOrders("Picker");
+    //DatabaseService inventoryDB = new AccessInventory();
     //int newId, String newName, String newJobTitle, String newEmail
 
     public PickerModel(int id, String userName, String newJobTile, String email){
@@ -24,7 +28,8 @@ public class PickerModel extends Employee implements I_EmployeeModel{
     }
 
     public String [] getItemInfo(int ItemID){
-        AccessInventory inventory =  (AccessInventory)inventoryDB;
+        state.setOperatorType("inventory");
+        AccessInventory inventory =  (AccessInventory)context.method();//(AccessInventory)inventoryDB;
         String  ItemInfo = inventory.showData(ItemID);
         String [] item = ItemInfo.split(",");
         return item;
@@ -37,7 +42,8 @@ public class PickerModel extends Employee implements I_EmployeeModel{
     }
 
     public String [] groupByOrderId(int ID){
-        AccessCustomerOrders picker = (AccessCustomerOrders)pickerBD;  // Explicit casting
+        state.setOperatorType("picker");
+        AccessCustomerOrders picker = (AccessCustomerOrders)context.method();  // Explicit casting
         orderDetail = picker.allData();
 
         int count = 0;
@@ -54,8 +60,8 @@ public class PickerModel extends Employee implements I_EmployeeModel{
     }
 
     public int [] numberOfOrders(){
-
-        AccessCustomerOrders picker = (AccessCustomerOrders)pickerBD;  // Explicit casting
+        state.setOperatorType("picker");
+        AccessCustomerOrders picker = (AccessCustomerOrders)context.method();  // Explicit casting
         orderDetail = picker.allData();
         ArrayList<String> orderList = new ArrayList<String>();
         for(int i = 0; i < orderDetail.length; ++i){
@@ -78,7 +84,8 @@ public class PickerModel extends Employee implements I_EmployeeModel{
     }
 
     public void changeStateOfOrder(int id){
-        AccessCustomerOrders picker = (AccessCustomerOrders)pickerBD;
+        state.setOperatorType("picker");
+        AccessCustomerOrders picker = (AccessCustomerOrders)context.method();
         picker.changeData(id);
     }
 
@@ -86,12 +93,14 @@ public class PickerModel extends Employee implements I_EmployeeModel{
 
         String message1 = "All the order is correct and items is available in stock!";
         String message2 = "";
-        AccessCustomerOrders picker = (AccessCustomerOrders)pickerBD;  // Explicit casting
+        state.setOperatorType("picker");
+        AccessCustomerOrders picker = (AccessCustomerOrders)context.method();  // Explicit casting
         String[] order = picker.allData();
 
+        state.setOperatorType("inventory");
         for(int i = 0; i < order.length; ++i){
             String[] Item = order[i].split(",");
-            String check = inventoryDB.showData(Integer.parseInt(Item[2]));
+            String check = context.method().showData(Integer.parseInt(Item[2]));
             if(check == null){
                 message2 += "Error Order: \n"
                         + detailOfOrder(order[i])
