@@ -36,4 +36,36 @@ public class AccessInventory extends DatabaseService {
         }
         return null;
     }
+
+    public void changeStates(int id){
+        List<String> fileData = super.getData();
+
+
+        for (int i = 1; i < fileData.size(); i++) {
+            String itemInfo;
+            String[] detail = fileData.get(i).split(",");
+            if (Integer.parseInt(detail[0]) == id) {
+                itemInfo = fileData.get(i);
+                String [] item = itemInfo.split(",");
+                if(item[6].equals("ACCEPT")) {
+                    item[6] = "PACKING";
+                }
+
+                String newitem = "";
+
+                for(int j = 0; j < item.length; ++j){
+                    if(j == 0){
+                        newitem += item[j];
+                    }
+                    else
+                        newitem += "," + item[j];
+                }
+                //System.out.println(itemInfo);
+                fileData.set(i, newitem);
+            }
+        }
+        super.writeData(fileData);
+
+    }
+
 }
