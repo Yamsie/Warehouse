@@ -11,7 +11,6 @@ public class AccessCustomerOrders extends DatabaseService {
         super("data/CUSTOMER_ORDERS.txt");
     }
 
-
     public void deleteData(String order){
         List<String> fileData = super.getData();
 

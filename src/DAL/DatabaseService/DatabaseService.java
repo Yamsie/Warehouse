@@ -51,6 +51,11 @@ public class DatabaseService implements I_DatabaseService {
         return data;
     }
 
+    public String getCountryData(String countryName) {
+        String data = "";
+        return data;
+    }
+
     public void addData(String info) {
         data.add(info);
         writeData(data);
