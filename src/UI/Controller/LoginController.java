@@ -19,13 +19,15 @@ public class LoginController {
 
      class SubListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
-            String userName;
-            char[] passWord;
+                String userName;
+                char[] passWord;
 
                 userName = view.getUserName();
                 passWord = view.getPassWord();
 
-                model.check(userName, passWord);
+                model.setCredentials(userName, passWord);
+                model.authenticate();
+                model.loadPage();
         }
 
     }

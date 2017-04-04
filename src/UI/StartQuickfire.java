@@ -1,12 +1,9 @@
 package UI;
 
 import BLL.Authentication.Authentication;
-import BLL.Authentication.Verifier;
-import BLL.Model.Employee.PickerModel;
+import BLL.Authentication.AuthenticationFacade;
 import UI.Controller.LoginController;
-import UI.Controller.PickerController;
 import UI.View.LoginView;
-import UI.View.PickerView;
 
 /**
  * Created by James on 13/03/2017.
@@ -15,7 +12,7 @@ import UI.View.PickerView;
 public class StartQuickfire {
     public static void main(String[] args) {
         LoginView userLoginView = new LoginView();
-        Authentication userAuthentication = new Verifier();
+        Authentication userAuthentication = new AuthenticationFacade();
         LoginController userLoginContoller = new LoginController(userLoginView, userAuthentication);
         userLoginView.setVisible(true);
 
