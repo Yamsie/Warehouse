@@ -164,6 +164,16 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 		this.orderDate = orderDate;
 	}
 
+	public boolean containsOrder(int itemId) {
+		for(int i = 0; i < items.size(); i++) {
+			if(items.get(i).getItemID() == itemId) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	public String toString(int itemIndex) {
 		return orderID + "," + custID + "," + items.get(itemIndex).getItemID() + "," + quantity + "," + shippingAddress + "," + loadingZone + "," + status + "," + boxSize + "," + orderPrice + "," + shippingCost + "," + totalCost + "," + orderDate;
 	}

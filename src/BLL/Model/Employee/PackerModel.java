@@ -19,7 +19,7 @@ import java.util.List;
  */
 
 public class PackerModel extends Employee {
-    DatabaseService db = new AccessCustomerOrders();
+    AccessCustomerOrders db = new AccessCustomerOrders();
     List<Integer> toPack = new ArrayList<>();
     List<Integer> itemsReady = new ArrayList<>();
     CustomerOrder currentOrder;
@@ -56,12 +56,18 @@ public class PackerModel extends Employee {
         temp = db.selectInfo("order_id", Integer.toString(currentOrder.getOrderID()));
         temp.retainAll(db.selectInfo("status", "PACKING"));
 
+
+        int columnIndex = db.getColumnIndex("item_id");
         String[] elements;
         for (int i = 0; i < temp.size(); i++) {
+            System.out.println(i + "temp ;; " +temp.get(i));
             elements = temp.get(i).split(",");
-            int columnIndex = db.getColumnIndex("item_id");
             toPack.add(Integer.parseInt(elements[columnIndex]));
-            currentOrder.setItemID(Integer.parseInt(elements[columnIndex]));
+            if(!(currentOrder.containsOrder(Integer.parseInt(elements[columnIndex])))) {
+                currentOrder.setItemID(Integer.parseInt(elements[columnIndex]));
+            }
+            System.out.println(i + "co ;; " + currentOrder.getItems().get(i));
+            System.out.println(i + "tp ;; " + toPack.get(i));
         }
     }
 
@@ -72,9 +78,10 @@ public class PackerModel extends Employee {
             currentOrder.setBoxSize(box);
             currentOrder.setStatus("LOADING");
 
-            for (int i = 0; i < itemsReady.size(); i++) {
+            for (int i =  0; i < itemsReady.size(); i++) {
+                System.out.println(currentOrder.getItems().get(i).toString());
                 String[] orderDetails = currentOrder.toString(i).split(",");
-                db.changeData(orderDetails);
+                db.updateOrder(orderDetails);
             }
 
             JOptionPane.showMessageDialog(null, "Boxed!");
