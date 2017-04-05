@@ -9,6 +9,7 @@ import DAL.DatabaseService.AccessCustomerOrders;
 import DAL.DatabaseService.DatabaseService;
 
 import javax.swing.*;
+import java.util.List;
 
 public class LoaderModel extends Employee implements I_EmployeeModel {
     //maybe automated?
@@ -23,7 +24,7 @@ public class LoaderModel extends Employee implements I_EmployeeModel {
         super(id, userName, jobTitle, email);
     }
 
-    public String[] showChosenOrder(String chosenOrder) {
+    public String[] updateOrder(String chosenOrder) {
         String chosenOrderInfo[] = new String[11];
         int chosenOrderID = Integer.parseInt(chosenOrder);
         String chosenOrderDetails = loaderDB.showData(chosenOrderID);
@@ -65,9 +66,20 @@ public class LoaderModel extends Employee implements I_EmployeeModel {
             else
                 chosenOrderInfo[6] = "SHIPPED";
         }
+
         loaderDB.changeData(chosenOrderInfo);
         JOptionPane.showMessageDialog(null, "Shipped!");
         return chosenOrderInfo;
+    }
+
+    public String getOrders(){
+        List<String> test = loaderDB.getData();
+        String [] temp = test.toArray(new String[0]);
+        String orders = "";
+        for(int i = 1; i < temp.length; i++){
+            orders += temp[i] + "\n";
+        }
+        return orders;
     }
 }
 
