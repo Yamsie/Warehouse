@@ -130,7 +130,7 @@ public class PickerModel extends Employee implements I_EmployeeModel{
                 + "Customer ID: " + detail[1] + "\n"
                 + "Item ID: " + detail[2] + "\t"
                 + "Order Quantity: " + detail[3] + "\n"
-                + "Ststus: " + detail[4] + "\t"
+                + "Status: " + detail[4] + "\t"
                 + "Box Size: " + detail[5] + "\n"
                 + "Order Price: " + detail[6] + "\t"
                 + "Shipping Price: " + detail[7] + "\n"
