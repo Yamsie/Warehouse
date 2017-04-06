@@ -38,7 +38,7 @@ public class DatabaseService implements I_DatabaseService {
     }
 
     public void changeData(String[] info) {
-        updateFileRow(info);
+        //updateFileRow(info);
         writeData(data);
     }
 
@@ -132,25 +132,6 @@ public class DatabaseService implements I_DatabaseService {
         }
 
         return null;
-    }
-
-    protected void updateFileRow(String[] newRow) {
-        String newLine = "";
-        String[] rowElements;
-        for(int i = 1; i < data.size(); i++) {
-            rowElements = data.get(i).split(",");
-            if(Integer.parseInt(rowElements[0]) == Integer.parseInt(newRow[0])) {
-                for (int j = 0; j < newRow.length; j++) {
-                    newLine += newRow[j];
-                    if (j != (newRow.length - 1)) {
-                        newLine += ",";
-                    }
-                }
-                data.add(newLine);
-                data.remove(i);
-                newLine = "";
-            }
-        }
     }
 
     protected void deleteFileRow(String[] newRow) {

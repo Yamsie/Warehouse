@@ -72,4 +72,29 @@ public class AccessCustomerOrders extends DatabaseService {
             return temp;
     }
 
+    public void updateOrder(String[] newRow) {
+        List<String> fileData = getData();
+        int orderIdIndex = super.getColumnIndex("order_id");
+        int itemIdIndec = super.getColumnIndex("item_id");
+        String newLine = "";
+        String[] rowElements;
+        for(int i = 1; i < fileData.size(); i++) {
+            rowElements = fileData.get(i).split(",");
+            if(Integer.parseInt(rowElements[orderIdIndex]) == Integer.parseInt(newRow[orderIdIndex]) && Integer.parseInt(rowElements[itemIdIndec]) == Integer.parseInt(newRow[itemIdIndec])) {
+                for (int j = 0; j < newRow.length; j++) {
+                    newLine += newRow[j];
+                    if (j != (newRow.length - 1)) {
+                        newLine += ",";
+                    }
+                }
+                System.out.println(newLine + "afsdfasd");
+                fileData.remove(i);
+                fileData.add(newLine);
+                newLine = "";
+            }
+        }
+
+        super.writeData(fileData);
+    }
+
 }
