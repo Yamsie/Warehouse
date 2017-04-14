@@ -1,1 +1,0 @@
-Automation - This may be where the automated aspect of the project go, but this may end up being a sub-package of the BLL (if it is needed at all).

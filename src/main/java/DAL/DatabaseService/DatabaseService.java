@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class DatabaseService implements I_DatabaseService {
 
-    private List<String> data = new ArrayList<>();
+    private List<String> data = new ArrayList<String>();
     private File csv;
     private Scanner scanner;
     private String filename;
@@ -63,7 +63,7 @@ public class DatabaseService implements I_DatabaseService {
 
     public List<String> getInfoByColumn(String column) {
         String[] rowElements;
-        List<String> rows = new ArrayList<>();
+        List<String> rows = new ArrayList<String>();
         int statusIndex = getColumnIndex(column);
         boolean complete = false;
         rowElements = data.get(0).split(",");
@@ -95,7 +95,7 @@ public class DatabaseService implements I_DatabaseService {
 
     public List<String> selectInfo(String column, String row) {
         String[] rowElements;
-        List<String> rows = new ArrayList<>();
+        List<String> rows = new ArrayList<String>();
         int statusIndex = getColumnIndex(column);
         boolean complete = false;
         rowElements = data.get(0).split(",");

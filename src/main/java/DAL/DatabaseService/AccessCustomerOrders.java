@@ -87,7 +87,7 @@ public class AccessCustomerOrders extends DatabaseService {
                         newLine += ",";
                     }
                 }
-                System.out.println(newLine + "afsdfasd");
+                System.out.println(newLine);
                 fileData.remove(i);
                 fileData.add(newLine);
                 newLine = "";

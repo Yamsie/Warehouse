@@ -20,8 +20,8 @@ import java.util.List;
 
 public class PackerModel extends Employee {
     AccessCustomerOrders db = new AccessCustomerOrders();
-    List<Integer> toPack = new ArrayList<>();
-    List<Integer> itemsReady = new ArrayList<>();
+    List<Integer> toPack = new ArrayList<Integer>();
+    List<Integer> itemsReady = new ArrayList<Integer>();
     CustomerOrder currentOrder;
 
     public PackerModel(int id, String userName, String jobTitle, String email){
@@ -52,7 +52,7 @@ public class PackerModel extends Employee {
     }
 
     public void setItemsToPack() {
-        List<String> temp = new ArrayList<>();
+        List<String> temp = new ArrayList<String>();
         temp = db.selectInfo("order_id", Integer.toString(currentOrder.getOrderID()));
         temp.retainAll(db.selectInfo("status", "PACKING"));
 

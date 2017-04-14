@@ -16,7 +16,7 @@ public class ManagerModel extends Employee implements I_EmployeeModel{
             super( id, userName, jobTitle, email);
         }
 
-        private List<Employee> employeeOutput = new ArrayList<>();
+        private List<Employee> employeeOutput = new ArrayList<Employee>();
         private DatabaseService employees = new AccessEmployees();
         //private Order order;
         //private Customer customer

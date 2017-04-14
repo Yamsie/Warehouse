@@ -12,7 +12,7 @@ public class CustomerOrder //implements I_Order //accessing customer orders file
 {
 	private int orderID;
 	private int custID;
-	private List<Item> items = new ArrayList<>();
+	private List<Item> items = new ArrayList<Item>();
 	private int quantity;
 	private String shippingAddress;
 	private String status;
