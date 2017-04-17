@@ -1,3 +1,4 @@
-#stock_order_id,item_id,quantity,manufacturer,price
 111113,1,24,Nike,30
 94,3,Puma,45,225.0
+2843509,7263302,TestManufacturer,1,0.01
+5440122,5399446,TestManufacturer,1,0.01

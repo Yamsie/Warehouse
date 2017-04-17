@@ -177,4 +177,8 @@ public class DatabaseService implements I_DatabaseService {
             System.exit(0);
         }
     }
+
+    public int checkData(String allItemInfo) {
+        return 0;
+    }
 }
