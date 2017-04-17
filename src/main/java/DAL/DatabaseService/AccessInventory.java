@@ -1,5 +1,6 @@
 package DAL.DatabaseService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AccessInventory extends DatabaseService {
