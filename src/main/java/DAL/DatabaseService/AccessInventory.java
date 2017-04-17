@@ -38,6 +38,21 @@ public class AccessInventory extends DatabaseService {
         return null;
     }
 
+    @Override
+    public int checkData(String allItemInfo) {
+        int itemFound = 0;
+        List<String> fileData = super.getData();
+        for (int i = 1; i < fileData.size(); i++) {
+            String detail = fileData.get(i);
+            String itemID = detail.substring(0, (allItemInfo.indexOf(",")));
+            if (itemID.equals(allItemInfo.substring(0, (allItemInfo.indexOf(","))))) {
+                if (detail.equals(allItemInfo))
+                    itemFound++;
+            }
+        }
+        return itemFound;
+    }
+
     public void changeStates(int id){
         List<String> fileData = super.getData();
 
