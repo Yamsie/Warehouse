@@ -1,5 +1,6 @@
 package DAL.DatabaseService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,6 +12,28 @@ public class AccessCustomerOrders extends DatabaseService {
         super("data/CUSTOMER_ORDERS.txt");
     }
 
+    public void addNewOrder(ArrayList<String> order){
+        List<String> fileData = super.getData();
+
+        for (int i = 0; i < order.size(); i++) {
+            fileData.add(order.get(i));
+        }
+        super.writeData(fileData);
+    }
+
+    public int getNewOrderId(){
+        int id = 0;
+        List<String> fileData = super.getData();
+
+        for (int i = 1; i < fileData.size(); i++) {
+            String[] detail = fileData.get(i).split(",");
+            if (Integer.parseInt(detail[0]) >= id) {
+                id = Integer.parseInt(detail[0]);
+            }
+        }
+
+        return id + 1;
+    }
     public void deleteData(String order){
         List<String> fileData = super.getData();
 

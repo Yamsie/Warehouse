@@ -1,4 +1,12 @@
 #order_id,cust_id,item_id,order_quantity,shipping_address,loading_zone,status,box_size,order_price,shipping_price,total_price,order_date
+123457,2,2,1,France,3,PACKING,BoxA,1.0,1.0,2.0,28/01/2017
 123458,2,2,1,Italy,4,LOADING,BoxA,1.0,1.0,2.0,28/01/2017
+123456,2,1,1,Ireland,1,LOADING,BoxA,1.0,1.0,2.0,28/01/2017
+123456,2,2,1,Ireland,1,LOADING,BoxA,1.0,1.0,2.0,28/01/2017
+123456,2,3,1,Ireland,1,LOADING,BoxA,1.0,1.0,2.0,28/01/2017
+123459,9,1,2,China,1,Accept,null,140.0,50.0,190.0,17/3/2017
+123459,9,2,1,China,1,Accept,null,95.0,50.0,145.0,17/3/2017
+123460,9,1,2,China,1,Accept,null,140.0,50.0,190.0,17/3/2017
+123460,9,2,1,China,1,Accept,null,95.0,50.0,145.0,17/3/2017
 123456,2,3,1,Ireland,4,PICKING,null,1.0,1.0,2.0,28/01/2017
 123457,2,2,1,France,3,LOADING,CustomBox,1.0,1.0,2.0,28/01/2017
