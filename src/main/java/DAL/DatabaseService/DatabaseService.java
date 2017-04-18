@@ -141,7 +141,7 @@ public class DatabaseService implements I_DatabaseService {
             rowElements = data.get(i).split(",");
             if(Integer.parseInt(rowElements[0]) == Integer.parseInt(newRow[0])) {
                 String rowToCsv = "";
-                for(int j = 0; j < newRow.length; j++) {
+                for(int j = 1; j < newRow.length; j++) {
                     rowToCsv += newRow[j];
                     if(j != (newRow.length - 1)) {
                         rowToCsv += ",";

@@ -33,8 +33,9 @@ public class BoxFactory {
         else if (volume > 7.5 && volume <= 10) { //BoxG
             return new BoxG();
         }
-
-        return null;
+        else {
+            return new CustomBox(volume);
+        }
     }
 
     public double calculateVolume(CustomerOrder order) {

@@ -12,9 +12,6 @@ import javax.swing.*;
 import java.util.List;
 
 public class LoaderModel extends Employee implements I_EmployeeModel {
-    //maybe automated?
-    //each country has a specific loading zone
-    //check if order is in loading zone
 
     String jobTitle;
     DatabaseService loaderDB = new AccessCustomerOrders();
@@ -37,7 +34,6 @@ public class LoaderModel extends Employee implements I_EmployeeModel {
 
         if (chosenOrderInfo[4].equals(chosenCountryInfo[0])) {
             if (!(chosenOrderInfo[5].equals(chosenCountryInfo[1]))) {
-
                 if (chosenOrderInfo[4].equals("Ireland") || chosenOrderInfo[4].equals("UK")) {
                     chosenOrderInfo[5] = "1";
                     chosenOrderInfo[6] = "SHIPPED";

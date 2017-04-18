@@ -17,7 +17,7 @@ public class NewOrder extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String custId = req.getParameter("custId");
+        String custId = req.getParameter("custid");
         String securityToken = req.getParameter("token");
         String itemId[] = req.getParameterValues("itemid");
         resp.getWriter().write("Customer ID: " + custId);
