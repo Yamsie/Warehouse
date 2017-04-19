@@ -6,3 +6,5 @@
 3547945,6333268,TestManufacturer,1,0.01
 6361303,1470539,TestManufacturer,1,0.01
 3771678,5545734,TestManufacturer,1,0.01
+6466453,8252360,TestManufacturer,1,0.01
+5234587,5888200,TestManufacturer,1,0.01

@@ -3,7 +3,7 @@ package DAL.DatabaseService;
 import java.util.List;
 
 /**
- * Created by James on 20/03/2017.
+ * Created by Shane on 2017/3/12.
  */
 public class AccessStockOrders extends DatabaseService {
 
@@ -11,6 +11,7 @@ public class AccessStockOrders extends DatabaseService {
         super("data/STOCK_ORDERS.txt");
     }
 
+    /*
     @Override
     public int checkData(String allItemInfo) {
         int itemFound = 0;
@@ -25,4 +26,5 @@ public class AccessStockOrders extends DatabaseService {
         }
         return itemFound;
     }
+    */
 }

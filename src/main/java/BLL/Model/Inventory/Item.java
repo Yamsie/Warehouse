@@ -106,7 +106,4 @@ public class Item
 	public void setpPrice(double pPrice) {
 		this.pPrice = pPrice;
 	}
-
-
-
 }

@@ -15,3 +15,11 @@
 1573651,ChangedItemType,ChangedManufacturer,ChangedSize,0.0,1,0.01,0.01
 8803728,TestItemType,TestManufacturer,TestSize,0.0,1,0.1,0.01
 1381013,ChangedItemType,ChangedManufacturer,ChangedSize,0.0,1,0.01,0.01
+3071494,ChangedItemType,ChangedManufacturer,ChangedSize,0.0,1,0.01,0.01
+8216716,ChangedItemType,ChangedManufacturer,ChangedSize,0.0,1,0.01,0.01
+2109010,ChangedItemType,ChangedManufacturer,ChangedSize,0.0,1,0.01,0.01
+1311622,ChangedItemType,ChangedManufacturer,ChangedSize,0.0,1,0.01,0.01
+6793750,TestItemType,TestManufacturer,TestSize,0.0,1,0.1,0.01
+4338276,ChangedItemType,ChangedManufacturer,ChangedSize,0.0,1,0.01,0.01
+2350879,TestItemType,TestManufacturer,TestSize,0.0,1,0.1,0.01
+5216345,ChangedItemType,ChangedManufacturer,ChangedSize,0.0,1,0.01,0.01
