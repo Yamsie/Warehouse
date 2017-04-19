@@ -2,3 +2,10 @@
 94,3,Puma,45,225.0
 2843509,7263302,TestManufacturer,1,0.01
 5440122,5399446,TestManufacturer,1,0.01
+1569679,3250260,TestManufacturer,1,0.01
+3547945,6333268,TestManufacturer,1,0.01
+6361303,1470539,TestManufacturer,1,0.01
+3771678,5545734,TestManufacturer,1,0.01
+6466453,8252360,TestManufacturer,1,0.01
+5234587,5888200,TestManufacturer,1,0.01
+7370122,7466417,TestManufacturer,1,0.01

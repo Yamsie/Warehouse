@@ -9,7 +9,7 @@ import java.util.List;
 public class AccessCustomerOrders extends DatabaseService {
 
     public AccessCustomerOrders() {
-        super("C:\\Users\\James\\IdeaProjects\\Warehouse\\data\\CUSTOMER_ORDERS.txt");
+        super("data/CUSTOMER_ORDERS.txt");
     }
 
     public void addNewOrder(ArrayList<String> order){
@@ -34,6 +34,8 @@ public class AccessCustomerOrders extends DatabaseService {
 
         return id + 1;
     }
+
+    /*
     public void deleteData(String order){
         List<String> fileData = super.getData();
 
@@ -45,7 +47,7 @@ public class AccessCustomerOrders extends DatabaseService {
             }
         }
         super.writeData(fileData);
-    }
+    }*/
 
     public String[] allData() {
         List<String> fileData = super.getData();
@@ -56,6 +58,7 @@ public class AccessCustomerOrders extends DatabaseService {
         return detail;
     }
 
+    @Override
     public void changeData(int id) {
         List<String> fileData = super.getData();
 

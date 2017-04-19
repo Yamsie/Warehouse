@@ -37,7 +37,7 @@ public class DatabaseService implements I_DatabaseService {
     public void changeItemData(String changedRow) {
     }
 
-    public void changeData(String[] info) {
+    public void changeData(int info) {
         //updateFileRow(info);
         writeData(data);
     }
@@ -138,6 +138,7 @@ public class DatabaseService implements I_DatabaseService {
     }
 
     protected void deleteFileRow(String[] newRow) {
+        System.out.println("SHANE!");
         String[] rowElements;
         boolean complete = false;
         for(int i = 1; i < data.size() && complete == false; i++) {
@@ -183,6 +184,16 @@ public class DatabaseService implements I_DatabaseService {
     }
 
     public int checkData(String allItemInfo) {
-        return 0;
+        int itemFound = 0;
+        List<String> fileData = getData();
+        for (int i = 1; i < fileData.size(); i++) {
+            String detail = fileData.get(i);
+            String itemID = detail.substring(0, (allItemInfo.indexOf(",")));
+            if (itemID.equals(allItemInfo.substring(0, (allItemInfo.indexOf(","))))) {
+                if (detail.equals(allItemInfo))
+                    itemFound++;
+            }
+        }
+        return itemFound;
     }
 }

@@ -2,7 +2,3 @@
 1,Boots,Nike,S,12,5,125,70,30
 2,Jacket,Adidas,L,12,3,150,95,40.50
 3,Socks,Puma,S,4.0,2,475.0,5.5
-3627563,TestItemType,TestManufacturer,TestSize,0.0,1,0.1,0.01
-5203767,ChangedItemType,ChangedManufacturer,ChangedSize,0.0,1,0.01,0.01
-4329817,TestItemType,TestManufacturer,TestSize,0.0,1,0.1,0.01
-1548911,ChangedItemType,ChangedManufacturer,ChangedSize,0.0,1,0.01,0.01
