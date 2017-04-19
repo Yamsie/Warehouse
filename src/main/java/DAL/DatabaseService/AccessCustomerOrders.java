@@ -34,6 +34,8 @@ public class AccessCustomerOrders extends DatabaseService {
 
         return id + 1;
     }
+
+    /*
     public void deleteData(String order){
         List<String> fileData = super.getData();
 
@@ -45,7 +47,7 @@ public class AccessCustomerOrders extends DatabaseService {
             }
         }
         super.writeData(fileData);
-    }
+    }*/
 
     public String[] allData() {
         List<String> fileData = super.getData();

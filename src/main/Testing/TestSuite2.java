@@ -62,6 +62,8 @@ public class TestSuite2 {
         int oldItemNotFound = 0;
         changedItemFound = DBCustomerOrders.checkData(changedRow);   //Check to see if old details were overwritten by the new ones
         oldItemNotFound = DBCustomerOrders.checkData(newRow);        //Check to see if old details were deleted
+        String itemDetailsArray[] = changedRow.split(",");
+        DBCustomerOrders.deleteData(itemDetailsArray);        //Deleting test data
         try {
             assertTrue("changedItemFound = 1 and oldItemNotFound = 0 => Order Status successfully changed in DB!", changedItemFound == 1 && oldItemNotFound == 0);
             System.out.println("Test 2 Pass [Test Suite 2]!\nOrder Status successfully changed from 'ACCEPTED' to 'PACKING' in database!");

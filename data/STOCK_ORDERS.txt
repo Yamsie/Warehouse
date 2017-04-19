@@ -8,3 +8,4 @@
 3771678,5545734,TestManufacturer,1,0.01
 6466453,8252360,TestManufacturer,1,0.01
 5234587,5888200,TestManufacturer,1,0.01
+7370122,7466417,TestManufacturer,1,0.01
