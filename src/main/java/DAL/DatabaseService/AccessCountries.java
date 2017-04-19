@@ -9,7 +9,7 @@ import java.util.List;
 public class AccessCountries  extends DatabaseService  {
 
     public AccessCountries() {
-        super("C:\\Users\\James\\IdeaProjects\\Warehouse\\data\\COUNTRIES.txt");
+        super("data/COUNTRIES.txt");
 
     }
 
