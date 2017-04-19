@@ -4,3 +4,5 @@
 000003,Shane123,345345,Stocker,345345@outllook.com
 000004,James123,456456,Manager,456456@outlook.com
 000005,John123,567567,Loader,567567@outlook.com
+000006,Tom123,[C@3bffe6c2,Picker,adsd@outlook.com
+123456,George,[C@44c80351,Packer,george@george.com

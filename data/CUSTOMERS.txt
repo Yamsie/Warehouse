@@ -1,5 +1,5 @@
 #cust_id,first_name,last_name,address1,address2,address3,zip,city,country,email,phone
-000002,Jason,Tian,China,Ireland,USA,01,ShanDong,China,124123@.ie,123123
+000002,Jason,Tian,China,Ireland,USA,01,ShanDong,UK,124123@.ie,123123
 000003,James,Reidy,Ireland,Franch,USA,01,Limerick,Ireland,126123@.ie,123124
 000004,Jack,Deegan,Ireland,Ireland,USA,01,Limerick,Ireland,123122@.ie,123125
 000005,Shane,Kenny,Ireland,Ireland,USA,01,ShanDong,Ireland,123123@.ie,123126
