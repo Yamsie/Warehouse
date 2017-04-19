@@ -80,17 +80,18 @@ public class DatabaseService implements I_DatabaseService {
 
     public int getColumnIndex(String column) {
         String[] rowElements;
-        int statusIndex = 0;
+        int index = 0;
         boolean complete = false;
         rowElements = data.get(0).split(",");
 
         for(int i = 0; i < rowElements.length && complete == false; i++) {
             if (rowElements[i].compareTo(column) == 0) {
-                statusIndex = i;
+                index = i;
+                complete = true;
             }
         }
 
-        return statusIndex;
+        return index;
     }
 
     public List<String> selectInfo(String column, String row) {
@@ -115,8 +116,8 @@ public class DatabaseService implements I_DatabaseService {
             csv = new File(filename);
             scanner = new Scanner(csv);
         } catch(FileNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Exception: " + e + "\n Exiting program.");
-            System.exit(0);
+            //System.out.println("Exception: " + e + "\n Exiting program.");
+            //System.exit(0);
         }
 
     }
@@ -126,9 +127,11 @@ public class DatabaseService implements I_DatabaseService {
         boolean complete = false;
         for(int i = 1; i < data.size() && complete == false; i++) {
             rowElements = data.get(i).split(",");
-            if(Integer.parseInt(rowElements[0]) == id) {
-                return rowElements;
-            }
+            try {
+                if (Integer.parseInt(rowElements[0]) == id) {
+                    return rowElements;
+                }
+            } catch (NumberFormatException e) {}
         }
 
         return null;
@@ -137,18 +140,19 @@ public class DatabaseService implements I_DatabaseService {
     protected void deleteFileRow(String[] newRow) {
         String[] rowElements;
         boolean complete = false;
-        for(int i = 0; i < data.size() && complete == false; i++) {
+        for(int i = 1; i < data.size() && complete == false; i++) {
             rowElements = data.get(i).split(",");
             if(Integer.parseInt(rowElements[0]) == Integer.parseInt(newRow[0])) {
-                String rowToCsv = "";
-                for(int j = 1; j < newRow.length; j++) {
-                    rowToCsv += newRow[j];
-                    if(j != (newRow.length - 1)) {
-                        rowToCsv += ",";
-                        complete = true;
-                    }
-                }
-                data.set(i, rowToCsv);
+                //String rowToCsv = "";
+                //for(int j = 1; j < newRow.length; j++) {
+                //    rowToCsv += newRow[j];
+                //    if(j != (newRow.length - 1)) {
+                //        rowToCsv += ",";
+                //        complete = true;
+                //    }
+                //}
+                //data.set(i, rowToCsv);
+                data.remove(i);
             }
         }
     }
@@ -160,8 +164,8 @@ public class DatabaseService implements I_DatabaseService {
                 data.add(scanner.next());
             }
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "Excepion");
-            System.exit(0);
+            //System.out.println("Exception");
+            //System.exit(0);
         }
     }
 
@@ -173,8 +177,8 @@ public class DatabaseService implements I_DatabaseService {
             }
             writer.close();
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Exception: " + e + "\n Exiting program.");
-            System.exit(0);
+            //System.out.println("Exception: " + e + "\n Exiting program.");
+            //System.exit(0);
         }
     }
 

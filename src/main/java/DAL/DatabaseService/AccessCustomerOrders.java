@@ -9,7 +9,7 @@ import java.util.List;
 public class AccessCustomerOrders extends DatabaseService {
 
     public AccessCustomerOrders() {
-        super("data/CUSTOMER_ORDERS.txt");
+        super("C:\\Users\\James\\IdeaProjects\\Warehouse\\data\\CUSTOMER_ORDERS.txt");
     }
 
     public void addNewOrder(ArrayList<String> order){
@@ -61,7 +61,7 @@ public class AccessCustomerOrders extends DatabaseService {
 
         for(int i = 1; i < fileData.size(); i++){
             String[] detail = fileData.get(i).split(",");
-            if(Integer.parseInt(detail[0]) == id && detail[6].equalsIgnoreCase("ACCEPT")){
+            if(Integer.parseInt(detail[0]) == id && detail[6].equalsIgnoreCase("ACCEPTED")){
                 detail[6] = "PACKING";
                 fileData.set(i,parseIntoString(detail));
             }

@@ -60,14 +60,11 @@ public class PackerModel extends Employee {
         int columnIndex = db.getColumnIndex("item_id");
         String[] elements;
         for (int i = 0; i < temp.size(); i++) {
-            System.out.println(i + "temp ;; " +temp.get(i));
             elements = temp.get(i).split(",");
             toPack.add(Integer.parseInt(elements[columnIndex]));
             if(!(currentOrder.containsOrder(Integer.parseInt(elements[columnIndex])))) {
                 currentOrder.setItemID(Integer.parseInt(elements[columnIndex]));
             }
-            System.out.println(i + "co ;; " + currentOrder.getItems().get(i));
-            System.out.println(i + "tp ;; " + toPack.get(i));
         }
     }
 
@@ -79,7 +76,6 @@ public class PackerModel extends Employee {
             currentOrder.setStatus("LOADING");
 
             for (int i =  0; i < itemsReady.size(); i++) {
-                System.out.println(currentOrder.getItems().get(i).toString());
                 String[] orderDetails = currentOrder.toString(i).split(",");
                 db.updateOrder(orderDetails);
             }
@@ -125,11 +121,3 @@ public class PackerModel extends Employee {
         itemsReady.clear();
     }
 }
-
-/**
- * needs to take order id
- * from order id, list items
- * from list of items, generate box
- * automatically set box size of order id
- * once order is set as packed, reset screen
- */

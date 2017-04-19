@@ -1,4 +1,4 @@
-package BLL.Model.StateDesignPattern;
+package BLL.Model.Customer;
 
 import DAL.DatabaseService.AccessCustomerOrders;
 import DAL.DatabaseService.AccessCustomers;

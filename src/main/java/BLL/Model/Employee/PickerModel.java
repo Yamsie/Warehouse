@@ -1,13 +1,9 @@
 package BLL.Model.Employee;
 
-import BLL.Model.StateDesignPattern.ContextOfPicker;
-import BLL.Model.StateDesignPattern.StateOfPicker;
 import DAL.DatabaseService.AccessCustomerOrders;
 import DAL.DatabaseService.AccessInventory;
-import DAL.DatabaseService.DatabaseService;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /*
  * Created by Jiasen on 2017/3/19.
@@ -22,9 +18,8 @@ public class PickerModel extends Employee implements I_EmployeeModel{
     //DatabaseService inventoryDB = new AccessInventory();
     //int newId, String newName, String newJobTitle, String newEmail
 
-    public PickerModel(int id, String userName, String newJobTile, String email){
-        super(id, userName, "Picker", email);
-        jobTitle = "Picker";
+    public PickerModel(int id, String userName, String newJobTitle, String email){
+        super(id, userName, newJobTitle, email);
     }
 
     public String [] getItemInfo(int ItemID){

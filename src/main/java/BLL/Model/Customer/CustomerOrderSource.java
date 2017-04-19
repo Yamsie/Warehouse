@@ -1,9 +1,9 @@
-package BLL.Model.DecoratorDesignPattern;
+package BLL.Model.Customer;
 
 /**
  * Created by Lenovo on 2017/4/16.
  */
-public class customerOrderSource implements customerOrderSourceable {
+public class CustomerOrderSource implements CustomerOrderSourceable {
 
     @Override
     public String customerOrder(String orderId, String userID, String ItemId, int quantity) {

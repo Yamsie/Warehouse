@@ -1,15 +1,10 @@
 package BLL.Authentication;
 import DAL.DatabaseService.AccessEmployees;
 import DAL.DatabaseService.DatabaseService;
-import UI.Controller.EmployeeControllerFactory;
-import UI.Controller.I_EmployeeController;
-import UI.View.LoginView;
 
-import javax.jws.soap.SOAPBinding;
 import java.util.Arrays;
-import java.io.*;
 
-public class AuthenticationFacade implements Authentication{
+public class AuthenticationFacade implements I_Authentication {
 
     private boolean userVerified = false;
     private LoginCredentials credentials;
@@ -34,7 +29,7 @@ public class AuthenticationFacade implements Authentication{
         }
 
         if(!(details == null)){
-            if((Arrays.equals(details.getPassword(), credentials.getPassword()) && (details.getUserName().equals(credentials.getUserName())))){
+            if((Arrays.equals(details.getPassword(), credentials.getPassword())) && (details.getUserName().equals(credentials.getUserName()))){
                 userVerified = true;
             }
             else {

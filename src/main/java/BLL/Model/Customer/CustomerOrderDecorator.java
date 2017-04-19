@@ -1,27 +1,20 @@
-package BLL.Model.DecoratorDesignPattern;
+package BLL.Model.Customer;
 
-import BLL.Model.StateDesignPattern.ContextOfCustomers;
-import BLL.Model.StateDesignPattern.StateOfCustomers;
 import DAL.DatabaseService.AccessCustomers;
 import DAL.DatabaseService.AccessInventory;
 
-import javax.swing.*;
-import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Lenovo on 2017/4/16.
  */
-public class customerOrderDecorator implements customerOrderSourceable {
+public class CustomerOrderDecorator implements CustomerOrderSourceable {
 
-    private customerOrderSourceable source;
+    private CustomerOrderSourceable source;
     StateOfCustomers state  = new StateOfCustomers();
     ContextOfCustomers context = new ContextOfCustomers(state);
 
-    public customerOrderDecorator(customerOrderSourceable source){
+    public CustomerOrderDecorator(CustomerOrderSourceable source){
         super();
         this.source = source;
     }
@@ -55,7 +48,7 @@ public class customerOrderDecorator implements customerOrderSourceable {
 
     public String getDefault(){
         //loading_zone,status,box_size
-        String Default= "1,Accept,null,";
+        String Default= "1,ACCEPTED,null,";
         return Default;
     }
 

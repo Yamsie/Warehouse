@@ -18,8 +18,7 @@ public class EmployeeControllerFactory {
             return new PackerController(new PackerView(details.getUserName()), new PackerModel(details.getId(),details.getUserName(), details.getJobTitle(), details.getEmail()));
         } else if (details.getJobTitle().equalsIgnoreCase("Loader")) {
             return new LoaderController(new LoaderView(details.getUserName()), new LoaderModel(details.getId(), details.getUserName(), details.getJobTitle(), details.getEmail()));
-        }
-        else if (details.getJobTitle().equalsIgnoreCase("Stocker")) {
+        } else if (details.getJobTitle().equalsIgnoreCase("Stocker")) {
             return new StockerController(new StockerView(details.getUserName()), new StockerModel(details.getId(), details.getUserName(), details.getJobTitle(), details.getEmail()));
         } else if (details.getJobTitle().equalsIgnoreCase("Manager")) {
             return new ManagerController(new ManagerView(details.getUserName()), new ManagerModel(details.getId(), details.getUserName(), details.getJobTitle(), details.getEmail()));

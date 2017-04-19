@@ -38,14 +38,4 @@ public class ManagerModel extends Employee implements I_EmployeeModel{
             employees.addData(newRow);
         }
 
-        /*public ArrayList<> getCustomerData() {
-            return "Customer Data";
-
-        }
-
-        public ArrayList<String> getOrderData() {
-            return "Order Data";
-
-        } */
-
 }

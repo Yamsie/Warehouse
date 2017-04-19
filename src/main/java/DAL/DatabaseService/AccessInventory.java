@@ -6,7 +6,7 @@ import java.util.List;
 public class AccessInventory extends DatabaseService {
 
     public AccessInventory() {
-        super("data/ALL_ITEMS.txt");
+        super("C:\\Users\\James\\IdeaProjects\\Warehouse\\data\\ALL_ITEMS.txt");
     }
 
     @Override

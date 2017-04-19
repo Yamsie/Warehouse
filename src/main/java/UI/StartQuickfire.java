@@ -1,6 +1,6 @@
 package UI;
 
-import BLL.Authentication.Authentication;
+import BLL.Authentication.I_Authentication;
 import BLL.Authentication.AuthenticationFacade;
 import UI.Controller.LoginController;
 import UI.View.LoginView;
@@ -12,7 +12,7 @@ import UI.View.LoginView;
 public class StartQuickfire {
     public static void main(String[] args) {
         LoginView userLoginView = new LoginView();
-        Authentication userAuthentication = new AuthenticationFacade();
+        I_Authentication userAuthentication = new AuthenticationFacade();
         LoginController userLoginContoller = new LoginController(userLoginView, userAuthentication);
         userLoginView.setVisible(true);
 

@@ -1,15 +1,13 @@
 package API;
 
-import BLL.Model.DecoratorDesignPattern.customerOrderDecorator;
-import BLL.Model.DecoratorDesignPattern.customerOrderSource;
-import BLL.Model.DecoratorDesignPattern.customerOrderSourceable;
-import BLL.Model.Inventory.Item;
+import BLL.Model.Customer.CustomerOrderDecorator;
+import BLL.Model.Customer.CustomerOrderSource;
+import BLL.Model.Customer.CustomerOrderSourceable;
 import BLL.Model.Order.TemporaryOrder;
-import BLL.Model.StateDesignPattern.ContextOfCustomers;
-import BLL.Model.StateDesignPattern.StateOfCustomers;
+import BLL.Model.Customer.ContextOfCustomers;
+import BLL.Model.Customer.StateOfCustomers;
 import DAL.DatabaseService.AccessCustomerOrders;
 import DAL.DatabaseService.AccessCustomers;
-import DAL.DatabaseService.AccessInventory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 //import javax.ws.rs.POST;
 //import javax.ws.rs.Path;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -35,10 +32,13 @@ public class NewOrder extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String custId = req.getParameter("custid");
-        String securityToken = req.getParameter("token");
         String itemId[] = req.getParameterValues("itemid");
-        resp.getWriter().write("Customer ID: " + custId);
-        resp.getWriter().write("\nSecurity Token: " + securityToken);
+
+
+
+        //check if customer exists
+        //check if item exists and is in stock
+        //#order_id,cust_id,item_id,order_quantity,shipping_address,loading_zone,status,box_size,order_price,shipping_price,total_price,order_date
         int orderId;
         try {
             if (itemId != null) {
@@ -78,12 +78,13 @@ public class NewOrder extends HttpServlet {
     public ArrayList<String> newOrder(ArrayList<TemporaryOrder> list,String orderId, String userID){
         ArrayList<String> newOrder = new ArrayList<>();
         for(int i = 0; i < list.size(); ++i){
-            customerOrderSourceable source = new customerOrderSource();
-            customerOrderSourceable  obj = new customerOrderDecorator(source);
+            CustomerOrderSourceable source = new CustomerOrderSource();
+            CustomerOrderSourceable obj = new CustomerOrderDecorator(source);
             newOrder.add(obj.customerOrder(orderId, userID, list.get(i).getItemID(), list.get(i).getCount()));
         }
         return newOrder;
     }
+
 
     public ArrayList<TemporaryOrder> getTotalItem(String [] ItemID){
 

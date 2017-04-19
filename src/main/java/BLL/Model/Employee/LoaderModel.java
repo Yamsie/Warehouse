@@ -22,14 +22,14 @@ public class LoaderModel extends Employee implements I_EmployeeModel {
     }
 
     public String[] updateOrder(String chosenOrder) {
-        String chosenOrderInfo[] = new String[11];
+        String chosenOrderInfo[];
         int chosenOrderID = Integer.parseInt(chosenOrder);
         String chosenOrderDetails = loaderDB.showData(chosenOrderID);
         chosenOrderInfo = chosenOrderDetails.split(",");
 
-        String chosenCountryInfo[] = new String[6];
-        String chosenCountryName = chosenOrderInfo[4];
-        String chosenCountryDetails = loaderDBCountry.getCountryData(chosenCountryName);
+        String chosenCountryInfo[];
+        String chosenCountryName = chosenOrderInfo[loaderDB.getColumnIndex("shipping_address")];
+        String chosenCountryDetails = loaderDBCountry.selectInfo("country_name", chosenCountryName).get(0);
         chosenCountryInfo = chosenCountryDetails.split(",");
 
         if (chosenOrderInfo[4].equals(chosenCountryInfo[0])) {
@@ -63,13 +63,22 @@ public class LoaderModel extends Employee implements I_EmployeeModel {
                 chosenOrderInfo[6] = "SHIPPED";
         }
 
-        loaderDB.changeData(chosenOrderInfo);
+        String output = "";
+        for (int i = 0; i < chosenOrderInfo.length; i++) {
+            output += chosenOrderInfo[i];
+            if (i != chosenOrderInfo.length - 1) {
+                output += ",";
+            }
+        }
+
+        loaderDB.deleteData(chosenOrderInfo);
+        loaderDB.addData(output);
         JOptionPane.showMessageDialog(null, "Shipped!");
         return chosenOrderInfo;
     }
 
     public String getOrders(){
-        List<String> test = loaderDB.getData();
+        List<String> test = loaderDB.selectInfo("status", "LOADING");
         String [] temp = test.toArray(new String[0]);
         String orders = "";
         for(int i = 1; i < temp.length; i++){

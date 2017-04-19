@@ -3,15 +3,15 @@ package UI.Controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import UI.View.LoginView;
-import BLL.Authentication.Authentication;
+import BLL.Authentication.I_Authentication;
 /**
  * Created by Lenovo on 2017/3/12.
  */
 public class LoginController {
     private LoginView view;
-    private Authentication model;
+    private I_Authentication model;
 
-    public LoginController(LoginView userLoginView, Authentication userAuthentication) {
+    public LoginController(LoginView userLoginView, I_Authentication userAuthentication) {
         this.view = userLoginView;
         this.model = userAuthentication;
         this.view.SubmitListener(new SubListener());
