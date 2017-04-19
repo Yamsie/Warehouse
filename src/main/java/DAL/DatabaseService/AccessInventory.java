@@ -3,10 +3,13 @@ package DAL.DatabaseService;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Shane on 2017/3/12.
+ */
 public class AccessInventory extends DatabaseService {
 
     public AccessInventory() {
-        super("C:\\Users\\James\\IdeaProjects\\Warehouse\\data\\ALL_ITEMS.txt");
+        super("data/ALL_ITEMS.txt");
     }
 
     @Override

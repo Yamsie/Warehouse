@@ -1,5 +1,8 @@
 package BLL.Model.Inventory;
 
+/**
+ * Created by Shane on 2017/3/12.
+ */
 public class Item
 {
 	private String itemType;

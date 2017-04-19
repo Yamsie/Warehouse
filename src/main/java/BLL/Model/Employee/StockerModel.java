@@ -8,6 +8,9 @@ import DAL.DatabaseService.DatabaseService;
 
 import java.util.List;
 
+/**
+ * Created by Shane on 2017/3/12.
+ */
 public class StockerModel extends Employee implements I_EmployeeModel
 {
     private DatabaseService stockerDBInventory = new AccessInventory();

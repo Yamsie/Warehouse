@@ -7,6 +7,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
+/**
+ * Created by Shane on 2017/3/12.
+ */
 public class TestSuite1 {
 
     private DatabaseService stockerDBInventory = new AccessInventory();

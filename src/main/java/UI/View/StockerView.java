@@ -7,6 +7,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+/**
+ * Created by Shane on 2017/3/12.
+ */
 public class StockerView extends JFrame implements I_EmployeeView
 {
     private JButton Button = new JButton("Log out");

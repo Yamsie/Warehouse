@@ -8,6 +8,9 @@ import UI.View.StockerView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Created by Shane on 2017/3/12.
+ */
 public class StockerController implements I_EmployeeController {
     private StockerView view;
     private StockerModel model;
