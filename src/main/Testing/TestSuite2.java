@@ -65,7 +65,7 @@ public class TestSuite2 {
         String itemDetailsArray[] = changedRow.split(",");
         DBCustomerOrders.deleteData(itemDetailsArray);        //Deleting test data
         try {
-            assertTrue("changedItemFound = 1 and oldItemNotFound = 0 => Order Status successfully changed in DB!", changedItemFound == 1 && oldItemNotFound == 0);
+            assertTrue("Order Status successfully changed in DB!", changedItemFound == 1 && oldItemNotFound == 0);
             System.out.println("Test 2 Pass [Test Suite 2]!\nOrder Status successfully changed from 'ACCEPTED' to 'PACKING' in database!");
         }
         catch (AssertionError e) {
