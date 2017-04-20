@@ -3,3 +3,4 @@
 2,Jacket,Adidas,L,12,3,150,95,40.50
 3,Socks,Puma,S,4.0,2,475.0,5.5
 4,Sneakers,Nike,11,30.5,90,45.0,22.5
+1676206,TestItemType,TestManufacturer,TestSize,0.0,1,0.1,0.01

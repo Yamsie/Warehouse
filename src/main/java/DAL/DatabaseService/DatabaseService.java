@@ -162,7 +162,6 @@ public class DatabaseService implements I_DatabaseService {
     }
 
     protected void deleteFileRow(String[] newRow) {
-        System.out.println("SHANE!");
         String[] rowElements;
         boolean complete = false;
         for(int i = 1; i < data.size() && complete == false; i++) {
