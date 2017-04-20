@@ -1,4 +1,5 @@
 #item_id,itemtype,brand,size,volume,
-1,Boots,Nike,S,12,5,125,70,30
+1,Wellies,Nike,S,12.0,5,125.0,70.0
 2,Jacket,Adidas,L,12,3,150,95,40.50
 3,Socks,Puma,S,4.0,2,475.0,5.5
+4,Sneakers,Nike,11,30.5,90,45.0,22.5
