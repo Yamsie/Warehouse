@@ -27,22 +27,11 @@ public class ManagerView extends JFrame implements I_EmployeeView {
     private JTextField employeeJobTitle = new JTextField(20);
     private JLabel empEmailLabel = new JLabel("Email: ");
     private JTextField employeeEmail = new JTextField(20);
-
     private JButton addEmployeeButton = new JButton("Add Employee");
 
-
-
     private JLabel nameLabel = new JLabel("Logged in as: ");
-    //private JLabel displayField = new JLabel();
     private DefaultTableModel model = new DefaultTableModel();
     private JTable displayTable = new JTable(model);
-
-
-    //private JLabel empLabel = new JLabel("View All Orders");
-    //private JLabel orderLabel = new JLabel("View Employees");
-    //private JLabel customerLabel = new JLabel("View Customers");
-
-
 
     public ManagerView(String userName){
         nameLabel.setText(nameLabel.getText() + userName);
@@ -51,7 +40,6 @@ public class ManagerView extends JFrame implements I_EmployeeView {
         JPanel displayPanel = new JPanel();
         JPanel newEmployeePanel = new JPanel();
         JScrollPane scroller = new JScrollPane(displayTable);
-//        displayTable.setFillsViewportHeight(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Manager Window");
@@ -75,7 +63,6 @@ public class ManagerView extends JFrame implements I_EmployeeView {
         newEmployeePanel.add(employeeEmail);
         newEmployeePanel.add(addEmployeeButton);
 
-
         setLayout(new GridLayout(3,3));
         add(namePanel, BorderLayout.NORTH);
         add(buttonsPanel, BorderLayout.WEST);
@@ -87,32 +74,11 @@ public class ManagerView extends JFrame implements I_EmployeeView {
         employeeButton.addActionListener(listenForButton);
     }
 
-    public void customerListener(ActionListener listenForButton) {
-        customerButton.addActionListener(listenForButton);
-    }
-
-    public void orderListener(ActionListener listenForButton) {
-        orderButton.addActionListener(listenForButton);
-    }
-
     public void addEmployeeListener(ActionListener listenForButton) {
         addEmployeeButton.addActionListener(listenForButton);
     }
 
-    public void displayEmployees() {
-
-    }
-
-    public void displayCustomers() {
-
-    }
-
-    public void displayOrders() {
-
-    }
-
     public void setDisplayText(String[][] output) {
-        clearDisplayText();
         for (int i = 0; i < output[0].length; i++) {
             model.addColumn(output[0][i]);
         }
@@ -120,11 +86,6 @@ public class ManagerView extends JFrame implements I_EmployeeView {
         for (int i = 1; i < output.length; i++) {
             model.addRow(output[i]);
         }
-
-
-
-    }
-    public void clearDisplayText() {
     }
 
     public String getNewEmpId() {

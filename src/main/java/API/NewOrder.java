@@ -34,45 +34,37 @@ public class NewOrder extends HttpServlet {
         String custId = req.getParameter("custid");
         String itemId[] = req.getParameterValues("itemid");
 
-
-
-        //check if customer exists
-        //check if item exists and is in stock
-        //#order_id,cust_id,item_id,order_quantity,shipping_address,loading_zone,status,box_size,order_price,shipping_price,total_price,order_date
         int orderId;
+        //try {
+        //    if (itemId != null) {
+        //        for (int i = 0; i < itemId.length; i++) {
+        //            resp.getWriter().write("\nItem ID " + i + ": " + itemId[i]);
+        //        }
+        //    }
+        //} catch (NullPointerException e) {
+        //    resp.getWriter().write("Error");
+        //}
+
         try {
-            if (itemId != null) {
-                for (int i = 0; i < itemId.length; i++) {
-                    resp.getWriter().write("\nItem ID " + i + ": " + itemId[i]);
-                }
+            state.setOperatorType("customers");
+            AccessCustomers cust = (AccessCustomers) context.method();
+            boolean User = cust.checkCustomers(custId);
+            if (User) {
+                ArrayList<TemporaryOrder> list = new ArrayList<>();
+                ArrayList<String> order = new ArrayList<>();
+                state.setOperatorType("order");
+                AccessCustomerOrders newOrder = (AccessCustomerOrders) context.method();
+                orderId = newOrder.getNewOrderId();
+                String id = String.valueOf(orderId);
+                list = getTotalItem(itemId);
+                order = newOrder(list, id, custId);
+                newOrder.addNewOrder(order);
+            } else {
+                resp.getWriter().write("User ID Error!");
             }
         } catch (NullPointerException e) {
-            resp.getWriter().write("Error");
+            resp.getWriter().write("Order not submitted. Exception: " + e);
         }
-
-        //state.setOperatorType("inventory");
-        //state.setOperatorType("order");
-        state.setOperatorType("customers");
-        AccessCustomers cust = (AccessCustomers)context.method();
-        boolean User =  cust.checkCustomers(custId);
-        if(User){
-            ArrayList<TemporaryOrder> list = new ArrayList<>();
-            ArrayList<String> order = new ArrayList<>();
-            state.setOperatorType("order");
-            AccessCustomerOrders newOrder = (AccessCustomerOrders)context.method();
-            orderId = newOrder.getNewOrderId();
-            String id = String.valueOf(orderId);
-            list = getTotalItem(itemId);
-            order = newOrder(list,id, custId);
-            newOrder.addNewOrder(order);
-        }
-        else {
-            resp.getWriter().write("User ID Error!");
-        }
-        //AccessInventory inventory =  (AccessInventory)context.method();//(AccessInventory)inventoryDB;
-        //This will check to see if the token and custid match, assign the order a unique orderID,
-        //then create order. If two itemIDs match then increment the quantity.
-        resp.getWriter().write("Customer ID: ");
     }
 
     public ArrayList<String> newOrder(ArrayList<TemporaryOrder> list,String orderId, String userID){

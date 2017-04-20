@@ -49,10 +49,7 @@ public class ConfirmCustomerOrder extends HttpServlet {
                 }
             }
         } catch (Exception e) {
-            resp.getWriter().write("Error: " + e);
+            resp.getWriter().write("Item not confirmed. Error: " + e);
         }
-        //This should update the given orderid to "Confirmed" if the given order ID exists and has a status of "Shipped"
-        //or return an error message if the id does not exist
     }
-
 }

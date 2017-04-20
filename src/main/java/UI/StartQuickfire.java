@@ -15,9 +15,5 @@ public class StartQuickfire {
         I_Authentication userAuthentication = new AuthenticationFacade();
         LoginController userLoginContoller = new LoginController(userLoginView, userAuthentication);
         userLoginView.setVisible(true);
-
-      //  PickerView view = new PickerView("picker");
-        //PickerModel model = new PickerModel(1,  "userName", "Picker", "123");
-       // PickerController controller = new PickerController(view, model);
     }
 }

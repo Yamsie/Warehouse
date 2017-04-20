@@ -18,8 +18,6 @@ public class ManagerModel extends Employee implements I_EmployeeModel{
 
         private List<Employee> employeeOutput = new ArrayList<Employee>();
         private DatabaseService employees = new AccessEmployees();
-        //private Order order;
-        //private Customer customer
 
         public String[][] getEmployeeData() {
             List<String> employeeText = employees.getData();
@@ -27,7 +25,6 @@ public class ManagerModel extends Employee implements I_EmployeeModel{
 
             for (int i = 0; i < employeeText.size(); i++) {
                 elements[i] = employeeText.get(i).split(",");
-                //employeeData.add(new Employee(Integer.parseInt(elements[0]), elements[1], elements[3], elements[4]));
             }
 
             return elements;

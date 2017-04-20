@@ -9,7 +9,7 @@ import java.util.List;
 public class AccessCustomerOrders extends DatabaseService {
 
     public AccessCustomerOrders() {
-        super("data/CUSTOMER_ORDERS.txt");
+        super("C:\\Users\\James\\IdeaProjects\\Warehouse\\data\\CUSTOMER_ORDERS.txt");
     }
 
     public void addNewOrder(ArrayList<String> order){

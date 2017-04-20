@@ -10,5 +10,3 @@ public interface I_Authentication {
     void authenticate();
     void loadPage();
 }
-
-

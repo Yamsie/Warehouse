@@ -38,7 +38,6 @@ public class DatabaseService implements I_DatabaseService {
     }
 
     public void changeData(int info) {
-        //updateFileRow(info);
         writeData(data);
     }
 
@@ -138,22 +137,13 @@ public class DatabaseService implements I_DatabaseService {
     }
 
     protected void deleteFileRow(String[] newRow) {
-        System.out.println("SHANE!");
         String[] rowElements;
         boolean complete = false;
         for(int i = 1; i < data.size() && complete == false; i++) {
             rowElements = data.get(i).split(",");
             if(Integer.parseInt(rowElements[0]) == Integer.parseInt(newRow[0])) {
-                //String rowToCsv = "";
-                //for(int j = 1; j < newRow.length; j++) {
-                //    rowToCsv += newRow[j];
-                //    if(j != (newRow.length - 1)) {
-                //        rowToCsv += ",";
-                //        complete = true;
-                //    }
-                //}
-                //data.set(i, rowToCsv);
                 data.remove(i);
+                writeData(data);
             }
         }
     }
@@ -165,8 +155,7 @@ public class DatabaseService implements I_DatabaseService {
                 data.add(scanner.next());
             }
         } catch (NullPointerException e) {
-            //System.out.println("Exception");
-            //System.exit(0);
+
         }
     }
 
@@ -178,8 +167,7 @@ public class DatabaseService implements I_DatabaseService {
             }
             writer.close();
         } catch (IOException e) {
-            //System.out.println("Exception: " + e + "\n Exiting program.");
-            //System.exit(0);
+
         }
     }
 

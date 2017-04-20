@@ -7,7 +7,7 @@ import java.util.*;
  */
 public class AccessCustomers extends DatabaseService{
 
-    public AccessCustomers(){ super("data/CUSTOMERS.txt"); }
+    public AccessCustomers(){ super("C:\\Users\\James\\IdeaProjects\\Warehouse\\data\\CUSTOMERS.txt"); }
 
     public boolean checkCustomers(String UserID){
         List<String> cus = super.getData();

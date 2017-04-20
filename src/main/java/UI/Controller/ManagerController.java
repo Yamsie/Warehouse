@@ -19,8 +19,6 @@ public class ManagerController implements I_EmployeeController {
         this.view = managerView;
         this.model = managerModel;
         this.view.employeeListener(new EmployeeButtonListener());
-        this.view.customerListener(new CustomerButtonListener());
-        this.view.orderListener(new OrderButtonButtonListener());
         this.view.addEmployeeListener(new AddEmployeeButtonListener());
 
     }
@@ -31,21 +29,8 @@ public class ManagerController implements I_EmployeeController {
         }
     }
 
-    class CustomerButtonListener implements ActionListener {
-        public void actionPerformed(ActionEvent arg0) {
-            //model.getCustomerData();
-        }
-    }
-
-    class OrderButtonButtonListener implements ActionListener {
-        public void actionPerformed(ActionEvent arg0) {
-            //model.getOrderData();
-        }
-    }
-
     class AddEmployeeButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
-            //perform validation on text
             model.addNewEmployee(view.getNewEmpId(), view.getNewEmpName(), view.getNewEmpPassword(), view.getNewEmpJobTitle(), view.getNewEmpEmail());
         }
     }
