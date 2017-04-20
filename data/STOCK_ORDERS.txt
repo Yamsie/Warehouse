@@ -1,3 +1,5 @@
 94,3,Puma,45,225.0
 90,2,Nike,40,80.0
-2648629,2445742,TestManufacturer,1,0.01
+4483131,6710687,TestManufacturer,1,0.01
+5085317,3333632,TestManufacturer,1,0.01
+4023539,5827427,TestManufacturer,1,0.01

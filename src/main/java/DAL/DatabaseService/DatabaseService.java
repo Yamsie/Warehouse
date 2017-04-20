@@ -194,7 +194,6 @@ public class DatabaseService implements I_DatabaseService {
             }
             writer.close();
         } catch (IOException e) {
-
         }
     }
 
