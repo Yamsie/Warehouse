@@ -25,8 +25,8 @@ public class TestSuite1 {
         stockerDBInventory.addData(newRow);
         int itemFound = 0;
         itemFound = stockerDBInventory.checkData(newRow);     //Check to see if created order is successfully found in the database
-        String itemDetailsArray[] = newRow.split(",");
-        stockerDBInventory.deleteData(itemDetailsArray);      //Deleting test data
+        //String itemDetailsArray[] = newRow.split(",");
+        //stockerDBInventory.deleteData(itemDetailsArray);      //Deleting test data
         try {
             assertTrue("itemFound = 1 => Item details successfully found in DB", itemFound == 1);
             System.out.println("Test 1 Pass [Test Suite 1]!\nCreated Item was successfully stored in database!");
@@ -47,8 +47,8 @@ public class TestSuite1 {
         stockerDBStockOrders.addData(newRow);
         int itemFound = 0;
         itemFound = stockerDBStockOrders.checkData(newRow);     //Check to see if created order is successfully found in the database
-        String itemDetailsArray[] = newRow.split(",");
-        stockerDBInventory.deleteData(itemDetailsArray);        //Deleting test data
+        //String itemDetailsArray[] = newRow.split(",");
+        //stockerDBInventory.deleteData(itemDetailsArray);        //Deleting test data
         try {
             assertTrue("itemFound = 1 => Order details successfully found in DB", itemFound == 1);
             System.out.println("Test 2 Pass [Test Suite 1]!\nCreated Order was successfully stored in database!");
