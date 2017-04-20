@@ -1,5 +1,7 @@
 package DAL.DatabaseService;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,8 +21,9 @@ public class DatabaseService implements I_DatabaseService {
     private Scanner scanner;
     private String filename;
 
+
     DatabaseService(String filename) {
-        this.filename = filename;
+        this.filename =  filename;
         openFile(filename);
         readFile();
     }
