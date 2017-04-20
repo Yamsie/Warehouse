@@ -1113,11 +1113,11 @@
     <tags>View</tags>
     <tags>categoryTag:Oomph</tags>
   </descriptors>
-  <descriptors xmi:id="_o7mOYBLvEee-r_CWhsnJsg" elementId="org.eclipse.pde.api.tools.ui.views.apitooling.views.apitoolingview" label="API Tools" iconURI="platform:/plugin/org.eclipse.pde.api.tools.ui/icons/full/obj16/api_tools.gif" tooltip="" category="API Tools" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_o7mOYBLvEee-r_CWhsnJsg" elementId="org.eclipse.pde.api.tools.ui.views.apitooling.views.apitoolingview" label="BLL.API Tools" iconURI="platform:/plugin/org.eclipse.pde.api.tools.ui/icons/full/obj16/api_tools.gif" tooltip="" category="BLL.API Tools" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <persistedState key="originalCompatibilityViewClass" value="org.eclipse.pde.api.tools.ui.internal.views.APIToolingView"/>
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.pde.api.tools.ui"/>
     <tags>View</tags>
-    <tags>categoryTag:API Tools</tags>
+    <tags>categoryTag:BLL.API Tools</tags>
   </descriptors>
   <descriptors xmi:id="_o7oDkBLvEee-r_CWhsnJsg" elementId="org.eclipse.pde.runtime.RegistryBrowser" label="Plug-in Registry" iconURI="platform:/plugin/org.eclipse.pde.runtime/icons/eview16/registry.gif" tooltip="" category="Plug-in Development" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <persistedState key="originalCompatibilityViewClass" value="org.eclipse.pde.internal.runtime.registry.RegistryBrowser"/>
@@ -1828,7 +1828,7 @@
   <commands xmi:id="_omY0HRLvEee-r_CWhsnJsg" elementId="org.eclipse.xtext.ui.codetemplates.Codetemplates.validate" commandName="Validate" description="Trigger expensive validation" category="_omF4nxLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omY0HhLvEee-r_CWhsnJsg" elementId="org.eclipse.ui.navigate.selectWorkingSets" commandName="Select Working Sets" description="Select the working sets that are applicable for this window." category="_omF4gRLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omY0HxLvEee-r_CWhsnJsg" elementId="org.eclipse.jdt.ui.edit.text.java.rename.element" commandName="Rename - Refactoring " description="Rename the selected element" category="_omF4ghLvEee-r_CWhsnJsg"/>
-  <commands xmi:id="_omY0IBLvEee-r_CWhsnJsg" elementId="org.eclipse.pde.api.tools.ui.remove.filters" commandName="Remove &amp;API Problem Filters..." description="Remove API problem filters for this project" category="_omF4nxLvEee-r_CWhsnJsg"/>
+  <commands xmi:id="_omY0IBLvEee-r_CWhsnJsg" elementId="org.eclipse.pde.api.tools.ui.remove.filters" commandName="Remove &amp;BLL.API Problem Filters..." description="Remove BLL.API problem filters for this project" category="_omF4nxLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omY0IRLvEee-r_CWhsnJsg" elementId="org.eclipse.jdt.ui.edit.text.java.externalize.strings" commandName="Externalize Strings" description="Finds all strings that are not externalized and moves them into a separate property file" category="_omF4lxLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omY0IhLvEee-r_CWhsnJsg" elementId="org.eclipse.egit.ui.history.CherryPick" commandName="Cherry Pick" category="_omF4nxLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omY0IxLvEee-r_CWhsnJsg" elementId="org.eclipse.ui.file.close" commandName="Close" description="Close the active editor" category="_omF4fxLvEee-r_CWhsnJsg"/>
@@ -1962,7 +1962,7 @@
   <commands xmi:id="_omikoBLvEee-r_CWhsnJsg" elementId="org.eclipse.mylyn.context.ui.commands.interest.increment" commandName="Make Landmark" description="Make Landmark" category="_omF4eBLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omikoRLvEee-r_CWhsnJsg" elementId="org.eclipse.sirius.tree.ui.quickoutline" commandName="Tree Editor Quick Outline Command" category="_omF4nxLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omikohLvEee-r_CWhsnJsg" elementId="org.eclipse.egit.ui.RepositoriesViewConfigureFetch" commandName="Configure Fetch..." category="_omF4jxLvEee-r_CWhsnJsg"/>
-  <commands xmi:id="_omikoxLvEee-r_CWhsnJsg" elementId="org.eclipse.pde.api.tools.ui.convert.javadocs" commandName="Convert API Tools &amp;Javadoc Tags..." description="Starts a wizard that will allow you to convert existing Javadoc tags to annotations" category="_omF4nxLvEee-r_CWhsnJsg"/>
+  <commands xmi:id="_omikoxLvEee-r_CWhsnJsg" elementId="org.eclipse.pde.api.tools.ui.convert.javadocs" commandName="Convert BLL.API Tools &amp;Javadoc Tags..." description="Starts a wizard that will allow you to convert existing Javadoc tags to annotations" category="_omF4nxLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omikpBLvEee-r_CWhsnJsg" elementId="org.eclipse.emf.emfstore.client.ui.exportProject" commandName="Export Project" category="_omF4nBLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omikpRLvEee-r_CWhsnJsg" elementId="org.eclipse.jdt.ui.edit.text.java.open.external.javadoc" commandName="Open Attached Javadoc" description="Open the attached Javadoc of the selected element in a browser" category="_omF4fBLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omikphLvEee-r_CWhsnJsg" elementId="org.eclipse.pde.ui.EquinoxLaunchShortcut.run" commandName="Run OSGi Framework" description="Run OSGi Framework" category="_omF4ihLvEee-r_CWhsnJsg"/>
@@ -2068,7 +2068,7 @@
   <commands xmi:id="_omilBBLvEee-r_CWhsnJsg" elementId="org.eclipse.ui.edit.text.folding.restore" commandName="Reset Structure" description="Resets the folding structure" category="_omF4dxLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omilBRLvEee-r_CWhsnJsg" elementId="org.eclipse.help.ui.indexcommand" commandName="Index" description="Show Keyword Index" category="_omF4hBLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omilBhLvEee-r_CWhsnJsg" elementId="org.eclipse.jdt.ui.edit.text.java.clean.up" commandName="Clean Up" description="Solve problems and improve code style on selected resources" category="_omF4lxLvEee-r_CWhsnJsg"/>
-  <commands xmi:id="_omilBxLvEee-r_CWhsnJsg" elementId="org.eclipse.pde.api.tools.ui.setup.projects" commandName="API &amp;Tools Setup..." description="Configure projects for API usage and compatibility checks" category="_omF4nxLvEee-r_CWhsnJsg"/>
+  <commands xmi:id="_omilBxLvEee-r_CWhsnJsg" elementId="org.eclipse.pde.api.tools.ui.setup.projects" commandName="BLL.API &amp;Tools Setup..." description="Configure projects for BLL.API usage and compatibility checks" category="_omF4nxLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omilCBLvEee-r_CWhsnJsg" elementId="org.eclipse.jdt.debug.ui.localJavaShortcut.debug" commandName="Debug Java Application" description="Debug Java Application" category="_omF4ihLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omilCRLvEee-r_CWhsnJsg" elementId="org.eclipse.ui.navigate.forward" commandName="Forward" description="Navigate forward" category="_omF4fBLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omilChLvEee-r_CWhsnJsg" elementId="org.eclipse.team.cvs.ui.tag" commandName="Tag as Version" description="Tag the resources with a CVS version tag" category="_omF4jBLvEee-r_CWhsnJsg"/>
@@ -2260,7 +2260,7 @@
   <commands xmi:id="_omilwBLvEee-r_CWhsnJsg" elementId="org.eclipse.jdt.ui.edit.text.java.generate.tostring" commandName="Generate toString()" description="Generates the toString() method for the type" category="_omF4lxLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omilwRLvEee-r_CWhsnJsg" elementId="org.eclipse.jdt.ui.edit.text.java.organize.imports" commandName="Organize Imports" description="Evaluate all required imports and replace the current imports" category="_omF4lxLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omilwhLvEee-r_CWhsnJsg" elementId="org.eclipse.debug.ui.commands.DropToFrame" commandName="Drop to Frame" description="Drop to Frame" category="_omF4ihLvEee-r_CWhsnJsg"/>
-  <commands xmi:id="_omilwxLvEee-r_CWhsnJsg" elementId="org.eclipse.pde.api.tools.ui.compare.to.baseline" commandName="API Baseline..." description="Allows to compare the selected resource with the current baseline" category="_omF4nxLvEee-r_CWhsnJsg"/>
+  <commands xmi:id="_omilwxLvEee-r_CWhsnJsg" elementId="org.eclipse.pde.api.tools.ui.compare.to.baseline" commandName="BLL.API Baseline..." description="Allows to compare the selected resource with the current baseline" category="_omF4nxLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omilxBLvEee-r_CWhsnJsg" elementId="org.eclipse.pde.ui.imagebrowser.saveToWorkspace" commandName="Save Image" description="Save the selected image into a project in the workspace" category="_omF4nxLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omilxRLvEee-r_CWhsnJsg" elementId="org.eclipse.jdt.debug.ui.commands.Display" commandName="Display" description="Display result of evaluating selected text" category="_omF4ihLvEee-r_CWhsnJsg"/>
   <commands xmi:id="_omilxhLvEee-r_CWhsnJsg" elementId="org.eclipse.jdt.ui.edit.text.java.search.exception.occurrences" commandName="Search Exception Occurrences in File" description="Search for exception occurrences of a selected exception type" category="_omF4iRLvEee-r_CWhsnJsg"/>

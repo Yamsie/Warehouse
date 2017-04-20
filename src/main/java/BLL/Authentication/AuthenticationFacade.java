@@ -22,7 +22,7 @@ public class AuthenticationFacade implements I_Authentication {
     public void authenticate() {
         db = new AccessEmployees();
         try {
-            String[] user = db.selectInfo("username", credentials.getUserName()).get(0).split(",");
+            String[] user = db.selectInfo("UserName", credentials.getUserName()).get(0).split(",");
             details = new UserDetails(Integer.parseInt(user[0]), user[1], user[2].toCharArray(), user[3], user[4]);
         } catch (IndexOutOfBoundsException e) {
 
