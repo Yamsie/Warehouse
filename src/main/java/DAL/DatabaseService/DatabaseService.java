@@ -41,6 +41,30 @@ public class DatabaseService implements I_DatabaseService {
         writeData(data);
     }
 
+    public void testData(String[] info) {
+        updateFileRow(info);
+        writeData(data);
+    }
+
+    protected void updateFileRow(String[] newRow) {
+        String newLine = "";
+        String[] rowElements;
+        for(int i = 1; i < data.size(); i++) {
+            rowElements = data.get(i).split(",");
+            if(Integer.parseInt(rowElements[0]) == Integer.parseInt(newRow[0])) {
+                for (int j = 0; j < newRow.length; j++) {
+                    newLine += newRow[j];
+                    if (j != (newRow.length - 1)) {
+                        newLine += ",";
+                    }
+                }
+                data.add(newLine);
+                data.remove(i);
+                newLine = "";
+            }
+        }
+    }
+
     public void deleteData(String[] info) {
         deleteFileRow(info);
     }
