@@ -5,6 +5,7 @@ import BLL.Model.Order.StockOrder;
 import DAL.DatabaseService.AccessInventory;
 import DAL.DatabaseService.AccessStockOrders;
 import DAL.DatabaseService.DatabaseService;
+import UI.View.StockerView;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class StockerModel extends Employee implements I_EmployeeModel
 
     public void addNewItem(Item createdItem) {
         String newRow = createdItem.toString();
-        stockerDBInventory.addData(newRow);
+            stockerDBInventory.addData(newRow);
     }
 
     public String[] showChosenItem(String chosenItem) {
