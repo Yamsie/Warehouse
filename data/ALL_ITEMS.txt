@@ -1,4 +1,4 @@
 1,Wellies,Nike,S,12.0,5,125.0,70.0
-2,Jacket,Adidas,L,12,3,150,95,40.50
+2,Boots,Adidas,L,12.0,76,150.0,95.0
 3,Socks,Puma,S,4.0,2,475.0,5.5
 4,Sneakers,Nike,11,30.5,90,45.0,22.5
