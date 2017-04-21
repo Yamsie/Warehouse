@@ -31,7 +31,7 @@ public class ManagerModel extends Employee implements I_EmployeeModel{
         }
 
         public void addNewEmployee(String id, String name, char[] pass, String job, String email) {
-            String newRow = id + "," + name + "," + pass.toString() + "," + job + "," + email;
+            String newRow = id + "," + name + "," + String.valueOf(pass).hashCode() + "," + job + "," + email;
             employees.addData(newRow);
         }
 

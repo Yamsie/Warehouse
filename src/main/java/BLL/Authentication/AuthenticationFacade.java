@@ -29,7 +29,7 @@ public class AuthenticationFacade implements I_Authentication {
         }
 
         if(!(details == null)){
-            if((Arrays.equals(details.getPassword(), credentials.getPassword())) && (details.getUserName().equals(credentials.getUserName()))){
+            if(/*(Arrays.equals(details.getPassword(), credentials.getPassword()))*/ Integer.parseInt(String.valueOf(details.getPassword())) == String.valueOf(credentials.getPassword()).hashCode() && (details.getUserName().equals(credentials.getUserName()))){
                 userVerified = true;
             }
             else {
